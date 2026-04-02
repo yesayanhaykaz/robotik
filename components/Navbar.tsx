@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FaBars, FaTimes, FaMicrochip, FaGlobe } from 'react-icons/fa'
+import { FaBars, FaTimes, FaMicrochip, FaGlobe, FaRobot } from 'react-icons/fa'
 import { useLanguage, type Locale } from '@/lib/i18n'
 
 const localeLabels: Record<Locale, string> = { en: 'EN', hy: 'ՀՅ', ru: 'РУ' }
@@ -14,11 +14,12 @@ export default function Navbar() {
   const pathname = usePathname()
   const { locale, setLocale, t } = useLanguage()
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; icon?: boolean }[] = [
     { href: '/#how',      label: t('nav.howItWorks') },
     { href: '/concepts',  label: t('nav.concepts')   },
     { href: '/lessons',   label: t('nav.lessons')    },
     { href: '/kit',       label: t('nav.starterKit') },
+    { href: '/chat',      label: t('chatPage.label'), icon: true },
   ]
 
   return (
@@ -38,12 +39,15 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link href={link.href}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all inline-flex items-center gap-1.5 ${
                   pathname === link.href
                     ? 'text-orange-600 bg-orange-50'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    : link.icon
+                      ? 'text-purple-600 hover:text-purple-700 hover:bg-purple-50'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
+                {link.icon && <FaRobot size={13} />}
                 {link.label}
               </Link>
             </li>
