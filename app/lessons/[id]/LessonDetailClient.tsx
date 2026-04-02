@@ -5,6 +5,7 @@ import {
   FaVideo, FaBook, FaWrench, FaBox, FaToolbox, FaBrain,
   FaChevronLeft, FaChevronRight, FaRobot, FaPlug, FaLightbulb,
   FaLink, FaLaptopCode, FaCheckCircle, FaDotCircle, FaShieldAlt,
+  FaMicrochip,
 } from 'react-icons/fa'
 import { lessons, concepts, lessonBadgeStyles, colorStyles } from '@/lib/data'
 import VideoPlayer from '@/components/VideoPlayer'
@@ -77,6 +78,24 @@ export default function LessonDetailClient({ id }: { id: string }) {
               </h2>
               <VideoPlayer videoId={lesson.videoId} title={tl.title} />
             </div>
+            {lesson.id === 'blink' && (
+              <div>
+                <h2 className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
+                  <FaMicrochip size={13} className="text-gray-300" /> {t('lessonDetail.tryCircuit')}
+                </h2>
+                <p className="text-gray-500 text-sm mb-4 font-body">{t('lessonDetail.tryCircuitDesc')}</p>
+                <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+                  <iframe
+                    src="https://withdiode.com/embed/62716731-5e1e-4622-86af-90d8e6b5123b"
+                    style={{ width: '100%', height: '500px', border: 'none' }}
+                    title="Arduino LED Toggler"
+                    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <h2 className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
                 <FaBook size={13} className="text-gray-300" /> {t('lessonDetail.aboutLesson')}
