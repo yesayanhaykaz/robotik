@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p '/Users/yesayan/Desktop/robotik/app/concepts/[id]')",
+      "Bash(mkdir -p '/Users/yesayan/Desktop/robotik/app/lessons/[id]')",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh auth:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
