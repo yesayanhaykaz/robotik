@@ -78,7 +78,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
               </h2>
               <VideoPlayer videoId={lesson.videoId} title={tl.title} />
             </div>
-            {lesson.id === 'blink' && (
+            {(lesson.id === 'blink' || lesson.id === 'button') && (
               <div>
                 <h2 className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
                   <FaMicrochip size={13} className="text-gray-300" /> {t('lessonDetail.tryCircuit')}
