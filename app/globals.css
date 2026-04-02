@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body), sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading), sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  code, pre, .font-mono {
+    font-family: var(--font-mono), monospace;
+  }
+  :lang(hy) body,
+  :lang(hy) p,
+  :lang(hy) span,
+  :lang(hy) a,
+  :lang(hy) li {
+    font-family: var(--font-armenian), var(--font-body), sans-serif;
+  }
+  :lang(hy) h1,
+  :lang(hy) h2,
+  :lang(hy) h3,
+  :lang(hy) h4,
+  :lang(hy) h5 {
+    font-family: var(--font-armenian), var(--font-heading), sans-serif;
+  }
+  :lang(ru) h1,
+  :lang(ru) h2,
+  :lang(ru) h3,
+  :lang(ru) h4,
+  :lang(ru) h5 {
+    font-family: var(--font-body), sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+  .animate-spin-reverse {
+    animation: spin-reverse 25s linear infinite;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-blink-1 {
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  .animate-blink-2 {
+    animation: blink 1.8s ease-in-out infinite 0.3s;
+  }
+  .animate-blink-3 {
+    animation: blink 2.2s ease-in-out infinite 0.6s;
+  }
+  .animate-blink-4 {
+    animation: blink 1.6s ease-in-out infinite 0.9s;
+  }
+}
+
+@keyframes spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}

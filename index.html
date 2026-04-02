@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robotik — Build Real Things</title>
+  <meta name="description" content="Online robotics and electronics lessons for curious kids ages 5–15. Watch, build, and think like an engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --bg:           #07090F;
+      --surface:      #0D1220;
+      --surface2:     #131B2E;
+      --surface3:     #1B2640;
+      --accent:       #FF5500;
+      --accent-dim:   rgba(255,85,0,0.12);
+      --accent-glow:  0 0 40px rgba(255,85,0,0.25);
+      --cyan:         #00D4FF;
+      --cyan-dim:     rgba(0,212,255,0.1);
+      --green:        #00E676;
+      --text:         #EFF2FF;
+      --text-muted:   #7A8499;
+      --text-dim:     #3D4A60;
+      --border:       rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --radius-sm:    8px;
+      --radius:       14px;
+      --radius-lg:    20px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ─── Scrollbar ─────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 3px; }
+
+    /* ─── Grid ──────────────────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(7,9,15,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+    .logo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 12px var(--accent); opacity:1; }
+      50% { box-shadow: 0 0 4px var(--accent); opacity:0.5; }
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface2); }
+    .btn-nav {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 8px 18px !important;
+      border-radius: var(--radius-sm);
+      font-weight: 600 !important;
+      font-size: 0.875rem;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+      background: var(--accent) !important;
+    }
+    .btn-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(255,85,0,0.4) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── Mobile Nav ────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7,9,15,0.98);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,85,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,85,0,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-orb1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,85,0,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+      animation: float1 8s ease-in-out infinite;
+    }
+    .hero-orb2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+      bottom: 50px; left: -80px;
+      pointer-events: none;
+      animation: float2 10s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,30px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(255,85,0,0.2);
+      border-radius: 40px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+    .hero-label-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, #FF8C00 50%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 440px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,85,0,0.4);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: var(--border-hover);
+      background: var(--surface2);
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .circuit-board {
+      position: relative;
+      width: 360px; height: 360px;
+    }
+    .circuit-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,85,0,0.12);
+      animation: spin-slow 20s linear infinite;
+    }
+    .circuit-ring:nth-child(1) { inset: 0; }
+    .circuit-ring:nth-child(2) { inset: 30px; border-color: rgba(0,212,255,0.1); animation-direction: reverse; animation-duration: 25s; }
+    .circuit-ring:nth-child(3) { inset: 60px; animation-duration: 15s; }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+    .circuit-center {
+      position: absolute;
+      inset: 90px;
+      background: var(--surface2);
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .arduino-icon {
+      font-size: 2.5rem;
+    }
+    .circuit-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .led-node {
+      position: absolute;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .led-node::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+    .led-red { background: #FF3B3B; box-shadow: 0 0 12px #FF3B3B, 0 0 30px rgba(255,59,59,0.4); top:15%; left:50%; animation: blink-led 1.4s ease-in-out infinite; }
+    .led-green { background: #00E676; box-shadow: 0 0 12px #00E676, 0 0 30px rgba(0,230,118,0.4); top:50%; left:88%; animation: blink-led 1.8s ease-in-out infinite 0.3s; }
+    .led-blue { background: var(--cyan); box-shadow: 0 0 12px var(--cyan), 0 0 30px rgba(0,212,255,0.4); top:85%; left:50%; animation: blink-led 2.2s ease-in-out infinite 0.6s; }
+    .led-yellow { background: #FFD600; box-shadow: 0 0 12px #FFD600, 0 0 30px rgba(255,214,0,0.4); top:50%; left:12%; animation: blink-led 1.6s ease-in-out infinite 0.9s; }
+    @keyframes blink-led {
+      0%,100% { opacity:1; }
+      50% { opacity:0.15; }
+    }
+
+    .circuit-line {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(255,85,0,0.3), transparent);
+      height: 1px;
+      width: 60px;
+      animation: trace 3s ease-in-out infinite;
+    }
+    @keyframes trace { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+
+    /* ─── Stats Bar ─────────────────────────────────────────── */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 20px 0;
+    }
+    .stats-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 36px;
+      position: relative;
+    }
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%; transform: translateY(-50%);
+      width: 1px; height: 24px;
+      background: var(--border);
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* ─── Section Commons ───────────────────────────────────── */
+    section { padding: 100px 0; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--accent);
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    /* ─── How It Works ──────────────────────────────────────── */
+    .how { background: var(--surface); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .step {
+      background: var(--surface2);
+      padding: 44px 36px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .step:hover { background: var(--surface3); }
+    .step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+    .step-icon {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .step h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .step p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .step-arrow {
+      position: absolute;
+      right: -18px; top: 50%;
+      transform: translateY(-50%);
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+
+    /* ─── Concepts Bento ────────────────────────────────────── */
+    .concepts { background: var(--bg); }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: var(--radius-lg);
+    }
+    .bento-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+    .bento-card:hover::before { opacity: 1; }
+
+    .bento-card.span-2 { grid-column: span 2; }
+    .bento-card.span-3 { grid-column: span 3; }
+
+    .bento-card .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .bento-card .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .bento-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .bento-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .bento-card .card-analogy {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+    .bento-card .card-duration {
+      position: absolute;
+      top: 20px; right: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      background: var(--surface3);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* card accent colors */
+    .c-orange .card-tag { background: rgba(255,85,0,0.12); color: var(--accent); }
+    .c-orange .card-analogy { border-color: var(--accent); }
+    .c-orange:hover { background: rgba(255,85,0,0.04); }
+
+    .c-cyan .card-tag { background: rgba(0,212,255,0.1); color: var(--cyan); }
+    .c-cyan .card-analogy { border-color: var(--cyan); }
+    .c-cyan:hover { background: rgba(0,212,255,0.03); }
+
+    .c-green .card-tag { background: rgba(0,230,118,0.1); color: var(--green); }
+    .c-green .card-analogy { border-color: var(--green); }
+    .c-green:hover { background: rgba(0,230,118,0.03); }
+
+    .c-purple .card-tag { background: rgba(180,120,255,0.1); color: #B478FF; }
+    .c-purple .card-analogy { border-color: #B478FF; }
+    .c-purple:hover { background: rgba(180,120,255,0.03); }
+
+    .c-yellow .card-tag { background: rgba(255,214,0,0.1); color: #FFD600; }
+    .c-yellow .card-analogy { border-color: #FFD600; }
+    .c-yellow:hover { background: rgba(255,214,0,0.03); }
+
+    /* LED bento card special */
+    .led-preview {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      align-items: center;
+    }
+    .mini-led {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .mini-led.r { background: #FF3B3B; box-shadow: 0 0 8px #FF3B3B; animation: blink-led 1.4s infinite; }
+    .mini-led.g { background: #00E676; box-shadow: 0 0 8px #00E676; animation: blink-led 1.8s infinite 0.4s; }
+    .mini-led.b { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); animation: blink-led 2.1s infinite 0.8s; }
+    .mini-led.y { background: #FFD600; box-shadow: 0 0 8px #FFD600; animation: blink-led 1.6s infinite 1.2s; }
+
+    /* microcontroller special card */
+    .code-preview {
+      margin-top: 20px;
+      background: #060912;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .code-line { display: block; }
+    .kw { color: #B478FF; }
+    .fn { color: var(--cyan); }
+    .num { color: var(--accent); }
+    .cm { color: var(--text-dim); }
+
+    /* ─── Lessons ────────────────────────────────────────────── */
+    .lessons-section { background: var(--surface); }
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .lesson-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: pointer;
+    }
+    .lesson-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,85,0,0.2);
+    }
+    .lesson-header {
+      padding: 28px 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .lesson-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+    .lesson-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(255,85,0,0.2);
+    }
+    .lesson-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      padding: 0 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .lesson-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      padding: 0 28px;
+      margin-bottom: 24px;
+    }
+    .lesson-components {
+      padding: 20px 28px;
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid var(--border);
+    }
+    .components-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .component-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 5px 10px;
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+    }
+    .lesson-footer {
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lesson-meta {
+      display: flex;
+      gap: 16px;
+    }
+    .lesson-meta span {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lesson-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      transition: gap 0.2s;
+    }
+    .lesson-card:hover .lesson-cta { gap: 10px; }
+
+    /* ─── Kit Section ───────────────────────────────────────── */
+    .kit { background: var(--bg); }
+    .kit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .kit-components {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .kit-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .kit-item:hover {
+      border-color: var(--border-hover);
+      background: var(--surface2);
+    }
+    .kit-item-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .kit-item-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .kit-item-qty {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .kit-text .section-label { margin-top: 0; }
+    .kit-cta-block { margin-top: 32px; }
+    .kit-note {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── Mission ───────────────────────────────────────────── */
+    .mission {
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,85,0,0.07) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .mission-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .mission blockquote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      position: relative;
+      padding-left: 28px;
+    }
+    .mission blockquote::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--cyan));
+      border-radius: 2px;
+    }
+    .mission blockquote em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .mission-points {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mission-point {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+    .mission-point:hover { border-color: var(--border-hover); }
+    .mission-point-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .mission-point h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .mission-point p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Parent Value ──────────────────────────────────────── */
+    .parent-value { background: var(--bg); }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.25s;
+    }
+    .value-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+    .value-card .v-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+    .value-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .value-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── CTA Banner ────────────────────────────────────────── */
+    .cta-banner {
+      padding: 80px 0;
+      background: var(--surface);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(255,85,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .cta-banner p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+      position: relative;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-accent { color: var(--accent); }
+
+    /* ─── Scroll Reveal ─────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 0; }
+      .hero-visual { order: -1; }
+      .circuit-board { width: 260px; height: 260px; }
+      .circuit-center { inset: 60px; }
+      .steps { grid-template-columns: 1fr; gap: 2px; }
+      .step-arrow { display: none; }
+      .bento-grid { grid-template-columns: 1fr 1fr; }
+      .bento-card.span-2 { grid-column: span 2; }
+      .bento-card.span-3 { grid-column: span 2; }
+      .lessons-grid { grid-template-columns: 1fr; }
+      .kit-inner { grid-template-columns: 1fr; gap: 48px; }
+      .mission-inner { grid-template-columns: 1fr; gap: 48px; }
+      .value-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 580px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-card.span-2, .bento-card.span-3 { grid-column: span 1; }
+      .kit-components { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .stat-item { padding: 8px 18px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ═══════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-dot"></div>
+        Robotik
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#kit">Starter Kit</a></li>
+        <li><a href="#concepts" class="btn-nav">Start Building →</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="openMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="closeMenu()">✕</span>
+  <a href="#how" onclick="closeMenu()">How it works</a>
+  <a href="#concepts" onclick="closeMenu()">Concepts</a>
+  <a href="#lessons" onclick="closeMenu()">Lessons</a>
+  <a href="#kit" onclick="closeMenu()">Starter Kit</a>
+  <a href="#concepts" onclick="closeMenu()" class="btn-primary" style="margin-top:12px">Start Building →</a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">
+          <div class="hero-label-dot"></div>
+          Children's Robotics Education
+        </div>
+        <h1>
+          Turn curiosity<br />
+          into <span class="gradient-text">circuits.</span>
+        </h1>
+        <p class="hero-sub">
+          Online electronics and robotics lessons for kids ages 5–15.
+          Watch short videos, build real projects, and start thinking like an engineer.
+        </p>
+        <div class="hero-ctas">
+          <a href="#concepts" class="btn-primary">Start Learning →</a>
+          <a href="#lessons" class="btn-ghost">↓ See Lessons</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="circuit-board">
+          <div class="circuit-ring"></div>
+          <div class="circuit-ring"></div>
+          <div class="circuit-ring"></div>
+          <div class="led-node led-red"></div>
+          <div class="led-node led-green"></div>
+          <div class="led-node led-blue"></div>
+          <div class="led-node led-yellow"></div>
+          <div class="circuit-center">
+            <div class="arduino-icon">🤖</div>
+            <div class="circuit-label">Arduino</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAR ══════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num">10</span>
+        <span class="stat-label">Core<br/>Concepts</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Live<br/>Lessons</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5–15</span>
+        <span class="stat-label">Target<br/>Ages</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">To Start<br/>Learning</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HOW IT WORKS ══════════════════════════════════════════ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">The Method</div>
+      <h2 class="section-heading">Three steps to thinking like a builder</h2>
+      <p class="section-sub">Every lesson follows the same rhythm — so kids always know what to expect and can focus on what matters: building.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01 —</div>
+        <span class="step-icon">▶️</span>
+        <h3>Watch</h3>
+        <p>Short, focused videos — 1 to 5 minutes each. One concept, one analogy, one takeaway. No filler. No theory dumps.</p>
+        <div class="step-arrow" style="display:none">→</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02 —</div>
+        <span class="step-icon">🔧</span>
+        <h3>Build</h3>
+        <p>Follow along with your starter kit. Real components, real wiring, real code. The lesson becomes something physical you made.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03 —</div>
+        <span class="step-icon">💡</span>
+        <h3>Understand</h3>
+        <p>When the LED blinks, when the button works, when the motor spins — something clicks. That moment of understanding lasts forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONCEPTS ══════════════════════════════════════════════ -->
+<section class="concepts" id="concepts">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Knowledge Base</div>
+      <h2 class="section-heading">Everything starts with understanding</h2>
+      <p class="section-sub">Before building, you need to know what the pieces are. Each concept is a short 1–2 minute video — one idea, explained simply.</p>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- Electricity — large -->
+      <div class="bento-card c-orange span-2 reveal">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">⚡</span>
+        <span class="card-tag">Concept 01</span>
+        <h3>What is Electricity?</h3>
+        <p>The invisible force that powers everything around you. We'll discover what electrons are, why they move, and what that movement actually means.</p>
+        <div class="card-analogy">Like water flowing through a pipe — electrons flowing through a wire IS electricity.</div>
+      </div>
+
+      <!-- Voltage -->
+      <div class="bento-card c-cyan reveal reveal-delay-1">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">🔋</span>
+        <span class="card-tag">Concept 02</span>
+        <h3>What is Voltage?</h3>
+        <p>The pressure that pushes electricity through a wire. Measured in Volts — from a 1.5V battery to a 220V wall socket.</p>
+        <div class="card-analogy">Water pressure in a pipe — higher pressure means stronger push.</div>
+      </div>
+
+      <!-- Current -->
+      <div class="bento-card c-cyan reveal reveal-delay-1">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">〰️</span>
+        <span class="card-tag">Concept 03</span>
+        <h3>What is Current?</h3>
+        <p>How much electricity actually flows through a wire each second. Measured in Amperes — the quantity, not the force.</p>
+        <div class="card-analogy">How much water flows through the pipe, not just the pressure.</div>
+      </div>
+
+      <!-- Resistance -->
+      <div class="bento-card c-purple reveal reveal-delay-2">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">〽️</span>
+        <span class="card-tag">Concept 04</span>
+        <h3>What is Resistance?</h3>
+        <p>The thing that slows electricity down. Measured in Ohms. V = I × R — Ohm's Law ties all three together.</p>
+        <div class="card-analogy">A narrow section in a pipe that slows the water flow.</div>
+      </div>
+
+      <!-- Resistor -->
+      <div class="bento-card c-purple reveal reveal-delay-2">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">🔌</span>
+        <span class="card-tag">Concept 05</span>
+        <h3>What is a Resistor?</h3>
+        <p>A component whose entire job is adding a specific amount of resistance. Those colored stripes? They're a code that tells you exactly how many Ohms.</p>
+        <div class="card-analogy">A speed bump for electricity. Protects LEDs from burning out.</div>
+      </div>
+
+      <!-- Diode -->
+      <div class="bento-card c-green reveal reveal-delay-3">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">▶</span>
+        <span class="card-tag">Concept 06</span>
+        <h3>What is a Diode?</h3>
+        <p>A component that only allows electricity to flow in one direction. The right way — current flows. Backwards — nothing happens.</p>
+        <div class="card-analogy">A one-way door. You can walk through going forward, but not back.</div>
+      </div>
+
+      <!-- LED — featured with animated preview -->
+      <div class="bento-card c-yellow span-2 reveal">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">💡</span>
+        <span class="card-tag">Concept 07</span>
+        <h3>What is an LED?</h3>
+        <p>Light Emitting Diode — a special diode that produces light when current flows through it. In your Robotik kit you have four colors. They're the first thing you'll bring to life.</p>
+        <div class="led-preview">
+          <div class="mini-led r"></div>
+          <div class="mini-led g"></div>
+          <div class="mini-led b"></div>
+          <div class="mini-led y"></div>
+          <span style="font-size:0.78rem;color:var(--text-dim);margin-left:6px;">These are blinking right now — powered by pure CSS, no electricity needed 😉</span>
+        </div>
+      </div>
+
+      <!-- Capacitor -->
+      <div class="bento-card c-cyan reveal reveal-delay-1">
+        <div class="card-duration">~1.5 min</div>
+        <span class="card-icon">🫙</span>
+        <span class="card-tag">Concept 08</span>
+        <h3>What is a Capacitor?</h3>
+        <p>Stores electrical energy and releases it in a burst. Unlike a battery, it charges and discharges in milliseconds.</p>
+        <div class="card-analogy">A tiny rechargeable bucket — fill it, then empty it fast.</div>
+      </div>
+
+      <!-- Transistor — large -->
+      <div class="bento-card c-orange span-2 reveal reveal-delay-2">
+        <div class="card-duration">~2 min</div>
+        <span class="card-icon">🔬</span>
+        <span class="card-tag">Concept 09</span>
+        <h3>What is a Transistor?</h3>
+        <p>The most important invention of the 20th century. It's a switch and an amplifier in one tiny package — and your phone has billions of them. A small signal controls a much larger one.</p>
+        <div class="card-analogy">A tap you control electrically, not by hand. Small current in → large current controlled.</div>
+      </div>
+
+      <!-- Microcontroller — full width -->
+      <div class="bento-card c-orange span-3 reveal">
+        <div class="card-duration">~2 min</div>
+        <span class="card-icon">🤖</span>
+        <span class="card-tag">Concept 10</span>
+        <h3>What is a Microcontroller?</h3>
+        <p>A tiny computer on a chip. It has a processor, memory, and — most importantly — <strong style="color:var(--text)">pins</strong> that connect to the physical world. Read inputs. Control outputs. That's engineering thinking. That's what every lesson here is built on.</p>
+        <div class="code-preview">
+          <span class="code-line"><span class="kw">void</span> <span class="fn">loop</span>() &#123;</span>
+          <span class="code-line">  <span class="fn">digitalWrite</span>(<span class="num">13</span>, <span class="kw">HIGH</span>);  <span class="cm">// LED on</span></span>
+          <span class="code-line">  <span class="fn">delay</span>(<span class="num">500</span>);              <span class="cm">// wait 0.5s</span></span>
+          <span class="code-line">  <span class="fn">digitalWrite</span>(<span class="num">13</span>, <span class="kw">LOW</span>);   <span class="cm">// LED off</span></span>
+          <span class="code-line">  <span class="fn">delay</span>(<span class="num">500</span>);              <span class="cm">// wait 0.5s</span></span>
+          <span class="code-line">&#125;  <span class="cm">// repeat forever</span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ LESSONS ════════════════════════════════════════════════ -->
+<section class="lessons-section" id="lessons">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Project Lessons</div>
+      <h2 class="section-heading">Build something real — today</h2>
+      <p class="section-sub">Each lesson ends with a working result. Not a simulation. Not a diagram. A real circuit you built with your own hands.</p>
+    </div>
+
+    <div class="lessons-grid">
+
+      <!-- Lesson 1 -->
+      <div class="lesson-card reveal">
+        <div class="lesson-header">
+          <span class="lesson-num">LESSON 01 —</span>
+          <span class="lesson-badge">Absolute Beginner</span>
+        </div>
+        <h3>Your First Blink: Make an LED Come Alive</h3>
+        <p class="lesson-desc">
+          Start from zero. Learn the breadboard, wire your first circuit, write your first five lines of code, and watch an LED blink at the rhythm <em>you</em> choose. This is your "Hello, World" of electronics.
+        </p>
+        <div class="lesson-components">
+          <div class="components-label">What you need</div>
+          <div class="component-chips">
+            <span class="chip">Arduino Uno</span>
+            <span class="chip">USB Cable</span>
+            <span class="chip">1× LED</span>
+            <span class="chip">220Ω Resistor</span>
+            <span class="chip">Breadboard</span>
+            <span class="chip">2× Jumper Wires</span>
+          </div>
+        </div>
+        <div class="lesson-footer">
+          <div class="lesson-meta">
+            <span>⏱ ~4 min</span>
+            <span>📦 6 components</span>
+          </div>
+          <a href="#" class="lesson-cta">Watch lesson →</a>
+        </div>
+      </div>
+
+      <!-- Lesson 2 -->
+      <div class="lesson-card reveal reveal-delay-1">
+        <div class="lesson-header">
+          <span class="lesson-num">LESSON 02 —</span>
+          <span class="lesson-badge">Beginner</span>
+        </div>
+        <h3>Add a Button: You Control the Light</h3>
+        <p class="lesson-desc">
+          Add your first INPUT. A pushbutton tells the Arduino when to act. Press and hold — LED on. Release — LED off. Then flip the logic and make it work in reverse. Your first if/else, your first real decision in code.
+        </p>
+        <div class="lesson-components">
+          <div class="components-label">What you need</div>
+          <div class="component-chips">
+            <span class="chip">Arduino Uno</span>
+            <span class="chip">USB Cable</span>
+            <span class="chip">1× LED</span>
+            <span class="chip">220Ω Resistor</span>
+            <span class="chip">Pushbutton</span>
+            <span class="chip">10kΩ Resistor</span>
+            <span class="chip">Breadboard</span>
+            <span class="chip">4× Jumper Wires</span>
+          </div>
+        </div>
+        <div class="lesson-footer">
+          <div class="lesson-meta">
+            <span>⏱ ~4 min</span>
+            <span>📦 8 components</span>
+          </div>
+          <a href="#" class="lesson-cta">Watch lesson →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coming soon -->
+    <div class="reveal" style="margin-top:20px;background:var(--surface2);border:1px dashed var(--border);border-radius:var(--radius-lg);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-dim);margin-bottom:6px;letter-spacing:0.06em;">COMING SOON</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:6px;">Lessons 03–10 in development</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);">Buzzer, sensors, traffic light, temperature monitor, servo motor, mini robot… New lessons added regularly.</div>
+      </div>
+      <a href="mailto:hello@salooote.am" class="btn-ghost" style="white-space:nowrap;flex-shrink:0;">Get notified →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KIT ════════════════════════════════════════════════════ -->
+<section class="kit" id="kit">
+  <div class="container">
+    <div class="kit-inner">
+      <div class="kit-components reveal">
+        <div class="kit-item">
+          <span class="kit-item-icon">🤖</span>
+          <div>
+            <div class="kit-item-name">Arduino Uno</div>
+            <div class="kit-item-qty">1× board</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">🧩</span>
+          <div>
+            <div class="kit-item-name">Breadboard</div>
+            <div class="kit-item-qty">1× 830-point</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">💡</span>
+          <div>
+            <div class="kit-item-name">LEDs</div>
+            <div class="kit-item-qty">4× (R, G, B, Y)</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">〽️</span>
+          <div>
+            <div class="kit-item-name">Resistors</div>
+            <div class="kit-item-qty">220Ω + 10kΩ pack</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">🔘</span>
+          <div>
+            <div class="kit-item-name">Pushbuttons</div>
+            <div class="kit-item-qty">3× tactile buttons</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">🔊</span>
+          <div>
+            <div class="kit-item-name">Buzzer</div>
+            <div class="kit-item-qty">1× passive buzzer</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">🌡️</span>
+          <div>
+            <div class="kit-item-name">Sensors</div>
+            <div class="kit-item-qty">Temperature + Light</div>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon">🔗</span>
+          <div>
+            <div class="kit-item-name">Jumper Wires</div>
+            <div class="kit-item-qty">40× M-M wires</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-text reveal reveal-delay-2">
+        <div class="section-label">Starter Kit</div>
+        <h2 class="section-heading">Everything to start building today</h2>
+        <p class="section-sub" style="margin-bottom:24px;">
+          The kit is designed around the lessons. Every component you see in a video is in the box. No shopping around, no guessing, no missing pieces.
+        </p>
+        <p class="section-sub">
+          One kit covers all the beginner lessons. When you're ready for more advanced projects, an intermediate kit adds motors, displays, and wireless modules.
+        </p>
+        <div class="kit-cta-block">
+          <a href="mailto:hello@salooote.am" class="btn-primary">Order Starter Kit →</a>
+          <div class="kit-note">📦 Ships within Armenia · Designed for ages 8+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION ════════════════════════════════════════════════ -->
+<section class="mission" id="mission">
+  <div class="container">
+    <div class="mission-inner">
+      <div class="reveal">
+        <div class="section-label">Why Robotik</div>
+        <blockquote>
+          "We don't teach children to use technology.<br/>
+          We teach them to <em>create</em> it."
+        </blockquote>
+        <p style="margin-top:24px;font-size:0.92rem;color:var(--text-muted);line-height:1.8;">
+          Kids spend hours every day consuming apps, games, and videos — but almost none of them understand how any of it works. Robotik flips that. A child who can wire an LED, write a loop, and debug a circuit is a child who will never be afraid of technology. That engineering mindset — cause and effect, experimentation, problem-solving — is the most valuable skill they can develop right now.
+        </p>
+      </div>
+      <div class="mission-points reveal reveal-delay-2">
+        <div class="mission-point">
+          <span class="mission-point-icon">🧠</span>
+          <div>
+            <h4>Engineering mindset, not just coding</h4>
+            <p>We teach children how systems work — inputs, outputs, logic, and cause-and-effect. Skills that transfer to everything.</p>
+          </div>
+        </div>
+        <div class="mission-point">
+          <span class="mission-point-icon">🚀</span>
+          <div>
+            <h4>Confidence through real results</h4>
+            <p>Every lesson ends with something that works. The LED blinks. The button responds. That visible win changes how a child sees themselves.</p>
+          </div>
+        </div>
+        <div class="mission-point">
+          <span class="mission-point-icon">🌍</span>
+          <div>
+            <h4>Built for the future</h4>
+            <p>As AI changes the value of many professions, children who understand systems and technology will always have an edge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARENT VALUE ═══════════════════════════════════════════ -->
+<section class="parent-value">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;max-width:560px;margin:0 auto 56px;">
+      <div class="section-label" style="justify-content:center;">For Parents</div>
+      <h2 class="section-heading">What you're actually buying</h2>
+      <p class="section-sub" style="margin:0 auto;">Not "Arduino lessons." Something much more valuable than that.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal">
+        <span class="v-icon">⏱️</span>
+        <h3>Useful screen time</h3>
+        <p>Instead of passive scrolling, your child builds something real. Every minute on Robotik produces a tangible result.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="v-icon">🎯</span>
+        <h3>Future-ready skills</h3>
+        <p>Robotics, logic, programming, and engineering thinking — the skills that will matter most in the next decade.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="v-icon">✨</span>
+        <h3>Practical creativity</h3>
+        <p>Not just watching — building. Your child designs, experiments, makes mistakes, fixes them. Real creative problem-solving.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="v-icon">💪</span>
+        <h3>Confidence with technology</h3>
+        <p>A child who builds circuits won't be afraid of any technology, ever. That confidence compounds for years.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="v-icon">🎮</span>
+        <h3>Not gaming — making</h3>
+        <p>Games are passive. Building is active. Robotik gives kids the same excitement as a game, but with something real at the end.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <span class="v-icon">🏗️</span>
+        <h3>Real STEM education</h3>
+        <p>Not worksheets and theory. Hands-on, project-based learning that actually sticks — and that your child will talk about at dinner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BANNER ═════════════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <h2 class="reveal">Ready to start building?</h2>
+    <p class="reveal reveal-delay-1">
+      Start with the free lessons today. Order the starter kit when you're ready to go hands-on.
+    </p>
+    <div class="cta-btns reveal reveal-delay-2">
+      <a href="#concepts" class="btn-primary">Explore All Concepts →</a>
+      <a href="#lessons" class="btn-ghost">View Lessons</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0">
+          <div class="logo-dot"></div>
+          Robotik
+        </div>
+        <p>Children's robotics and electronics education. Part of the <a href="https://salooote.am" style="color:var(--accent)">Salooote</a> family — a children's company in Armenia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#concepts">All Concepts</a></li>
+          <li><a href="#lessons">Project Lessons</a></li>
+          <li><a href="#how">How it Works</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#kit">Starter Kit</a></li>
+          <li><a href="mailto:hello@salooote.am">Order a Kit</a></li>
+          <li><a href="#">Intermediate Kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://salooote.am">Salooote.am</a></li>
+          <li><a href="mailto:hello@salooote.am">hello@salooote.am</a></li>
+          <li><a href="#">YouTube Channel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Robotik · Part of <span class="footer-accent">Salooote.am</span> · Made in Armenia 🇦🇲</p>
+      <p>Teaching kids to build, not just use.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ════════════════════════════════════════════════ -->
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // Scroll reveal with Intersection Observer
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth active nav links
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      const bottom = top + section.offsetHeight;
+      const id = section.getAttribute('id');
+      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (link) {
+        if (scrollY >= top && scrollY < bottom) {
+          link.style.color = 'var(--text)';
+        } else {
+          link.style.color = '';
+        }
+      }
+    });
+  });
+
+  // Close mobile menu on outside click
+  document.getElementById('mobileMenu').addEventListener('click', function(e) {
+    if (e.target === this) closeMenu();
+  });
+</script>
+</body>
+</html>
