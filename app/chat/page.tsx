@@ -57,7 +57,8 @@ export default function ChatPage() {
   return (
     <div className="h-[calc(100dvh-64px)] flex flex-col overflow-hidden bg-white">
       {/* Compact header */}
-      <div className="shrink-0 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100 px-4 py-3 flex items-center gap-3">
+      <div className="shrink-0 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100 px-4 py-3">
+      <div className="max-w-3xl mx-auto flex items-center gap-3">
         <div className="relative shrink-0">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center border border-purple-200 shadow-sm">
             <FaMicrochip size={16} className="text-purple-500" />
@@ -76,9 +77,11 @@ export default function ChatPage() {
           <p className="text-xs text-gray-400 font-body truncate">{t('chatPage.subtitle')}</p>
         </div>
       </div>
+      </div>
 
       {/* Messages — only this scrolls */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+      <div className="flex-1 overflow-y-auto">
+      <div className="max-w-3xl mx-auto px-4 py-4 space-y-4">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full py-6">
             <div className="relative mb-5">
@@ -163,6 +166,7 @@ export default function ChatPage() {
         )}
 
         <div ref={messagesEndRef} />
+      </div>
       </div>
 
       {/* Input — pinned to bottom, never moves */}
