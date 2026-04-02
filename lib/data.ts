@@ -122,6 +122,7 @@ export const concepts: Concept[] = [
       "The invisible force that powers everything around you. We'll discover what electrons are, why they move, and what that movement actually means.",
     analogy:
       'Like water flowing through a pipe — electrons flowing through a wire IS electricity.',
+    videoId: '1OxI9o0l3WU',
   },
   {
     id: 'voltage',
