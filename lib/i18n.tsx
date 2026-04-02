@@ -40,7 +40,7 @@ const translations = {
       conceptsLabel: 'Knowledge Base',
       conceptsTitle: 'Everything starts with understanding',
       conceptsSubtitle: 'Each concept is a short 1–2 minute video — one idea, explained simply.',
-      viewAll10: 'View All 10',
+      viewAll10: 'View All 22',
       watchConcept: 'Watch concept →',
       lessonsLabel: 'Project Lessons',
       lessonsTitle: 'Build something real — today',
@@ -215,7 +215,82 @@ const translations = {
       comingSoonReply: "Our AI assistant is being trained right now! Soon I\u2019ll be able to help you with all your electronics questions. In the meantime, check out our Concepts and Lessons \u2014 they cover everything step by step!",
     },
 
+
+
+
     concepts: {
+      electron: {
+  title: 'What is an Electron?',
+  description: 'The fundamental particle that carries electric charge. Everything in electricity comes down to electrons moving through materials.',
+  analogy: 'Like tiny charged particles flowing through a wire — they are the actual “things” that move.',
+},
+
+conductor: {
+  title: 'What is a Conductor?',
+  description: 'A material that allows electrons to move freely. Metals like copper are excellent conductors, which is why wires are made from them.',
+  analogy: 'Like a smooth, open highway where cars can move easily.',
+},
+
+insulator: {
+  title: 'What is an Insulator?',
+  description: 'A material that resists the flow of electrons. It prevents electricity from going where it shouldn’t.',
+  analogy: 'Like a wall blocking the road — nothing can pass through.',
+},
+
+isolation: {
+  title: 'What is Electrical Isolation?',
+  description: 'The practice of separating parts of a circuit so that electricity cannot flow between them unintentionally. It’s critical for safety and signal integrity.',
+  analogy: 'Like separating two rooms so sound or movement doesn’t leak between them.',
+},
+
+power: {
+  title: 'What is Power?',
+  description: 'The rate at which electrical energy is used or transferred. Measured in Watts. Power = Voltage × Current.',
+  analogy: 'Not just how hard you push (voltage) or how much flows (current), but how much total work is being done.',
+},
+
+ground: {
+  title: 'What is Ground?',
+  description: 'A reference point in a circuit where voltage is defined as zero. It completes the circuit and provides a return path for current.',
+  analogy: 'Like the baseline or “home” that everything returns to.',
+},
+
+battery: {
+  title: 'What is a Battery?',
+  description: 'A device that stores chemical energy and converts it into electrical energy, providing voltage to power circuits.',
+  analogy: 'Like a water tank that stores water and releases it when you need it. Here, instead of water, it\'s energy.',
+},
+
+
+switch: {
+  title: 'What is a Switch?',
+  description: 'A device that opens or closes a circuit. When closed, current flows. When open, it stops completely.',
+  analogy: 'Like turning a valve on or off in a pipe.',
+},
+
+circuit: {
+  title: 'What is a Circuit?',
+  description: 'A complete path that allows electricity to flow. Without a closed loop, nothing works.',
+  analogy: 'Like a looped road — if it’s broken anywhere, traffic stops.',
+},
+
+transconductance: {
+  title: 'What is Transconductance?',
+  description: 'A measure of how effectively a device (like a transistor) converts a change in voltage into a change in current. It’s key to amplification.',
+  analogy: 'A small change in control causes a large change in output — like slightly turning a knob and getting a big effect.',
+},
+
+frequency: {
+  title: 'What is Frequency?',
+  description: 'How often a signal repeats per second. Measured in Hertz (Hz). Important for signals, clocks, and communication.',
+  analogy: 'Like how fast something vibrates or repeats — slow pulses vs very fast ones.',
+},
+
+signal: {
+  title: 'What is a Signal?',
+  description: 'A changing electrical value (voltage or current) that carries information. Everything from buttons to Wi-Fi is based on signals.',
+  analogy: 'Like a message being sent — the shape of the signal is the meaning.',
+},
       electricity: {
         title: 'What is Electricity?',
         description: "The invisible force that powers everything around you. We'll discover what electrons are, why they move, and what that movement actually means.",
@@ -267,6 +342,9 @@ const translations = {
         analogy: 'A tiny brain that can sense the world and control things in it.',
       },
     },
+
+
+
     lessons: {
       blink: {
         title: 'Your First Blink: Make an LED Come Alive',
@@ -334,7 +412,7 @@ const translations = {
       conceptsLabel: 'Գիտելիքների բազա',
       conceptsTitle: 'Ամեն ինչ սկսվում է հասկանալուց',
       conceptsSubtitle: 'Յուրաքանչյուր հասկացություն ներկայացված է 1–2 րոպեանոց տեսանյութով՝ մեկ գաղափար, պարզ բացատրությամբ։',
-      viewAll10: 'Տեսնել բոլոր 10-ը',
+      viewAll10: 'Տեսնել բոլոր 22-ը',
       watchConcept: 'Դիտել հասկացությունը →',
       lessonsLabel: 'Նախագծային դասեր',
       lessonsTitle: 'Կառուցիր մի իրական բան՝ այսօր',
@@ -517,6 +595,78 @@ chatPage: {
 
 
 concepts: {
+  electron: {
+  title: 'Ի՞նչ է էլեկտրոնը',
+  description: 'Էլեկտրոնը շատ փոքր մասնիկ է, որը մենք չենք կարող տեսնել, բայց հենց դա է շարժվում լարերի մեջ և ստեղծում է էլեկտրականություն։',
+  analogy: 'Պատկերացրու շատ փոքրիկ գնդակներ, որոնք անընդհատ վազում են լարի միջով։ Մենք նրանց չենք տեսնում, բայց նրանք անում են ամբողջ աշխատանքը։',
+},
+
+conductor: {
+  title: 'Ի՞նչ է հաղորդիչը',
+  description: 'Հաղորդիչը նյութ է, որի միջով էլեկտրոնները հեշտ են շարժվում։ Օրինակ՝ մետաղները շատ լավ հաղորդիչներ են։',
+  analogy: 'Դա նման է լայն ու հարթ ճանապարհի, որտեղ երեխաները կարող են հեշտ ու արագ վազել առանց խանգարելու իրար։',
+},
+
+insulator: {
+  title: 'Ի՞նչ է մեկուսիչը',
+  description: 'Մեկուսիչը նյութ է, որի միջով էլեկտրոնները գրեթե չեն կարող անցնել։ Օրինակ՝ պլաստիկը կամ ռետինը։',
+  analogy: 'Պատկերացրու փակ պատ, որի միջով ոչ ոք չի կարող անցնել։ Երեխաները կանգնում են ու չեն կարող շարժվել։',
+},
+
+isolation: {
+  title: 'Ի՞նչ է մեկուսացումը (Isolation)',
+  description: 'Մեկուսացումը նշանակում է տարբեր մասերը իրարից բաժանել, որպեսզի հոսանքը սխալ տեղ չանցնի և չվնասի համակարգը։',
+  analogy: 'Դա նման է նրան, երբ խաղասենյակում երեխաներին բաժանում են խմբերի, որպեսզի իրար չխանգարեն և ամեն ինչ կարգով ընթանա։',
+},
+
+power: {
+  title: 'Ի՞նչ է հզորությունը',
+  description: 'Հզորությունը ցույց է տալիս, թե որքան ուժեղ է աշխատում էլեկտրական համակարգը։ Դա կախված է և՛ հոսանքից, և՛ լարումից։',
+  analogy: 'Եթե շատ երեխաներ արագ վազում են՝ դա ավելի «ուժեղ խաղ» է։ Դա հենց մեծ հզորությունն է։',
+},
+
+battery: {
+  title: 'Ի՞նչ է մարտկոցը',
+  description: 'Մարտկոցը սարք է, որը տալիս է լարում և պահում է էներգիա, որպեսզի սարքերը աշխատեն։',
+  analogy: 'Դա նման է ջրի բաքին, որը պահում է ջուրը և տալիս է, երբ պետք է։ Այստեղ ջրի փոխարեն էներգիան է։',
+},
+
+switch: {
+  title: 'Ի՞նչ է անջատիչը (Switch)',
+  description: 'Անջատիչը բացում կամ փակում է էլեկտրական շղթան։ Եթե փակ է՝ հոսանքը անցնում է, եթե բաց է՝ ոչ։',
+  analogy: 'Դա նման է դռան․ եթե դուռը բաց է՝ երեխաները անցնում են, եթե փակ է՝ կանգնում են։',
+},
+
+circuit: {
+  title: 'Ի՞նչ է էլեկտրական շղթան',
+  description: 'Էլեկտրական շղթան փակ ուղի է, որով էլեկտրոնները շարժվում են։ Եթե շղթան կտրված է՝ ոչինչ չի աշխատում։',
+  analogy: 'Պատկերացրու շրջանաձև ճանապարհ․ եթե ճանապարհը ամբողջական է՝ երեխաները կարող են շարունակ վազել։ Եթե մի տեղ կոտրված է՝ խաղը կանգնում է։',
+},
+
+transconductance: {
+  title: 'Ի՞նչ է տրանսկոնդուկտանսը',
+  description: 'Տրանսկոնդուկտանսը ցույց է տալիս, թե ինչպես փոքր լարման փոփոխությունը կարող է փոխել հոսանքը։ Սա կարևոր է տրանզիստորների մեջ։',
+  analogy: 'Փոքրիկ հրաման ես տալիս («քիչ արագ վազեք»), բայց ամբողջ խումբը փոխում է իր արագությունը։ Փոքր ազդանշան → մեծ փոփոխություն։',
+},
+
+frequency: {
+  title: 'Ի՞նչ է հաճախանությունը',
+  description: 'Քանի անգամ ազդանշանը կրկնվում է մեկ վայրկյանում։ Չափվում է Հերցով (Hz)։ Կարևոր է ազդանշանների, ժամացույցի և կապի համար։',
+  analogy: 'Պատկերացրու, թե ինչպես արագ է կրկնվում թարթը — դանդաղ իմպուլսներ թե շատ արագներ։',
+},
+
+signal: {
+  title: 'Ի՞նչ է ազդանշանը',
+  description: 'Փոփոխվող էլեկտրական արժեք (լարում կամ հոսանք), որը կրում է տեղեկատվություն։ Կոճակներից մինչև Wi-Fi — ամեն ինչ հիմնված է ազդանշանների վրա։',
+  analogy: 'Նամակ ուղարկվող հաղորդագրության — ազդանշանի ձևը հենց դա է իմաստը։',
+},
+
+
+ground: {
+  title: 'Ի՞նչ է գետինը (Ground)',
+  description: 'Գետինը այն կետն է, որտեղ էլեկտրականությունը «վերադառնում է»։ Այն օգնում է համակարգին ճիշտ աշխատել։',
+  analogy: 'Դա նման է տուն վերադառնալուն խաղից հետո․ բոլորը վերջում գալիս են նույն տեղը։',
+},
   electricity: {
     title: 'Ի՞նչ է էլեկտրականությունը',
     description: 'Էլեկտրականությունը էլեկտրոնների շարժումն է լարի միջով։ Այսինքն՝ շատ փոքր մասնիկներ «վազում են» լարի մեջ, և դրա արդյունքում սարքերը սկսում են աշխատել։',
@@ -645,7 +795,7 @@ concepts: {
       conceptsLabel: 'База Знаний',
       conceptsTitle: 'Всё начинается с понимания',
       conceptsSubtitle: 'Каждая концепция — короткое видео 1–2 минуты: одна идея, объяснённая просто.',
-      viewAll10: 'Смотреть Все 10',
+      viewAll10: 'Смотреть Все 22',
       watchConcept: 'Смотреть концепцию →',
       lessonsLabel: 'Проектные Уроки',
       lessonsTitle: 'Построй что-то настоящее — сегодня',
@@ -821,7 +971,78 @@ concepts: {
     },
 
 
-    concepts: {
+    concepts: {electron: {
+  title: 'Что такое электрон?',
+  description: 'Фундаментальная частица, которая переносит электрический заряд. Всё в электричестве сводится к движению электронов внутри материалов.',
+  analogy: 'Как крошечные заряженные частицы, которые движутся по проводу — именно они и создают ток.',
+},
+
+conductor: {
+  title: 'Что такое проводник?',
+  description: 'Материал, который позволяет электронам свободно двигаться. Металлы, такие как медь, являются отличными проводниками, поэтому из них делают провода.',
+  analogy: 'Как широкая и гладкая дорога, по которой машины могут двигаться без препятствий.',
+},
+
+insulator: {
+  title: 'Что такое изолятор?',
+  description: 'Материал, который препятствует движению электронов. Он не даёт электричеству проходить туда, куда не нужно.',
+  analogy: 'Как стена, которая полностью перекрывает путь.',
+},
+
+isolation: {
+  title: 'Что такое электрическая изоляция?',
+  description: 'Разделение частей цепи так, чтобы электричество не могло проходить между ними случайно. Это важно для безопасности и стабильной работы.',
+  analogy: 'Как разделение комнат, чтобы звук или движение не переходили между ними.',
+},
+
+power: {
+  title: 'Что такое мощность?',
+  description: 'Скорость, с которой используется или передаётся электрическая энергия. Измеряется в ваттах. Мощность = Напряжение × Ток.',
+  analogy: 'Не только насколько сильно толкаешь (напряжение) или сколько течёт (ток), а сколько работы в итоге выполняется.',
+},
+
+ground: {
+  title: 'Что такое земля (Ground)?',
+  description: 'Точка отсчёта в цепи, где напряжение считается равным нулю. Она замыкает цепь и даёт току путь для возврата.',
+  analogy: 'Как базовая точка или “дом”, куда всё возвращается.',
+},
+
+battery: {
+  title: 'Что такое батарея?',
+  description: 'Устройство, которое хранит химическую энергию и преобразует её в электрическую, обеспечивая напряжение для питания схем.',
+  analogy: 'Как бак с водой — хранит воду и выпускает по необходимости. Здесь вместо воды — энергия.',
+},
+
+
+switch: {
+  title: 'Что такое переключатель?',
+  description: 'Устройство, которое замыкает или размыкает цепь. Когда замкнуто — ток течёт, когда разомкнуто — нет.',
+  analogy: 'Как кран в трубе — открываешь, и поток идёт; закрываешь — поток останавливается.',
+},
+
+circuit: {
+  title: 'Что такое электрическая цепь?',
+  description: 'Замкнутый путь, по которому может течь электричество. Без замкнутой цепи ничего не работает.',
+  analogy: 'Как кольцевая дорога — если где-то разрыв, движение останавливается.',
+},
+
+transconductance: {
+  title: 'Что такое транскондуктивность?',
+  description: 'Параметр, показывающий, насколько эффективно устройство (например, транзистор) преобразует изменение напряжения в изменение тока. Важен для усиления сигналов.',
+  analogy: 'Небольшое изменение управления приводит к большому изменению результата.',
+},
+
+frequency: {
+  title: 'Что такое частота?',
+  description: 'Сколько раз сигнал повторяется за секунду. Измеряется в герцах (Гц). Важно для сигналов, тактов и связи.',
+  analogy: 'Как скорость повторения — медленные импульсы или очень быстрые.',
+},
+
+signal: {
+  title: 'Что такое сигнал?',
+  description: 'Изменяющееся электрическое значение (напряжение или ток), которое несёт информацию. Кнопки, датчики и Wi-Fi — всё работает через сигналы.',
+  analogy: 'Как сообщение — форма сигнала определяет его смысл.',
+},
       electricity: {
         title: 'Что такое Электричество?',
         description: 'Невидимая сила, которая питает всё вокруг. Узнаем, что такое электроны, почему они движутся и что означает это движение.',

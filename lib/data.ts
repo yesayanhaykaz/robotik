@@ -2,6 +2,8 @@ import type { IconType } from 'react-icons'
 import {
   FaBolt, FaBatteryFull, FaTint, FaShieldAlt, FaPlug, FaCaretRight,
   FaLightbulb, FaDatabase, FaAtom, FaRobot,
+  FaCircle, FaLink, FaBan, FaLock, FaFire, FaBatteryHalf,
+  FaToggleOn, FaSyncAlt, FaSlidersH, FaWaveSquare, FaBroadcastTower,
 } from 'react-icons/fa'
 
 export type ConceptColor = 'orange' | 'cyan' | 'purple' | 'green' | 'yellow'
@@ -221,6 +223,150 @@ export const concepts: Concept[] = [
       "A tiny computer on a chip. It has a processor, memory, and — most importantly — pins that connect to the physical world. Read inputs. Control outputs. That's engineering thinking.",
     analogy:
       'A tiny brain that can sense the world and control things in it.',
+  },
+  {
+    id: 'electron',
+    num: '11',
+    Icon: FaCircle,
+    title: 'What is an Electron?',
+    color: 'cyan',
+    duration: '~1.5 min',
+    description:
+      'The fundamental particle that carries electric charge. Everything in electricity comes down to electrons moving through materials.',
+    analogy:
+      'Like tiny charged particles flowing through a wire — they are the actual "things" that move.',
+  },
+  {
+    id: 'conductor',
+    num: '12',
+    Icon: FaLink,
+    title: 'What is a Conductor?',
+    color: 'green',
+    duration: '~1.5 min',
+    description:
+      'A material that allows electrons to move freely. Metals like copper are excellent conductors, which is why wires are made from them.',
+    analogy:
+      'Like a smooth, open highway where cars can move easily.',
+  },
+  {
+    id: 'insulator',
+    num: '13',
+    Icon: FaBan,
+    title: 'What is an Insulator?',
+    color: 'purple',
+    duration: '~1.5 min',
+    description:
+      'A material that resists the flow of electrons. It prevents electricity from going where it shouldn\'t.',
+    analogy:
+      'Like a wall blocking the road — nothing can pass through.',
+  },
+  {
+    id: 'isolation',
+    num: '14',
+    Icon: FaLock,
+    title: 'What is Electrical Isolation?',
+    color: 'purple',
+    duration: '~1.5 min',
+    description:
+      'The practice of separating parts of a circuit so that electricity cannot flow between them unintentionally. Critical for safety and signal integrity.',
+    analogy:
+      'Like separating two rooms so sound or movement doesn\'t leak between them.',
+  },
+  {
+    id: 'power',
+    num: '15',
+    Icon: FaFire,
+    title: 'What is Power?',
+    color: 'orange',
+    duration: '~1.5 min',
+    description:
+      'The rate at which electrical energy is used or transferred. Measured in Watts. Power = Voltage × Current.',
+    analogy:
+      'Not just how hard you push (voltage) or how much flows (current), but how much total work is being done.',
+  },
+  {
+    id: 'battery',
+    num: '16',
+    Icon: FaBatteryHalf,
+    title: 'What is a Battery?',
+    color: 'green',
+    duration: '~1.5 min',
+    description:
+      'A device that stores chemical energy and converts it into electrical energy, providing voltage to power circuits.',
+    analogy:
+      'Like a water tank that stores water and releases it when you need it. Here, instead of water, it\'s energy.',
+  },
+  {
+    id: 'ground',
+    num: '17',
+    Icon: FaCaretRight,
+    title: 'What is Ground?',
+    color: 'yellow',
+    duration: '~1.5 min',
+    description:
+      'A reference point in a circuit where voltage is defined as zero. It completes the circuit and provides a return path for current.',
+    analogy:
+      'Like the baseline or "home" that everything returns to.',
+  },
+  {
+    id: 'switch',
+    num: '18',
+    Icon: FaToggleOn,
+    title: 'What is a Switch?',
+    color: 'green',
+    duration: '~1.5 min',
+    description:
+      'A device that opens or closes a circuit. When closed, current flows. When open, it stops completely.',
+    analogy:
+      'Like turning a valve on or off in a pipe.',
+  },
+  {
+    id: 'circuit',
+    num: '19',
+    Icon: FaSyncAlt,
+    title: 'What is a Circuit?',
+    color: 'orange',
+    duration: '~1.5 min',
+    description:
+      'A complete path that allows electricity to flow. Without a closed loop, nothing works.',
+    analogy:
+      'Like a looped road — if it\'s broken anywhere, traffic stops.',
+  },
+  {
+    id: 'transconductance',
+    num: '20',
+    Icon: FaSlidersH,
+    title: 'What is Transconductance?',
+    color: 'purple',
+    duration: '~2 min',
+    description:
+      'A measure of how effectively a device (like a transistor) converts a change in voltage into a change in current. Key to amplification.',
+    analogy:
+      'A small change in control causes a large change in output — like slightly turning a knob and getting a big effect.',
+  },
+  {
+    id: 'frequency',
+    num: '21',
+    Icon: FaWaveSquare,
+    title: 'What is Frequency?',
+    color: 'cyan',
+    duration: '~1.5 min',
+    description:
+      'How often a signal repeats per second. Measured in Hertz (Hz). Important for signals, clocks, and communication.',
+    analogy:
+      'Like how fast something vibrates or repeats — slow pulses vs very fast ones.',
+  },
+  {
+    id: 'signal',
+    num: '22',
+    Icon: FaBroadcastTower,
+    title: 'What is a Signal?',
+    color: 'yellow',
+    duration: '~1.5 min',
+    description:
+      'A changing electrical value (voltage or current) that carries information. Everything from buttons to Wi-Fi is based on signals.',
+    analogy:
+      'Like a message being sent — the shape of the signal is the meaning.',
   },
 ]
 
