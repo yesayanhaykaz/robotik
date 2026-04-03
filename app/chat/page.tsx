@@ -15,11 +15,14 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const el = scrollContainerRef.current
+    if (el) {
+      el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
+    }
   }, [messages, isTyping])
 
   const handleSend = () => {
@@ -80,7 +83,7 @@ export default function ChatPage() {
       </div>
 
       {/* Messages — only this scrolls */}
-      <div className="flex-1 overflow-y-auto">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
       <div className="max-w-3xl mx-auto px-4 py-4 space-y-4">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full py-6">
@@ -165,7 +168,7 @@ export default function ChatPage() {
           </div>
         )}
 
-        <div ref={messagesEndRef} />
+        <div />
       </div>
       </div>
 
