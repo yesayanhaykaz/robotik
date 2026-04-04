@@ -18,6 +18,7 @@ export interface Concept {
   description: string
   analogy: string
   videoId?: string
+  isShorts?: boolean
 }
 
 export interface Lesson {
@@ -134,6 +135,8 @@ export const concepts: Concept[] = [
     description:
       'The pressure that pushes electricity through a wire. Measured in Volts — from a 1.5V battery to a 220V wall socket.',
     analogy: 'Water pressure in a pipe — higher pressure means stronger push.',
+    videoId: '0v3t92xasrI',
+    isShorts: true,
   },
   {
     id: 'current',

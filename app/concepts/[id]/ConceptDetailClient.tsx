@@ -61,7 +61,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
               <h2 className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">
                 <FaVideo size={13} className="text-gray-300" /> {t('conceptDetail.watchVideo')}
               </h2>
-              <VideoPlayer videoId={concept.videoId} title={tc.title} />
+              <VideoPlayer videoId={concept.videoId} title={tc.title} isShorts={concept.isShorts} />
             </div>
             <div>
               <h2 className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
