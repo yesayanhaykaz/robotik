@@ -8,6 +8,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          50:  '#FFF1F3',
+          100: '#FFE0E4',
+          200: '#FFC5CC',
+          300: '#FF9AA8',
+          400: '#FF5C74',
+          500: '#FF1744',
+          600: '#ED0036',
+          700: '#C8002D',
+          800: '#A50028',
+          900: '#8C0025',
+        },
+        accent: {
+          50:  '#FFF0F6',
+          100: '#FFE0ED',
+          200: '#FFC6DD',
+          300: '#FF9DC3',
+          400: '#FF64A0',
+          500: '#FF2D75',
+          600: '#F00060',
+          700: '#CC004E',
+          800: '#A80043',
+          900: '#8A003B',
+        },
+      },
       fontFamily: {
         heading: ['var(--font-heading)', 'sans-serif'],
         body: ['var(--font-body)', 'sans-serif'],
@@ -34,8 +60,8 @@ const config: Config = {
           '50%': { opacity: '0.1' },
         },
         'pulse-dot': {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(249,115,22,0.5)' },
-          '50%': { boxShadow: '0 0 0 8px rgba(249,115,22,0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255,23,68,0.5)' },
+          '50%': { boxShadow: '0 0 0 8px rgba(255,23,68,0)' },
         },
       },
     },

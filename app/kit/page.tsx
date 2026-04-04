@@ -15,7 +15,7 @@ const kits = [
     descKey: 'kit1Desc',
     forKey: 'kit1For',
     priceKey: 'kit1Price',
-    color: 'orange',
+    color: 'brand',
     Icon: FaLightbulb,
     components: [
       { name: 'Arduino Uno', qty: '1×', Icon: FaMicrochip },
@@ -32,7 +32,7 @@ const kits = [
     descKey: 'kit2Desc',
     forKey: 'kit2For',
     priceKey: 'kit2Price',
-    color: 'emerald',
+    color: 'gray',
     Icon: FaDotCircle,
     components: [
       { name: 'Arduino Uno', qty: '1×', Icon: FaMicrochip },
@@ -52,7 +52,7 @@ const kits = [
     forKey: 'kit3For',
     priceKey: 'kit3Price',
     badgeKey: 'kit3Badge',
-    color: 'purple',
+    color: 'accent',
     Icon: FaBox,
     featured: true,
     components: [
@@ -76,7 +76,7 @@ const kits = [
     forKey: 'kit4For',
     priceKey: 'kit4Price',
     badgeKey: 'kit4Badge',
-    color: 'cyan',
+    color: 'gray',
     Icon: FaRobot,
     comingSoon: true,
     components: [
@@ -94,41 +94,32 @@ const kits = [
 ]
 
 const colorMap: Record<string, { border: string; bg: string; text: string; iconBg: string; badge: string; glow: string; button: string }> = {
-  orange: {
-    border: 'border-orange-200',
-    bg: 'bg-orange-50',
-    text: 'text-orange-600',
-    iconBg: 'bg-orange-100',
-    badge: 'bg-orange-100 text-orange-700 border-orange-200',
-    glow: 'hover:shadow-orange-200',
-    button: 'from-orange-500 to-orange-600',
+  brand: {
+    border: 'border-brand-200',
+    bg: 'bg-brand-50',
+    text: 'text-brand-600',
+    iconBg: 'bg-brand-100',
+    badge: 'bg-brand-100 text-brand-700 border-brand-200',
+    glow: 'hover:shadow-brand-200',
+    button: 'from-brand-500 to-brand-600',
   },
-  emerald: {
-    border: 'border-emerald-200',
-    bg: 'bg-emerald-50',
-    text: 'text-emerald-600',
-    iconBg: 'bg-emerald-100',
-    badge: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-    glow: 'hover:shadow-emerald-200',
-    button: 'from-emerald-500 to-emerald-600',
+  gray: {
+    border: 'border-gray-200',
+    bg: 'bg-gray-50',
+    text: 'text-gray-600',
+    iconBg: 'bg-gray-100',
+    badge: 'bg-gray-100 text-gray-700 border-gray-200',
+    glow: 'hover:shadow-gray-200',
+    button: 'from-gray-500 to-gray-600',
   },
-  purple: {
-    border: 'border-purple-200',
-    bg: 'bg-purple-50',
-    text: 'text-purple-600',
-    iconBg: 'bg-purple-100',
-    badge: 'bg-purple-100 text-purple-700 border-purple-200',
-    glow: 'hover:shadow-purple-200',
-    button: 'from-purple-500 to-purple-600',
-  },
-  cyan: {
-    border: 'border-cyan-200',
-    bg: 'bg-cyan-50',
-    text: 'text-cyan-600',
-    iconBg: 'bg-cyan-100',
-    badge: 'bg-cyan-100 text-cyan-700 border-cyan-200',
-    glow: 'hover:shadow-cyan-200',
-    button: 'from-cyan-500 to-cyan-600',
+  accent: {
+    border: 'border-accent-200',
+    bg: 'bg-accent-50',
+    text: 'text-accent-600',
+    iconBg: 'bg-accent-100',
+    badge: 'bg-accent-100 text-accent-700 border-accent-200',
+    glow: 'hover:shadow-accent-200',
+    button: 'from-accent-500 to-accent-600',
   },
 }
 
@@ -138,18 +129,18 @@ export default function KitPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 py-16 px-5 border-b border-emerald-100">
+      <div className="bg-gradient-to-br from-brand-50 to-accent-50 py-16 px-5 border-b border-brand-100">
         <div className="max-w-6xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-emerald-600 transition-colors mb-6">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('kitPage.back')}
           </Link>
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase tracking-widest mb-4">
-            <span className="w-5 h-px bg-emerald-400 inline-block" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-4">
+            <span className="w-5 h-px bg-brand-400 inline-block" />
             {t('kitPage.label')}
           </div>
           <h1 className="text-5xl font-black text-gray-900 mb-4">
             {t('kitPage.title1')}{' '}
-            <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">
               {t('kitPage.title2')}
             </span>
           </h1>
@@ -173,7 +164,7 @@ export default function KitPage() {
             return (
               <div
                 key={kit.id}
-                className={`relative rounded-3xl border-2 ${c.border} ${kit.featured ? 'ring-2 ring-purple-300 ring-offset-2' : ''} ${kit.comingSoon ? 'opacity-75' : ''} bg-white overflow-hidden hover:shadow-2xl ${c.glow} transition-all`}
+                className={`relative rounded-3xl border-2 ${c.border} ${kit.featured ? 'ring-2 ring-accent-300 ring-offset-2' : ''} ${kit.comingSoon ? 'opacity-75' : ''} bg-white overflow-hidden hover:shadow-2xl ${c.glow} transition-all`}
               >
                 {/* Featured badge */}
                 {badge && !kit.comingSoon && (
@@ -252,14 +243,14 @@ export default function KitPage() {
         </div>
 
         {/* Related Lessons CTA */}
-        <div className="mt-12 rounded-3xl bg-gradient-to-br from-orange-50 to-yellow-50 border-2 border-orange-200 p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 rounded-3xl bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-200 p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-black text-gray-900 mb-2">{t('kitPage.questionsTitle')}</h3>
             <p className="text-gray-500 font-body max-w-lg">{t('kitPage.questionsDesc')}</p>
           </div>
           <a
             href="mailto:hello@salooote.am"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
           >
             {t('kitPage.contactUs')}
           </a>

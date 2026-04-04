@@ -28,7 +28,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
             <FaMicrochip size={16} className="text-white" />
           </div>
           <span className="font-black text-xl text-gray-900 tracking-tight">Robotik</span>
@@ -41,9 +41,9 @@ export default function Navbar() {
               <Link href={link.href}
                 className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all inline-flex items-center gap-1.5 ${
                   pathname === link.href
-                    ? 'text-orange-600 bg-orange-50'
+                    ? 'text-brand-600 bg-brand-50'
                     : link.icon
-                      ? 'text-purple-600 hover:text-purple-700 hover:bg-purple-50'
+                      ? 'text-brand-600 hover:text-brand-700 hover:bg-brand-50'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function Navbar() {
                     key={loc}
                     className={`w-full text-left px-4 py-2 text-sm font-semibold transition-colors ${
                       loc === locale
-                        ? 'text-orange-600 bg-orange-50'
+                        ? 'text-brand-600 bg-brand-50'
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                     }`}
                     onClick={() => { setLocale(loc); setLangOpen(false) }}
@@ -83,7 +83,7 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/concepts" className="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <Link href="/concepts" className="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
               {t('nav.startBuilding')}
             </Link>
           </li>
@@ -107,7 +107,7 @@ export default function Navbar() {
                     key={loc}
                     className={`w-full text-left px-4 py-2.5 text-sm font-semibold transition-colors ${
                       loc === locale
-                        ? 'text-orange-600 bg-orange-50'
+                        ? 'text-brand-600 bg-brand-50'
                         : 'text-gray-600 hover:bg-gray-100'
                     }`}
                     onClick={() => { setLocale(loc); setLangOpen(false) }}
@@ -134,14 +134,14 @@ export default function Navbar() {
           <div className="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}
-                className="px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-all"
+                className="px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-brand-50 hover:text-brand-600 transition-all"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <Link href="/concepts"
-              className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-center shadow-md"
+              className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-center shadow-md"
               onClick={() => setOpen(false)}
             >
               {t('nav.startBuilding')}

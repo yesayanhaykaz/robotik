@@ -23,7 +23,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
       {/* Header */}
       <div className={`${c.sectionBg} py-14 px-5 border-b ${c.border}`}>
         <div className="max-w-4xl mx-auto">
-          <Link href="/concepts" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-orange-600 transition-colors mb-6">
+          <Link href="/concepts" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
             <FaChevronLeft size={12} /> {t('conceptDetail.allConcepts')}
           </Link>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
@@ -40,7 +40,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
           <div className="flex flex-wrap gap-3">
             <span className={`text-sm font-bold px-4 py-1.5 rounded-full border ${c.badge}`}>{concept.duration}</span>
             {concept.videoId ? (
-              <span className="text-sm font-bold px-4 py-1.5 rounded-full border border-emerald-200 bg-emerald-100 text-emerald-700 inline-flex items-center gap-2">
+              <span className="text-sm font-bold px-4 py-1.5 rounded-full border border-brand-200 bg-brand-100 text-brand-700 inline-flex items-center gap-2">
                 <FaVideo size={12} /> {t('conceptDetail.videoAvailable')}
               </span>
             ) : (
@@ -107,7 +107,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
             <div className={`${c.analogyBg} rounded-2xl border ${c.border} p-5`}>
               <h3 className="font-black text-gray-800 mb-2">{t('conceptDetail.readyToBuild')}</h3>
               <p className="text-sm text-gray-500 mb-4 font-body">{t('conceptDetail.readyToBuildDesc')}</p>
-              <Link href="/lessons" className="w-full block text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
+              <Link href="/lessons" className="w-full block text-center bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
                 {t('conceptDetail.viewLessons')}
               </Link>
             </div>
@@ -118,10 +118,10 @@ export default function ConceptDetailClient({ id }: { id: string }) {
         <div className="mt-14 pt-8 border-t border-gray-100 flex justify-between gap-4">
           {prev ? (
             <Link href={`/concepts/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
-              <FaChevronLeft size={16} className="text-gray-300 group-hover:text-orange-400 transition-colors" />
+              <FaChevronLeft size={16} className="text-gray-300 group-hover:text-brand-400 transition-colors" />
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.previous')}</div>
-                <div className="font-black text-gray-800 group-hover:text-orange-600 transition-colors">{tConcept(prev.id).title}</div>
+                <div className="font-black text-gray-800 group-hover:text-brand-600 transition-colors">{tConcept(prev.id).title}</div>
               </div>
             </Link>
           ) : <div />}
@@ -129,9 +129,9 @@ export default function ConceptDetailClient({ id }: { id: string }) {
             <Link href={`/concepts/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.next')}</div>
-                <div className="font-black text-gray-800 group-hover:text-orange-600 transition-colors">{tConcept(next.id).title}</div>
+                <div className="font-black text-gray-800 group-hover:text-brand-600 transition-colors">{tConcept(next.id).title}</div>
               </div>
-              <FaChevronRight size={16} className="text-gray-300 group-hover:text-orange-400 transition-colors" />
+              <FaChevronRight size={16} className="text-gray-300 group-hover:text-brand-400 transition-colors" />
             </Link>
           )}
         </div>

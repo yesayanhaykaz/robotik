@@ -11,14 +11,14 @@ import { concepts, lessons, colorStyles, lessonBadgeStyles } from '@/lib/data'
 import { useLanguage } from '@/lib/i18n'
 
 const kitItems = [
-  { Icon: FaMicrochip,       name: 'Arduino Uno',   qty: '1× board',           color: 'text-emerald-600' },
-  { Icon: FaThLarge,         name: 'Breadboard',    qty: '1× 830-point',       color: 'text-emerald-600' },
-  { Icon: FaLightbulb,       name: 'LEDs',          qty: '4× (R, G, B, Y)',    color: 'text-yellow-500'  },
-  { Icon: FaShieldAlt,       name: 'Resistors',     qty: '220Ω + 10kΩ pack',   color: 'text-purple-500'  },
-  { Icon: FaDotCircle,       name: 'Pushbuttons',   qty: '3× tactile buttons', color: 'text-emerald-600' },
-  { Icon: FaVolumeUp,        name: 'Buzzer',        qty: '1× passive buzzer',  color: 'text-emerald-600' },
-  { Icon: FaThermometerHalf, name: 'Sensors',       qty: 'Temperature + Light', color: 'text-cyan-500'  },
-  { Icon: FaLink,            name: 'Jumper Wires',  qty: '40× M-M wires',      color: 'text-emerald-600' },
+  { Icon: FaMicrochip,       name: 'Arduino Uno',   qty: '1× board',           color: 'text-brand-600' },
+  { Icon: FaThLarge,         name: 'Breadboard',    qty: '1× 830-point',       color: 'text-brand-600' },
+  { Icon: FaLightbulb,       name: 'LEDs',          qty: '4× (R, G, B, Y)',    color: 'text-brand-400'  },
+  { Icon: FaShieldAlt,       name: 'Resistors',     qty: '220Ω + 10kΩ pack',   color: 'text-brand-500'  },
+  { Icon: FaDotCircle,       name: 'Pushbuttons',   qty: '3× tactile buttons', color: 'text-brand-600' },
+  { Icon: FaVolumeUp,        name: 'Buzzer',        qty: '1× passive buzzer',  color: 'text-brand-600' },
+  { Icon: FaThermometerHalf, name: 'Sensors',       qty: 'Temperature + Light', color: 'text-gray-500'  },
+  { Icon: FaLink,            name: 'Jumper Wires',  qty: '40× M-M wires',      color: 'text-brand-600' },
 ]
 
 export default function HomePage() {
@@ -29,20 +29,20 @@ export default function HomePage() {
     <>
       {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white min-h-[90vh] flex items-center">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-100 rounded-full translate-y-1/2 -translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-40 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-100 rounded-full translate-y-1/2 -translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gray-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-40 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-full px-4 py-2 text-xs font-bold text-orange-600 uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse-dot inline-block" />
+            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-6">
+              <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse-dot inline-block" />
               {t('home.heroBadge')}
             </div>
             <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6 leading-tight">
               {t('home.heroTitle1')}<br />
               {t('home.heroTitle2')}{' '}
-              <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-500 via-accent-500 to-accent-600 bg-clip-text text-transparent">
                 {t('home.heroTitle3')}
               </span>
             </h1>
@@ -50,10 +50,10 @@ export default function HomePage() {
               {t('home.heroSubtitle')}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/concepts" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href="/concepts" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 {t('home.heroStartLearning')}
               </Link>
-              <Link href="/lessons" className="inline-flex items-center gap-2 bg-white text-gray-700 font-bold px-7 py-3.5 rounded-full border-2 border-gray-200 hover:border-orange-300 hover:text-orange-600 transition-all">
+              <Link href="/lessons" className="inline-flex items-center gap-2 bg-white text-gray-700 font-bold px-7 py-3.5 rounded-full border-2 border-gray-200 hover:border-brand-300 hover:text-brand-600 transition-all">
                 {t('home.heroSeeLessons')}
               </Link>
             </div>
@@ -62,26 +62,26 @@ export default function HomePage() {
           {/* Circuit Visual */}
           <div className="flex items-center justify-center">
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 animate-float">
-              <div className="absolute inset-0 rounded-full border-2 border-orange-200 animate-spin-slow" />
-              <div className="absolute inset-8 rounded-full border-2 border-cyan-200 animate-spin-reverse" />
-              <div className="absolute inset-16 rounded-full border-2 border-purple-200 animate-spin-slow" style={{ animationDuration: '15s' }} />
-              <div className="absolute inset-24 rounded-full bg-white shadow-xl border-2 border-orange-100 flex flex-col items-center justify-center gap-1">
-                <FaMicrochip size={32} className="text-orange-500" />
-                <span className="font-mono text-xs text-orange-500 font-bold">Arduino</span>
+              <div className="absolute inset-0 rounded-full border-2 border-brand-200 animate-spin-slow" />
+              <div className="absolute inset-8 rounded-full border-2 border-gray-200 animate-spin-reverse" />
+              <div className="absolute inset-16 rounded-full border-2 border-accent-200 animate-spin-slow" style={{ animationDuration: '15s' }} />
+              <div className="absolute inset-24 rounded-full bg-white shadow-xl border-2 border-brand-100 flex flex-col items-center justify-center gap-1">
+                <FaMicrochip size={32} className="text-brand-500" />
+                <span className="font-mono text-xs text-brand-500 font-bold">Arduino</span>
               </div>
               <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)] animate-blink-1" />
-              <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)] animate-blink-2" />
-              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)] animate-blink-3" />
-              <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.8)] animate-blink-4" />
+              <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-300 shadow-[0_0_12px_rgba(255,45,117,0.8)] animate-blink-2" />
+              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gray-400 shadow-[0_0_12px_rgba(156,163,175,0.8)] animate-blink-3" />
+              <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-400 shadow-[0_0_12px_rgba(255,23,68,0.8)] animate-blink-4" />
             </div>
           </div>
         </div>
       </section>
 
       {/* ── STATS BAR ─────────────────────────────────────── */}
-      <div className="bg-gradient-to-r from-orange-50 to-pink-50 border-y border-orange-100">
+      <div className="bg-gradient-to-r from-brand-50 to-accent-50 border-y border-brand-100">
         <div className="max-w-6xl mx-auto px-5 py-5">
-          <div className="flex flex-wrap justify-center gap-0 divide-x divide-orange-100">
+          <div className="flex flex-wrap justify-center gap-0 divide-x divide-brand-100">
             {[
               { num: '10', label: t('home.statConcepts') },
               { num: '2',  label: t('home.statLessons') },
@@ -89,7 +89,7 @@ export default function HomePage() {
               { num: t('home.statFree'), label: t('home.statFreeLabel') },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-3 px-8 py-2">
-                <span className="text-2xl font-black text-orange-500">{stat.num}</span>
+                <span className="text-2xl font-black text-brand-500">{stat.num}</span>
                 <span className="text-sm font-semibold text-gray-500 leading-tight font-body">{stat.label}</span>
               </div>
             ))}
@@ -101,8 +101,8 @@ export default function HomePage() {
       <section id="how" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5">
           <div className="mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-500 uppercase tracking-widest mb-3">
-              <span className="w-5 h-px bg-orange-400 inline-block" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
+              <span className="w-5 h-px bg-brand-400 inline-block" />
               {t('home.methodLabel')}
             </div>
             <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.methodTitle')}</h2>
@@ -112,9 +112,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { num: '01', Icon: FaPlay,      title: t('home.step1Title'), desc: t('home.step1Desc'), color: 'bg-orange-50 border-orange-200', iconColor: 'text-orange-500', numColor: 'text-orange-400' },
-              { num: '02', Icon: FaWrench,    title: t('home.step2Title'), desc: t('home.step2Desc'), color: 'bg-purple-50 border-purple-200', iconColor: 'text-purple-500', numColor: 'text-purple-400' },
-              { num: '03', Icon: FaLightbulb, title: t('home.step3Title'), desc: t('home.step3Desc'), color: 'bg-emerald-50 border-emerald-200', iconColor: 'text-emerald-500', numColor: 'text-emerald-500' },
+              { num: '01', Icon: FaPlay,      title: t('home.step1Title'), desc: t('home.step1Desc'), color: 'bg-brand-50 border-brand-200', iconColor: 'text-brand-500', numColor: 'text-brand-400' },
+              { num: '02', Icon: FaWrench,    title: t('home.step2Title'), desc: t('home.step2Desc'), color: 'bg-accent-50 border-accent-200', iconColor: 'text-accent-500', numColor: 'text-accent-400' },
+              { num: '03', Icon: FaLightbulb, title: t('home.step3Title'), desc: t('home.step3Desc'), color: 'bg-gray-50 border-gray-200', iconColor: 'text-gray-500', numColor: 'text-gray-500' },
             ].map((step) => (
               <div key={step.num} className={`rounded-2xl border-2 p-8 ${step.color} hover:-translate-y-1 hover:shadow-lg transition-all`}>
                 <div className={`font-mono text-xs font-bold mb-4 ${step.numColor}`}>{step.num} —</div>
@@ -130,18 +130,18 @@ export default function HomePage() {
       </section>
 
       {/* ── CONCEPTS PREVIEW ──────────────────────────────── */}
-      <section className="py-24 bg-purple-50">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-purple-500 uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-purple-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-brand-400 inline-block" />
                 {t('home.conceptsLabel')}
               </div>
               <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.conceptsTitle')}</h2>
               <p className="text-gray-500 text-lg max-w-xl font-body">{t('home.conceptsSubtitle')}</p>
             </div>
-            <Link href="/concepts" className="flex-shrink-0 inline-flex items-center gap-2 bg-purple-600 text-white font-bold px-6 py-3 rounded-full hover:bg-purple-700 transition-colors shadow-md">
+            <Link href="/concepts" className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition-colors shadow-md">
               {t('home.viewAll10')}
             </Link>
           </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${c.badge}`}>{concept.duration}</span>
                   </div>
                   <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-md ${c.tagBg} ${c.tagText} mb-3 font-mono`}>{t('conceptsPage.concept')} {concept.num}</span>
-                  <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-orange-600 transition-colors">{tc.title}</h3>
+                  <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-brand-600 transition-colors">{tc.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 font-body">{tc.description}</p>
                   <div className={`mt-4 text-sm font-bold ${c.tagText} flex items-center gap-1 group-hover:gap-2 transition-all`}>
                     {t('home.watchConcept')}
@@ -178,14 +178,14 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-500 uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-orange-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-brand-400 inline-block" />
                 {t('home.lessonsLabel')}
               </div>
               <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.lessonsTitle')}</h2>
               <p className="text-gray-500 text-lg max-w-xl font-body">{t('home.lessonsSubtitle')}</p>
             </div>
-            <Link href="/lessons" className="flex-shrink-0 inline-flex items-center gap-2 bg-orange-500 text-white font-bold px-6 py-3 rounded-full hover:bg-orange-600 transition-colors shadow-md">
+            <Link href="/lessons" className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-500 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-600 transition-colors shadow-md">
               {t('home.viewAllLessons')}
             </Link>
           </div>
@@ -194,14 +194,14 @@ export default function HomePage() {
               const tl = tLesson(lesson.id)
               return (
                 <Link key={lesson.id} href={`/lessons/${lesson.id}`}
-                  className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-100 hover:-translate-y-1 transition-all overflow-hidden"
+                  className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-100 hover:-translate-y-1 transition-all overflow-hidden"
                 >
                   <div className="p-7">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs text-orange-400 font-bold">{t('lessonDetail.lesson')} {lesson.num} —</span>
+                      <span className="font-mono text-xs text-brand-400 font-bold">{t('lessonDetail.lesson')} {lesson.num} —</span>
                       <span className={`text-xs font-bold px-3 py-1 rounded-full border ${lessonBadgeStyles[lesson.badgeColor]}`}>{tl.badge}</span>
                     </div>
-                    <h3 className="text-xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">{tl.title}</h3>
+                    <h3 className="text-xl font-black text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">{tl.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed font-body">{tl.description}</p>
                   </div>
                   <div className="px-7 pb-4">
@@ -217,19 +217,19 @@ export default function HomePage() {
                       <span>⏱ {lesson.duration}</span>
                       <span>{lesson.components.length} {t('lessonDetail.components')}</span>
                     </div>
-                    <span className="text-sm font-bold text-orange-500 flex items-center gap-1 group-hover:gap-2 transition-all">{t('home.watchLesson')}</span>
+                    <span className="text-sm font-bold text-brand-500 flex items-center gap-1 group-hover:gap-2 transition-all">{t('home.watchLesson')}</span>
                   </div>
                 </Link>
               )
             })}
           </div>
-          <div className="mt-6 rounded-2xl border-2 border-dashed border-orange-200 bg-orange-50 p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="mt-6 rounded-2xl border-2 border-dashed border-brand-200 bg-brand-50 p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <div className="font-mono text-xs text-orange-400 font-bold mb-1 uppercase tracking-widest">{t('home.comingSoonLabel')}</div>
+              <div className="font-mono text-xs text-brand-400 font-bold mb-1 uppercase tracking-widest">{t('home.comingSoonLabel')}</div>
               <div className="font-black text-gray-900 text-lg mb-1">{t('home.comingSoonTitle')}</div>
               <div className="text-sm text-gray-500 font-body">{t('home.comingSoonDesc')}</div>
             </div>
-            <a href="mailto:hello@salooote.am" className="flex-shrink-0 px-5 py-2.5 rounded-full border-2 border-orange-300 text-orange-600 font-bold text-sm hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all">
+            <a href="mailto:hello@salooote.am" className="flex-shrink-0 px-5 py-2.5 rounded-full border-2 border-brand-300 text-brand-600 font-bold text-sm hover:bg-brand-500 hover:text-white hover:border-brand-500 transition-all">
               {t('home.getNotified')}
             </a>
           </div>
@@ -237,13 +237,13 @@ export default function HomePage() {
       </section>
 
       {/* ── STARTER KIT ───────────────────────────────────── */}
-      <section id="kit" className="py-24 bg-emerald-50">
+      <section id="kit" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-2 gap-4">
               {kitItems.map((item) => (
-                <div key={item.name} className="bg-white rounded-2xl border-2 border-emerald-100 p-4 flex items-center gap-3 hover:border-emerald-300 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <div key={item.name} className="bg-white rounded-2xl border-2 border-gray-100 p-4 flex items-center gap-3 hover:border-brand-300 hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center flex-shrink-0">
                     <item.Icon size={18} className={item.color} />
                   </div>
                   <div>
@@ -254,8 +254,8 @@ export default function HomePage() {
               ))}
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-emerald-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-brand-400 inline-block" />
                 {t('home.kitLabel')}
               </div>
               <h2 className="text-4xl font-black text-gray-900 mb-5">{t('home.kitTitle')}</h2>
@@ -265,7 +265,7 @@ export default function HomePage() {
               <p className="text-gray-500 leading-relaxed mb-8 font-body">
                 {t('home.kitDesc2')}
               </p>
-              <Link href="/kit" className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href="/kit" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 {t('home.orderKit')}
               </Link>
               <p className="mt-4 text-sm text-gray-400 font-body">{t('home.kitShips')}</p>
@@ -279,15 +279,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-500 uppercase tracking-widest mb-6">
-                <span className="w-5 h-px bg-orange-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-6">
+                <span className="w-5 h-px bg-brand-400 inline-block" />
                 {t('home.missionLabel')}
               </div>
-              <blockquote className="text-3xl font-black text-gray-900 leading-snug mb-6 pl-5 border-l-4 border-orange-400">
+              <blockquote className="text-3xl font-black text-gray-900 leading-snug mb-6 pl-5 border-l-4 border-brand-400">
                 &ldquo;{t('home.missionQuote1')}
                 <br />
                 {t('home.missionQuote2')}{' '}
-                <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">{t('home.missionQuote3')}</span>{' '}
+                <span className="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">{t('home.missionQuote3')}</span>{' '}
                 {t('home.missionQuote4')}&rdquo;
               </blockquote>
               <p className="text-gray-500 leading-relaxed font-body">
@@ -296,9 +296,9 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-4">
               {[
-                { Icon: FaBrain,         title: t('home.point1Title'), desc: t('home.point1Desc'), color: 'bg-orange-50 border-orange-200 text-orange-500' },
-                { Icon: FaRocket,        title: t('home.point2Title'), desc: t('home.point2Desc'), color: 'bg-purple-50 border-purple-200 text-purple-500' },
-                { Icon: FaGlobeAmericas, title: t('home.point3Title'), desc: t('home.point3Desc'), color: 'bg-cyan-50 border-cyan-200 text-cyan-500' },
+                { Icon: FaBrain,         title: t('home.point1Title'), desc: t('home.point1Desc'), color: 'bg-brand-50 border-brand-200 text-brand-500' },
+                { Icon: FaRocket,        title: t('home.point2Title'), desc: t('home.point2Desc'), color: 'bg-accent-50 border-accent-200 text-accent-500' },
+                { Icon: FaGlobeAmericas, title: t('home.point3Title'), desc: t('home.point3Desc'), color: 'bg-gray-50 border-gray-200 text-gray-500' },
               ].map((point) => {
                 const [bg, border, ic] = point.color.split(' ')
                 return (
@@ -319,11 +319,11 @@ export default function HomePage() {
       </section>
 
       {/* ── FOR PARENTS ───────────────────────────────────── */}
-      <section className="py-24 bg-purple-50">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-purple-500 uppercase tracking-widest mb-3">
-              <span className="w-5 h-px bg-purple-400 inline-block" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
+              <span className="w-5 h-px bg-brand-400 inline-block" />
               {t('home.parentsLabel')}
             </div>
             <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.parentsTitle')}</h2>
@@ -331,12 +331,12 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { Icon: FaClock,         title: t('home.parent1Title'), desc: t('home.parent1Desc'), iconColor: 'text-orange-500',  border: 'border-orange-200' },
-              { Icon: FaBullseye,      title: t('home.parent2Title'), desc: t('home.parent2Desc'), iconColor: 'text-purple-500',  border: 'border-purple-200' },
-              { Icon: FaPencilAlt,     title: t('home.parent3Title'), desc: t('home.parent3Desc'), iconColor: 'text-pink-500',    border: 'border-pink-200'   },
-              { Icon: FaStar,          title: t('home.parent4Title'), desc: t('home.parent4Desc'), iconColor: 'text-cyan-500',    border: 'border-cyan-200'   },
-              { Icon: FaGamepad,       title: t('home.parent5Title'), desc: t('home.parent5Desc'), iconColor: 'text-emerald-500', border: 'border-emerald-200'},
-              { Icon: FaGraduationCap, title: t('home.parent6Title'), desc: t('home.parent6Desc'), iconColor: 'text-yellow-500',  border: 'border-yellow-200' },
+              { Icon: FaClock,         title: t('home.parent1Title'), desc: t('home.parent1Desc'), iconColor: 'text-brand-500',  border: 'border-brand-200' },
+              { Icon: FaBullseye,      title: t('home.parent2Title'), desc: t('home.parent2Desc'), iconColor: 'text-accent-500',  border: 'border-accent-200' },
+              { Icon: FaPencilAlt,     title: t('home.parent3Title'), desc: t('home.parent3Desc'), iconColor: 'text-brand-500',    border: 'border-brand-200'   },
+              { Icon: FaStar,          title: t('home.parent4Title'), desc: t('home.parent4Desc'), iconColor: 'text-gray-500',    border: 'border-gray-200'   },
+              { Icon: FaGamepad,       title: t('home.parent5Title'), desc: t('home.parent5Desc'), iconColor: 'text-brand-500', border: 'border-brand-200'},
+              { Icon: FaGraduationCap, title: t('home.parent6Title'), desc: t('home.parent6Desc'), iconColor: 'text-brand-400',  border: 'border-brand-200' },
             ].map((card) => (
               <div key={card.title} className={`rounded-2xl border-2 p-6 bg-white ${card.border} hover:-translate-y-1 hover:shadow-lg transition-all`}>
                 <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center mb-4">
@@ -351,7 +351,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA BANNER ────────────────────────────────────── */}
-      <section className="py-24 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-brand-500 via-accent-500 to-accent-600 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-6xl mx-auto px-5 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">{t('home.ctaTitle')}</h2>
@@ -359,7 +359,7 @@ export default function HomePage() {
             {t('home.ctaSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/concepts" className="bg-white text-orange-600 font-black px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
+            <Link href="/concepts" className="bg-white text-brand-600 font-black px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
               {t('home.ctaExplore')}
             </Link>
             <Link href="/lessons" className="bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all text-lg">
