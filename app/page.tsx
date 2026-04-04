@@ -83,9 +83,9 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5 py-5">
           <div className="flex flex-wrap justify-center gap-0 divide-x divide-brand-100">
             {[
-              { num: '10', label: t('home.statConcepts') },
+              { num: '22', label: t('home.statConcepts') },
               { num: '2',  label: t('home.statLessons') },
-              { num: '5–15', label: t('home.statAges') },
+              { num: '7–15', label: t('home.statAges') },
               { num: t('home.statFree'), label: t('home.statFreeLabel') },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-3 px-8 py-2">

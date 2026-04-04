@@ -36,7 +36,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Robotik — Build Real Things',
   description:
-    'Online robotics and electronics lessons for curious kids ages 5–15. Watch, build, and think like an engineer.',
+    'Online robotics and electronics lessons for curious kids ages 7–15. Watch, build, and think like an engineer.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
