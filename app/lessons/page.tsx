@@ -44,7 +44,7 @@ export default function LessonsPage() {
                 className="group bg-white rounded-3xl border-2 border-gray-100 hover:border-brand-300 hover:shadow-2xl hover:shadow-brand-100 hover:-translate-y-2 transition-all overflow-hidden"
               >
                 {/* Colorful top stripe */}
-                <div className="h-2 bg-gradient-to-r from-brand-400 via-accent-400 to-accent-500" />
+                <div className="h-2 bg-gradient-to-r from-brand-400 via-blue-400 to-accent-500" />
 
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-5">

@@ -63,8 +63,8 @@ export default function ChatPage() {
       <div className="shrink-0 bg-gradient-to-r from-accent-50 to-brand-50 border-b border-accent-100 px-4 py-3">
       <div className="max-w-3xl mx-auto flex items-center gap-3">
         <div className="relative shrink-0">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-accent-100 to-brand-100 flex items-center justify-center border border-accent-200 shadow-sm">
-            <FaMicrochip size={16} className="text-accent-500" />
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center border border-blue-200 shadow-sm">
+            <FaMicrochip size={16} className="text-blue-500" />
           </div>
           <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-brand-400 flex items-center justify-center border-2 border-white">
             <FaLightbulb size={7} className="text-white" />
@@ -88,8 +88,8 @@ export default function ChatPage() {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full py-6">
             <div className="relative mb-5">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-accent-100 to-brand-100 flex items-center justify-center shadow-lg border-2 border-accent-200">
-                <FaMicrochip size={32} className="text-accent-500" />
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center shadow-lg border-2 border-blue-200">
+                <FaMicrochip size={32} className="text-blue-500" />
               </div>
               <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center border-2 border-white shadow-sm">
                 <FaLightbulb size={12} className="text-white" />
@@ -106,7 +106,7 @@ export default function ChatPage() {
                 const colors = [
                   'border-brand-200 bg-brand-50 hover:border-brand-400 text-brand-700',
                   'border-accent-200 bg-accent-50 hover:border-accent-400 text-accent-700',
-                  'border-gray-200 bg-gray-50 hover:border-gray-400 text-gray-700',
+                  'border-blue-200 bg-blue-50 hover:border-blue-400 text-blue-700',
                   'border-brand-200 bg-brand-50 hover:border-brand-400 text-brand-700',
                 ]
                 return (
@@ -129,8 +129,8 @@ export default function ChatPage() {
             className={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {msg.role === 'assistant' && (
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-accent-100 to-brand-100 flex items-center justify-center shrink-0 shadow-sm border border-accent-200 mt-1">
-                <FaMicrochip size={12} className="text-accent-500" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center shrink-0 shadow-sm border border-blue-200 mt-1">
+                <FaMicrochip size={12} className="text-blue-500" />
               </div>
             )}
             <div
@@ -152,14 +152,14 @@ export default function ChatPage() {
 
         {isTyping && (
           <div className="flex gap-2.5 justify-start">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-accent-100 to-brand-100 flex items-center justify-center shrink-0 shadow-sm border border-accent-200 mt-1">
-              <FaMicrochip size={12} className="text-accent-500" />
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center shrink-0 shadow-sm border border-blue-200 mt-1">
+              <FaMicrochip size={12} className="text-blue-500" />
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-2xl rounded-bl-md px-4 py-3 shadow-sm">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-brand-400 animate-blink-1 inline-block" />
-                  <span className="w-2 h-2 rounded-full bg-accent-400 animate-blink-2 inline-block" />
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-blink-2 inline-block" />
                   <span className="w-2 h-2 rounded-full bg-brand-400 animate-blink-3 inline-block" />
                 </div>
                 <span className="text-xs text-gray-400 font-semibold">{t('chatPage.thinking')}</span>
@@ -187,12 +187,12 @@ export default function ChatPage() {
               }
             }}
             placeholder={t('chatPage.placeholder')}
-            className="flex-1 min-w-0 px-4 py-3.5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 font-body text-sm focus:outline-none focus:border-accent-400 focus:bg-white focus:ring-4 focus:ring-accent-50 transition-all"
+            className="flex-1 min-w-0 px-4 py-3.5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 font-body text-sm focus:outline-none focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50 transition-all"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim()}
-            className="w-12 h-12 rounded-2xl bg-gradient-to-r from-accent-500 to-brand-500 text-white flex items-center justify-center shrink-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-lg"
+            className="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-lg"
           >
             <FaPaperPlane size={15} />
           </button>

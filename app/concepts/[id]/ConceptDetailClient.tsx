@@ -118,10 +118,10 @@ export default function ConceptDetailClient({ id }: { id: string }) {
         <div className="mt-14 pt-8 border-t border-gray-100 flex justify-between gap-4">
           {prev ? (
             <Link href={`/concepts/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
-              <FaChevronLeft size={16} className="text-gray-300 group-hover:text-brand-400 transition-colors" />
+              <FaChevronLeft size={16} className="text-gray-300 group-hover:text-blue-400 transition-colors" />
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.previous')}</div>
-                <div className="font-black text-gray-800 group-hover:text-brand-600 transition-colors">{tConcept(prev.id).title}</div>
+                <div className="font-black text-gray-800 group-hover:text-blue-600 transition-colors">{tConcept(prev.id).title}</div>
               </div>
             </Link>
           ) : <div />}
@@ -129,9 +129,9 @@ export default function ConceptDetailClient({ id }: { id: string }) {
             <Link href={`/concepts/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.next')}</div>
-                <div className="font-black text-gray-800 group-hover:text-brand-600 transition-colors">{tConcept(next.id).title}</div>
+                <div className="font-black text-gray-800 group-hover:text-blue-600 transition-colors">{tConcept(next.id).title}</div>
               </div>
-              <FaChevronRight size={16} className="text-gray-300 group-hover:text-brand-400 transition-colors" />
+              <FaChevronRight size={16} className="text-gray-300 group-hover:text-blue-400 transition-colors" />
             </Link>
           )}
         </div>

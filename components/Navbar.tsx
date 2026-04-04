@@ -43,7 +43,7 @@ export default function Navbar() {
                   pathname === link.href
                     ? 'text-brand-600 bg-brand-50'
                     : link.icon
-                      ? 'text-brand-600 hover:text-brand-700 hover:bg-brand-50'
+                      ? 'text-blue-600 hover:text-blue-700 hover:bg-blue-50'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >

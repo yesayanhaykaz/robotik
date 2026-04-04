@@ -12,12 +12,12 @@ import { useLanguage } from '@/lib/i18n'
 
 const kitItems = [
   { Icon: FaMicrochip,       name: 'Arduino Uno',   qty: '1× board',           color: 'text-brand-600' },
-  { Icon: FaThLarge,         name: 'Breadboard',    qty: '1× 830-point',       color: 'text-brand-600' },
+  { Icon: FaThLarge,         name: 'Breadboard',    qty: '1× 830-point',       color: 'text-blue-500' },
   { Icon: FaLightbulb,       name: 'LEDs',          qty: '4× (R, G, B, Y)',    color: 'text-brand-400'  },
   { Icon: FaShieldAlt,       name: 'Resistors',     qty: '220Ω + 10kΩ pack',   color: 'text-brand-500'  },
   { Icon: FaDotCircle,       name: 'Pushbuttons',   qty: '3× tactile buttons', color: 'text-brand-600' },
   { Icon: FaVolumeUp,        name: 'Buzzer',        qty: '1× passive buzzer',  color: 'text-brand-600' },
-  { Icon: FaThermometerHalf, name: 'Sensors',       qty: 'Temperature + Light', color: 'text-gray-500'  },
+  { Icon: FaThermometerHalf, name: 'Sensors',       qty: 'Temperature + Light', color: 'text-blue-500'  },
   { Icon: FaLink,            name: 'Jumper Wires',  qty: '40× M-M wires',      color: 'text-brand-600' },
 ]
 
@@ -30,7 +30,7 @@ export default function HomePage() {
       {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white min-h-[90vh] flex items-center">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-100 rounded-full translate-y-1/2 -translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-200 rounded-full translate-y-1/2 -translate-x-1/2 opacity-60 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gray-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-40 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -64,14 +64,14 @@ export default function HomePage() {
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 animate-float">
               <div className="absolute inset-0 rounded-full border-2 border-brand-200 animate-spin-slow" />
               <div className="absolute inset-8 rounded-full border-2 border-gray-200 animate-spin-reverse" />
-              <div className="absolute inset-16 rounded-full border-2 border-accent-200 animate-spin-slow" style={{ animationDuration: '15s' }} />
+              <div className="absolute inset-16 rounded-full border-2 border-blue-200 animate-spin-slow" style={{ animationDuration: '15s' }} />
               <div className="absolute inset-24 rounded-full bg-white shadow-xl border-2 border-brand-100 flex flex-col items-center justify-center gap-1">
                 <FaMicrochip size={32} className="text-brand-500" />
                 <span className="font-mono text-xs text-brand-500 font-bold">Arduino</span>
               </div>
               <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)] animate-blink-1" />
               <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-300 shadow-[0_0_12px_rgba(255,45,117,0.8)] animate-blink-2" />
-              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gray-400 shadow-[0_0_12px_rgba(156,163,175,0.8)] animate-blink-3" />
+              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.8)] animate-blink-3" />
               <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-400 shadow-[0_0_12px_rgba(255,23,68,0.8)] animate-blink-4" />
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS BAR ─────────────────────────────────────── */}
-      <div className="bg-gradient-to-r from-brand-50 to-accent-50 border-y border-brand-100">
+      <div className="bg-gradient-to-r from-brand-50 to-blue-50 border-y border-brand-100">
         <div className="max-w-6xl mx-auto px-5 py-5">
           <div className="flex flex-wrap justify-center gap-0 divide-x divide-brand-100">
             {[
@@ -113,7 +113,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { num: '01', Icon: FaPlay,      title: t('home.step1Title'), desc: t('home.step1Desc'), color: 'bg-brand-50 border-brand-200', iconColor: 'text-brand-500', numColor: 'text-brand-400' },
-              { num: '02', Icon: FaWrench,    title: t('home.step2Title'), desc: t('home.step2Desc'), color: 'bg-accent-50 border-accent-200', iconColor: 'text-accent-500', numColor: 'text-accent-400' },
+              { num: '02', Icon: FaWrench,    title: t('home.step2Title'), desc: t('home.step2Desc'), color: 'bg-blue-50 border-blue-200', iconColor: 'text-blue-500', numColor: 'text-blue-400' },
               { num: '03', Icon: FaLightbulb, title: t('home.step3Title'), desc: t('home.step3Desc'), color: 'bg-gray-50 border-gray-200', iconColor: 'text-gray-500', numColor: 'text-gray-500' },
             ].map((step) => (
               <div key={step.num} className={`rounded-2xl border-2 p-8 ${step.color} hover:-translate-y-1 hover:shadow-lg transition-all`}>
@@ -134,8 +134,8 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-brand-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-500 uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-blue-400 inline-block" />
                 {t('home.conceptsLabel')}
               </div>
               <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.conceptsTitle')}</h2>
@@ -223,13 +223,13 @@ export default function HomePage() {
               )
             })}
           </div>
-          <div className="mt-6 rounded-2xl border-2 border-dashed border-brand-200 bg-brand-50 p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="mt-6 rounded-2xl border-2 border-dashed border-blue-200 bg-blue-50 p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <div className="font-mono text-xs text-brand-400 font-bold mb-1 uppercase tracking-widest">{t('home.comingSoonLabel')}</div>
+              <div className="font-mono text-xs text-blue-400 font-bold mb-1 uppercase tracking-widest">{t('home.comingSoonLabel')}</div>
               <div className="font-black text-gray-900 text-lg mb-1">{t('home.comingSoonTitle')}</div>
               <div className="text-sm text-gray-500 font-body">{t('home.comingSoonDesc')}</div>
             </div>
-            <a href="mailto:hello@salooote.am" className="flex-shrink-0 px-5 py-2.5 rounded-full border-2 border-brand-300 text-brand-600 font-bold text-sm hover:bg-brand-500 hover:text-white hover:border-brand-500 transition-all">
+            <a href="mailto:hello@salooote.am" className="flex-shrink-0 px-5 py-2.5 rounded-full border-2 border-blue-300 text-blue-600 font-bold text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all">
               {t('home.getNotified')}
             </a>
           </div>
@@ -242,7 +242,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-2 gap-4">
               {kitItems.map((item) => (
-                <div key={item.name} className="bg-white rounded-2xl border-2 border-gray-100 p-4 flex items-center gap-3 hover:border-brand-300 hover:shadow-md transition-all">
+                <div key={item.name} className="bg-white rounded-2xl border-2 border-gray-100 p-4 flex items-center gap-3 hover:border-blue-300 hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center flex-shrink-0">
                     <item.Icon size={18} className={item.color} />
                   </div>
@@ -254,8 +254,8 @@ export default function HomePage() {
               ))}
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-brand-400 inline-block" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-blue-400 inline-block" />
                 {t('home.kitLabel')}
               </div>
               <h2 className="text-4xl font-black text-gray-900 mb-5">{t('home.kitTitle')}</h2>
@@ -297,7 +297,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               {[
                 { Icon: FaBrain,         title: t('home.point1Title'), desc: t('home.point1Desc'), color: 'bg-brand-50 border-brand-200 text-brand-500' },
-                { Icon: FaRocket,        title: t('home.point2Title'), desc: t('home.point2Desc'), color: 'bg-accent-50 border-accent-200 text-accent-500' },
+                { Icon: FaRocket,        title: t('home.point2Title'), desc: t('home.point2Desc'), color: 'bg-blue-50 border-blue-200 text-blue-500' },
                 { Icon: FaGlobeAmericas, title: t('home.point3Title'), desc: t('home.point3Desc'), color: 'bg-gray-50 border-gray-200 text-gray-500' },
               ].map((point) => {
                 const [bg, border, ic] = point.color.split(' ')
@@ -322,8 +322,8 @@ export default function HomePage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-3">
-              <span className="w-5 h-px bg-brand-400 inline-block" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-500 uppercase tracking-widest mb-3">
+              <span className="w-5 h-px bg-blue-400 inline-block" />
               {t('home.parentsLabel')}
             </div>
             <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.parentsTitle')}</h2>
@@ -332,10 +332,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { Icon: FaClock,         title: t('home.parent1Title'), desc: t('home.parent1Desc'), iconColor: 'text-brand-500',  border: 'border-brand-200' },
-              { Icon: FaBullseye,      title: t('home.parent2Title'), desc: t('home.parent2Desc'), iconColor: 'text-accent-500',  border: 'border-accent-200' },
+              { Icon: FaBullseye,      title: t('home.parent2Title'), desc: t('home.parent2Desc'), iconColor: 'text-blue-500',  border: 'border-blue-200' },
               { Icon: FaPencilAlt,     title: t('home.parent3Title'), desc: t('home.parent3Desc'), iconColor: 'text-brand-500',    border: 'border-brand-200'   },
               { Icon: FaStar,          title: t('home.parent4Title'), desc: t('home.parent4Desc'), iconColor: 'text-gray-500',    border: 'border-gray-200'   },
-              { Icon: FaGamepad,       title: t('home.parent5Title'), desc: t('home.parent5Desc'), iconColor: 'text-brand-500', border: 'border-brand-200'},
+              { Icon: FaGamepad,       title: t('home.parent5Title'), desc: t('home.parent5Desc'), iconColor: 'text-blue-500', border: 'border-blue-200'},
               { Icon: FaGraduationCap, title: t('home.parent6Title'), desc: t('home.parent6Desc'), iconColor: 'text-brand-400',  border: 'border-brand-200' },
             ].map((card) => (
               <div key={card.title} className={`rounded-2xl border-2 p-6 bg-white ${card.border} hover:-translate-y-1 hover:shadow-lg transition-all`}>
@@ -351,7 +351,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA BANNER ────────────────────────────────────── */}
-      <section className="py-24 bg-gradient-to-br from-brand-500 via-accent-500 to-accent-600 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-brand-500 via-accent-500 to-blue-600 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="relative z-10 max-w-6xl mx-auto px-5 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">{t('home.ctaTitle')}</h2>

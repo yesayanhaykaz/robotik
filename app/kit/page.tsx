@@ -104,13 +104,13 @@ const colorMap: Record<string, { border: string; bg: string; text: string; iconB
     button: 'from-brand-500 to-brand-600',
   },
   gray: {
-    border: 'border-gray-200',
-    bg: 'bg-gray-50',
-    text: 'text-gray-600',
-    iconBg: 'bg-gray-100',
-    badge: 'bg-gray-100 text-gray-700 border-gray-200',
-    glow: 'hover:shadow-gray-200',
-    button: 'from-gray-500 to-gray-600',
+    border: 'border-blue-200',
+    bg: 'bg-blue-50',
+    text: 'text-blue-600',
+    iconBg: 'bg-blue-100',
+    badge: 'bg-blue-100 text-blue-700 border-blue-200',
+    glow: 'hover:shadow-blue-200',
+    button: 'from-blue-500 to-blue-600',
   },
   accent: {
     border: 'border-accent-200',
@@ -129,7 +129,7 @@ export default function KitPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-br from-brand-50 to-accent-50 py-16 px-5 border-b border-brand-100">
+      <div className="bg-gradient-to-br from-brand-50 to-blue-50 py-16 px-5 border-b border-brand-100">
         <div className="max-w-6xl mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('kitPage.back')}
@@ -140,7 +140,7 @@ export default function KitPage() {
           </div>
           <h1 className="text-5xl font-black text-gray-900 mb-4">
             {t('kitPage.title1')}{' '}
-            <span className="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-500 via-blue-500 to-accent-500 bg-clip-text text-transparent">
               {t('kitPage.title2')}
             </span>
           </h1>
