@@ -13,10 +13,11 @@ export function middleware(request: NextRequest) {
 
   if (hasLocale) return NextResponse.next()
 
-  // Redirect to default locale
-  const url = request.nextUrl.clone()
-  url.pathname = `/${defaultLocale}${pathname}`
-  return NextResponse.redirect(url)
+  // Redirect to default locale using the request's host header
+  const host = request.headers.get('host') || request.nextUrl.host
+  const protocol = request.headers.get('x-forwarded-proto') || request.nextUrl.protocol.replace(':', '')
+  const redirectUrl = `${protocol}://${host}/${defaultLocale}${pathname}`
+  return NextResponse.redirect(redirectUrl)
 }
 
 export const config = {
