@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Baloo_2, Nunito, Noto_Sans_Armenian, JetBrains_Mono } from 'next/font/google'
+import { Baloo_2, Nunito, JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -19,9 +20,8 @@ const nunito = Nunito({
   display: 'swap',
 })
 
-const notoArmenian = Noto_Sans_Armenian({
-  subsets: ['armenian'],
-  weight: ['400', '600', '700', '800'],
+const nishikiTeki = localFont({
+  src: '../public/fonts/NishikiTeki.ttf',
   variable: '--font-armenian',
   display: 'swap',
 })
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${baloo.variable} ${nunito.variable} ${notoArmenian.variable} ${mono.variable}`}>
+    <html lang="en" className={`${baloo.variable} ${nunito.variable} ${nishikiTeki.variable} ${mono.variable}`}>
       <body className="antialiased">
         <LanguageProvider>
           <Navbar />
