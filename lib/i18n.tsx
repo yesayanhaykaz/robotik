@@ -250,9 +250,9 @@ power: {
 },
 
 ground: {
-  title: 'What is Ground?',
-  description: 'A reference point in a circuit where voltage is defined as zero. It completes the circuit and provides a return path for current.',
-  analogy: 'Like the baseline or “home” that everything returns to.',
+  title: 'What is an Arduino Board?',
+  description: 'A beginner-friendly microcontroller board that lets you build real electronic projects. Write code, upload it, and watch your circuit come alive.',
+  analogy: 'Like a tiny computer that speaks the language of electronics — you tell it what to do, and it controls LEDs, motors, sensors, and more.',
 },
 
 battery: {
@@ -663,9 +663,9 @@ signal: {
 
 
 ground: {
-  title: 'Ի՞նչ է գետինը (Ground)',
-  description: 'Գետինը այն կետն է, որտեղ էլեկտրականությունը «վերադառնում է»։ Այն օգնում է համակարգին ճիշտ աշխատել։',
-  analogy: 'Դա նման է տուն վերադառնալուն խաղից հետո․ բոլորը վերջում գալիս են նույն տեղը։',
+  title: 'Ինչ է Արդուինո բորդը',
+  description: 'Արդուինոն սկսնակների համար նախատեսված միկրոկոնտրոլերի բորդ է՝ որը թույլ է տալիս իրական էլեկտրոնիկայի նախագծեր ստեղծել։',
+  analogy: 'Փոքրիկ համակարգիչ՝ որին ասում ես թե ինչ անել՝ և նա կառավարում է LED-ներ՝ մոտորներ և սենսորներ։',
 },
   electricity: {
     title: 'Ի՞նչ է էլեկտրականությունը',

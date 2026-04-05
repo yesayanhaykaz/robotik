@@ -2,7 +2,7 @@ import type { IconType } from 'react-icons'
 import {
   FaBolt, FaBatteryFull, FaTint, FaShieldAlt, FaPlug, FaCaretRight,
   FaLightbulb, FaDatabase, FaAtom, FaRobot,
-  FaCircle, FaLink, FaBan, FaLock, FaFire, FaBatteryHalf,
+  FaCircle, FaLink, FaBan, FaLock, FaFire, FaBatteryHalf, FaMicrochip,
   FaToggleOn, FaSyncAlt, FaSlidersH, FaWaveSquare, FaBroadcastTower,
 } from 'react-icons/fa'
 
@@ -305,14 +305,16 @@ export const concepts: Concept[] = [
   {
     id: 'ground',
     num: '17',
-    Icon: FaCaretRight,
-    title: 'What is Ground?',
+    Icon: FaMicrochip,
+    title: 'What is an Arduino Board?',
     color: 'yellow',
     duration: '~1.5 min',
     description:
-      'A reference point in a circuit where voltage is defined as zero. It completes the circuit and provides a return path for current.',
+      'A beginner-friendly microcontroller board that lets you build real electronic projects. Write code, upload it, and watch your circuit come alive.',
     analogy:
-      'Like the baseline or "home" that everything returns to.',
+      'Like a tiny computer that speaks the language of electronics — you tell it what to do, and it controls LEDs, motors, sensors, and more.',
+    videoId: 'dmNWp1P0ZdU',
+    isShorts: true,
   },
   {
     id: 'switch',
