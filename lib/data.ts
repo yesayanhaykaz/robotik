@@ -227,6 +227,8 @@ export const concepts: Concept[] = [
       "A tiny computer on a chip. It has a processor, memory, and — most importantly — pins that connect to the physical world. Read inputs. Control outputs. That's engineering thinking.",
     analogy:
       'A tiny brain that can sense the world and control things in it.',
+    videoId: 'pjGItxLEouo',
+    isShorts: true,
   },
   {
     id: 'electron',
