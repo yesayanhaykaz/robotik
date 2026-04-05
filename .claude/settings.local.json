@@ -19,7 +19,16 @@
       "Bash(echo PATH=$PATH)",
       "Bash(mkdir -p /tmp/font-preview)",
       "Read(//tmp/**)",
-      "Bash(unzip -o \"/Users/yesayan/Desktop/robotik-all/fonter.am_nishiki-teki.zip\")"
+      "Bash(unzip -o \"/Users/yesayan/Desktop/robotik-all/fonter.am_nishiki-teki.zip\")",
+      "Bash(fc-query /tmp/font-preview/NishikiTeki-MVxaJ.ttf)",
+      "Bash(python3 -m pip install fonttools)",
+      "Bash(pip3 install:*)",
+      "Bash(mkdir -p /tmp/mardoto)",
+      "Bash(unzip -o \"/Users/yesayan/Desktop/robotik-all/fonter.am_mardoto.zip\")",
+      "Bash(cp /tmp/mardoto/Mardoto-Regular.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
+      "Bash(cp /tmp/mardoto/Mardoto-Medium.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
+      "Bash(cp /tmp/mardoto/Mardoto-Bold.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
+      "Bash(cp /tmp/mardoto/Mardoto-Black.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)"
     ]
   }
 }
