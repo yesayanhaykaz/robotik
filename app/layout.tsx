@@ -45,18 +45,6 @@ export const metadata: Metadata = {
   title: 'Robotik — Build Real Things',
   description:
     'Online robotics and electronics lessons for curious kids ages 7–15. Watch, build, and think like an engineer.',
-  openGraph: {
-    title: 'Robotik — Build Real Things',
-    description: 'Online robotics and electronics lessons for curious kids ages 7–15. Watch, build, and think like an engineer.',
-    images: [{ url: '/og-image.webp', width: 1200, height: 630 }],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Robotik — Build Real Things',
-    description: 'Online robotics and electronics lessons for curious kids ages 7–15.',
-    images: ['/og-image.webp'],
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
