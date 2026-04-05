@@ -38,8 +38,19 @@ export default function LessonDetailClient({ id }: { id: string }) {
       <div className="h-1.5 bg-gradient-to-r from-brand-400 via-accent-400 to-accent-500" />
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-brand-50 to-brand-50 py-14 px-5 border-b border-brand-100">
-        <div className="max-w-4xl mx-auto">
+      <div
+        className="relative py-14 px-5 border-b border-brand-100 overflow-hidden"
+        style={lesson.heroImage ? {
+          backgroundImage: `url(${lesson.heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        } : undefined}
+      >
+        {lesson.heroImage && (
+          <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+        )}
+        {!lesson.heroImage && <div className="absolute inset-0 bg-gradient-to-br from-brand-50 to-brand-50" />}
+        <div className="max-w-4xl mx-auto relative z-10">
           <Link href={`/${locale}/lessons`} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
             <FaChevronLeft size={12} /> {t('lessonDetail.allLessons')}
           </Link>

@@ -32,6 +32,7 @@ export interface Lesson {
   components: string[]
   duration: string
   videoId?: string
+  heroImage?: string
 }
 
 export const colorStyles: Record<
@@ -425,6 +426,7 @@ export const lessons: Lesson[] = [
       '2× Jumper Wires',
     ],
     duration: '~4 min',
+    heroImage: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=1400&q=80',
   },
   {
     id: 'button',
@@ -445,5 +447,6 @@ export const lessons: Lesson[] = [
       '4× Jumper Wires',
     ],
     duration: '~4 min',
+    heroImage: 'https://images.unsplash.com/photo-1580584126903-c17d41830571?w=1400&q=80',
   },
 ]
