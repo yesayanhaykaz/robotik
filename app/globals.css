@@ -31,7 +31,12 @@
   :lang(hy) h3,
   :lang(hy) h4,
   :lang(hy) h5 {
-    font-family: var(--font-armenian), var(--font-heading), sans-serif;
+    font-family: var(--font-armenian-heading), var(--font-heading), sans-serif;
+  }
+  :lang(hy) .font-black,
+  :lang(hy) .font-extrabold,
+  :lang(hy) .font-bold {
+    font-family: var(--font-armenian-heading), var(--font-heading), sans-serif;
   }
   :lang(ru) h1,
   :lang(ru) h2,

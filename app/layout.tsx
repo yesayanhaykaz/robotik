@@ -20,9 +20,20 @@ const nunito = Nunito({
   display: 'swap',
 })
 
+const mardoto = localFont({
+  src: [
+    { path: '../public/fonts/Mardoto-Regular.ttf', weight: '400' },
+    { path: '../public/fonts/Mardoto-Medium.ttf', weight: '500' },
+    { path: '../public/fonts/Mardoto-Bold.ttf', weight: '700' },
+    { path: '../public/fonts/Mardoto-Black.ttf', weight: '900' },
+  ],
+  variable: '--font-armenian',
+  display: 'swap',
+})
+
 const nishikiTeki = localFont({
   src: '../public/fonts/NishikiTeki.ttf',
-  variable: '--font-armenian',
+  variable: '--font-armenian-heading',
   display: 'swap',
 })
 
@@ -41,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${baloo.variable} ${nunito.variable} ${nishikiTeki.variable} ${mono.variable}`}>
+    <html lang="en" className={`${baloo.variable} ${nunito.variable} ${mardoto.variable} ${nishikiTeki.variable} ${mono.variable}`}>
       <body className="antialiased">
         <LanguageProvider>
           <Navbar />
