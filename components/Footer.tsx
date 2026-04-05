@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useLanguage } from '@/lib/i18n'
 
 export default function Footer() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200 pt-12 pb-8">
@@ -45,17 +45,17 @@ export default function Footer() {
             <h4 className="font-bold text-gray-800 mb-4 text-sm uppercase tracking-widest">{t('footer.learnLabel')}</h4>
             <ul className="flex flex-col gap-3">
               <li>
-                <Link href="/concepts" className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
+                <Link href={`/${locale}/concepts`} className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
                   {t('footer.allConcepts')}
                 </Link>
               </li>
               <li>
-                <Link href="/lessons" className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
+                <Link href={`/${locale}/lessons`} className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
                   {t('footer.projectLessons')}
                 </Link>
               </li>
               <li>
-                <Link href="/#how" className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
+                <Link href={`/${locale}/#how`} className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
                   {t('footer.howItWorks')}
                 </Link>
               </li>

@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { Baloo_2, Nunito, JetBrains_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import { LanguageProvider } from '@/lib/i18n'
 
 const baloo = Baloo_2({
   subsets: ['latin'],
@@ -52,13 +49,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${baloo.variable} ${nunito.variable} ${mardoto.variable} ${nishikiTeki.variable} ${mono.variable}`}>
+    <html className={`${baloo.variable} ${nunito.variable} ${mardoto.variable} ${nishikiTeki.variable} ${mono.variable}`}>
       <body className="antialiased">
-        <LanguageProvider>
-          <Navbar />
-          <main className="pt-16">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   )

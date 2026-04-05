@@ -5,14 +5,14 @@ import { lessons, lessonBadgeStyles } from '@/lib/data'
 import { useLanguage } from '@/lib/i18n'
 
 export default function LessonsPage() {
-  const { t, tLesson } = useLanguage()
+  const { t, tLesson, locale } = useLanguage()
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-br from-brand-50 to-brand-50 py-16 px-5 border-b border-brand-100">
         <div className="max-w-6xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
+          <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('lessonsPage.back')}
           </Link>
           <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-500 uppercase tracking-widest mb-4">
@@ -40,7 +40,7 @@ export default function LessonsPage() {
             return (
               <Link
                 key={lesson.id}
-                href={`/lessons/${lesson.id}`}
+                href={`/${locale}/lessons/${lesson.id}`}
                 className="group bg-white rounded-3xl border-2 border-gray-100 hover:border-brand-300 hover:shadow-2xl hover:shadow-brand-100 hover:-translate-y-2 transition-all overflow-hidden"
               >
                 {/* Colorful top stripe */}

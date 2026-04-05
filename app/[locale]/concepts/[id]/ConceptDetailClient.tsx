@@ -7,7 +7,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 import { useLanguage } from '@/lib/i18n'
 
 export default function ConceptDetailClient({ id }: { id: string }) {
-  const { t, tConcept } = useLanguage()
+  const { t, tConcept, locale } = useLanguage()
   const concept = concepts.find((c) => c.id === id)
   if (!concept) return null
 
@@ -23,7 +23,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
       {/* Header */}
       <div className={`${c.sectionBg} py-14 px-5 border-b ${c.border}`}>
         <div className="max-w-4xl mx-auto">
-          <Link href="/concepts" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
+          <Link href={`/${locale}/concepts`} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
             <FaChevronLeft size={12} /> {t('conceptDetail.allConcepts')}
           </Link>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
@@ -89,7 +89,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
                   const cc = colorStyles[con.color]
                   const conTitle = tConcept(con.id).title
                   return (
-                    <Link key={con.id} href={`/concepts/${con.id}`}
+                    <Link key={con.id} href={`/${locale}/concepts/${con.id}`}
                       className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-semibold transition-all ${
                         con.id === concept.id
                           ? `${cc.tagBg} ${cc.tagText} border ${cc.border}`
@@ -107,7 +107,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
             <div className={`${c.analogyBg} rounded-2xl border ${c.border} p-5`}>
               <h3 className="font-black text-gray-800 mb-2">{t('conceptDetail.readyToBuild')}</h3>
               <p className="text-sm text-gray-500 mb-4 font-body">{t('conceptDetail.readyToBuildDesc')}</p>
-              <Link href="/lessons" className="w-full block text-center bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
+              <Link href={`/${locale}/lessons`} className="w-full block text-center bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
                 {t('conceptDetail.viewLessons')}
               </Link>
             </div>
@@ -117,7 +117,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
         {/* Prev / Next */}
         <div className="mt-14 pt-8 border-t border-gray-100 flex justify-between gap-4">
           {prev ? (
-            <Link href={`/concepts/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
+            <Link href={`/${locale}/concepts/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
               <FaChevronLeft size={16} className="text-gray-300 group-hover:text-blue-400 transition-colors" />
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.previous')}</div>
@@ -126,7 +126,7 @@ export default function ConceptDetailClient({ id }: { id: string }) {
             </Link>
           ) : <div />}
           {next && (
-            <Link href={`/concepts/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
+            <Link href={`/${locale}/concepts/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('conceptDetail.next')}</div>
                 <div className="font-black text-gray-800 group-hover:text-blue-600 transition-colors">{tConcept(next.id).title}</div>

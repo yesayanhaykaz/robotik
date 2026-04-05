@@ -22,7 +22,7 @@ const stepIcons: Record<string, React.ComponentType<{ size?: number; className?:
 }
 
 export default function LessonDetailClient({ id }: { id: string }) {
-  const { t, tLesson, tConcept } = useLanguage()
+  const { t, tLesson, tConcept, locale } = useLanguage()
   const lesson = lessons.find((l) => l.id === id)
   if (!lesson) return null
 
@@ -40,7 +40,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
       {/* Header */}
       <div className="bg-gradient-to-br from-brand-50 to-brand-50 py-14 px-5 border-b border-brand-100">
         <div className="max-w-4xl mx-auto">
-          <Link href="/lessons" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
+          <Link href={`/${locale}/lessons`} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
             <FaChevronLeft size={12} /> {t('lessonDetail.allLessons')}
           </Link>
           <div className="flex items-center gap-3 mb-4">
@@ -149,7 +149,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
               </div>
               <h3 className="font-black text-gray-800 mb-2">{t('lessonDetail.dontHaveParts')}</h3>
               <p className="text-sm text-gray-500 mb-4 font-body">{t('lessonDetail.dontHavePartsDesc')}</p>
-              <Link href="/kit" className="w-full block text-center bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
+              <Link href={`/${locale}/kit`} className="w-full block text-center bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-5 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
                 {t('lessonDetail.orderKit')}
               </Link>
             </div>
@@ -164,7 +164,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
                     const { Icon } = con
                     const cc = colorStyles[con.color]
                     return (
-                      <Link key={con.id} href={`/concepts/${con.id}`}
+                      <Link key={con.id} href={`/${locale}/concepts/${con.id}`}
                         className="flex items-center gap-3 bg-white rounded-xl border border-gray-100 px-3 py-2.5 hover:border-brand-300 hover:shadow-sm transition-all text-sm font-semibold text-gray-700 hover:text-brand-700"
                       >
                         <Icon size={14} className={cc.tagText} />
@@ -181,7 +181,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
         {/* Prev / Next */}
         <div className="mt-14 pt-8 border-t border-gray-100 flex justify-between gap-4">
           {prev ? (
-            <Link href={`/lessons/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
+            <Link href={`/${locale}/lessons/${prev.id}`} className="flex items-center gap-3 group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -ml-4">
               <FaChevronLeft size={16} className="text-gray-300 group-hover:text-brand-400 transition-colors" />
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('lessonDetail.previousLesson')}</div>
@@ -190,7 +190,7 @@ export default function LessonDetailClient({ id }: { id: string }) {
             </Link>
           ) : <div />}
           {next && (
-            <Link href={`/lessons/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
+            <Link href={`/${locale}/lessons/${next.id}`} className="flex items-center gap-3 text-right group hover:bg-gray-50 rounded-2xl px-4 py-3 transition-all -mr-4 ml-auto">
               <div>
                 <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{t('lessonDetail.nextLesson')}</div>
                 <div className="font-black text-gray-800 group-hover:text-brand-600 transition-colors">{tLesson(next.id).title}</div>

@@ -124,14 +124,14 @@ const colorMap: Record<string, { border: string; bg: string; text: string; iconB
 }
 
 export default function KitPage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-br from-brand-50 to-blue-50 py-16 px-5 border-b border-brand-100">
         <div className="max-w-6xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
+          <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('kitPage.back')}
           </Link>
           <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-4">

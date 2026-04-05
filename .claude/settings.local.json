@@ -28,7 +28,14 @@
       "Bash(cp /tmp/mardoto/Mardoto-Regular.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
       "Bash(cp /tmp/mardoto/Mardoto-Medium.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
       "Bash(cp /tmp/mardoto/Mardoto-Bold.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
-      "Bash(cp /tmp/mardoto/Mardoto-Black.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)"
+      "Bash(cp /tmp/mardoto/Mardoto-Black.ttf /Users/yesayan/Desktop/robotik-all/robotik/public/fonts/)",
+      "Bash(python3:*)",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/app/[locale])",
+      "Bash(mv app/page.tsx \"app/[locale]/page.tsx\")",
+      "Bash(mv app/chat/page.tsx \"app/[locale]/chat/page.tsx\")",
+      "Bash(mv app/concepts/page.tsx \"app/[locale]/concepts/page.tsx\")",
+      "Bash(mv app/concepts/[id]/ConceptDetailClient.tsx \"app/[locale]/concepts/[id]/ConceptDetailClient.tsx\")",
+      "Bash(mv app/concepts/[id]/page.tsx \"app/[locale]/concepts/[id]/page.tsx\")"
     ]
   }
 }

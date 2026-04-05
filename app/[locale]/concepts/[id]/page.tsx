@@ -3,21 +3,23 @@ import { concepts } from '@/lib/data'
 import ConceptDetailClient from './ConceptDetailClient'
 import type { Metadata } from 'next'
 
-type Props = { params: { id: string } }
+type Props = { params: Promise<{ locale: string; id: string }> }
 
 export function generateStaticParams() {
   return concepts.map((c) => ({ id: c.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const concept = concepts.find((c) => c.id === params.id)
+  const { id } = await params
+  const concept = concepts.find((c) => c.id === id)
   if (!concept) return {}
   return { title: `${concept.title} — Robotik`, description: concept.description }
 }
 
-export default function ConceptDetailPage({ params }: Props) {
-  const concept = concepts.find((c) => c.id === params.id)
+export default async function ConceptDetailPage({ params }: Props) {
+  const { id } = await params
+  const concept = concepts.find((c) => c.id === id)
   if (!concept) notFound()
 
-  return <ConceptDetailClient id={params.id} />
+  return <ConceptDetailClient id={id} />
 }

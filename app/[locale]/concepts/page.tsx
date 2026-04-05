@@ -5,13 +5,13 @@ import { concepts, colorStyles } from '@/lib/data'
 import { useLanguage } from '@/lib/i18n'
 
 export default function ConceptsPage() {
-  const { t, tConcept } = useLanguage()
+  const { t, tConcept, locale } = useLanguage()
 
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-gradient-to-br from-brand-50 to-blue-50 py-16 px-5 border-b border-blue-100">
         <div className="max-w-6xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
+          <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('conceptsPage.back')}
           </Link>
           <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">
@@ -37,7 +37,7 @@ export default function ConceptsPage() {
             return (
               <Link
                 key={concept.id}
-                href={`/concepts/${concept.id}`}
+                href={`/${locale}/concepts/${concept.id}`}
                 className={`group bg-white rounded-3xl border-2 ${c.border} p-7 hover:-translate-y-1.5 hover:shadow-2xl ${c.glowShadow} transition-all`}
               >
                 <div className="flex items-start justify-between mb-5">

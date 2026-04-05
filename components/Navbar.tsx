@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { FaBars, FaTimes, FaMicrochip, FaGlobe, FaRobot } from 'react-icons/fa'
 import { useLanguage, type Locale } from '@/lib/i18n'
 
@@ -12,14 +12,21 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const pathname = usePathname()
-  const { locale, setLocale, t } = useLanguage()
+  const router = useRouter()
+  const { locale, t } = useLanguage()
+
+  const switchLocale = (newLocale: Locale) => {
+    const pathWithoutLocale = pathname.replace(/^\/(en|hy|ru)/, '') || '/'
+    router.push(`/${newLocale}${pathWithoutLocale}`)
+    setLangOpen(false)
+  }
 
   const navLinks: { href: string; label: string; icon?: boolean }[] = [
-    { href: '/#how',      label: t('nav.howItWorks') },
-    { href: '/concepts',  label: t('nav.concepts')   },
-    { href: '/lessons',   label: t('nav.lessons')    },
-    { href: '/kit',       label: t('nav.starterKit') },
-    { href: '/chat',      label: t('chatPage.label'), icon: true },
+    { href: `/${locale}/#how`,      label: t('nav.howItWorks') },
+    { href: `/${locale}/concepts`,  label: t('nav.concepts')   },
+    { href: `/${locale}/lessons`,   label: t('nav.lessons')    },
+    { href: `/${locale}/kit`,       label: t('nav.starterKit') },
+    { href: `/${locale}/chat`,      label: t('chatPage.label'), icon: true },
   ]
 
   return (
@@ -27,7 +34,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
+        <Link href={`/${locale}`} className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
             <FaMicrochip size={16} className="text-white" />
           </div>
@@ -73,7 +80,7 @@ export default function Navbar() {
                         ? 'text-brand-600 bg-brand-50'
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                     }`}
-                    onClick={() => { setLocale(loc); setLangOpen(false) }}
+                    onClick={() => switchLocale(loc)}
                   >
                     {label} — {loc === 'en' ? 'English' : loc === 'hy' ? 'Հայերեն' : 'Русский'}
                   </button>
@@ -83,7 +90,7 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/concepts" className="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <Link href={`/${locale}/concepts`} className="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
               {t('nav.startBuilding')}
             </Link>
           </li>
@@ -110,7 +117,7 @@ export default function Navbar() {
                         ? 'text-brand-600 bg-brand-50'
                         : 'text-gray-600 hover:bg-gray-100'
                     }`}
-                    onClick={() => { setLocale(loc); setLangOpen(false) }}
+                    onClick={() => switchLocale(loc)}
                   >
                     {label} — {loc === 'en' ? 'English' : loc === 'hy' ? 'Հայերեն' : 'Русский'}
                   </button>
@@ -140,7 +147,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/concepts"
+            <Link href={`/${locale}/concepts`}
               className="mt-2 px-5 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-center shadow-md"
               onClick={() => setOpen(false)}
             >

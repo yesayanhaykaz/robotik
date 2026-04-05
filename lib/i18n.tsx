@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, type ReactNode } from 'react'
 
 export type Locale = 'en' | 'hy' | 'ru'
 
@@ -1134,7 +1134,6 @@ type DeepKeyOf<T, Prefix extends string = ''> = T extends object
 
 interface LanguageContextValue {
   locale: Locale
-  setLocale: (l: Locale) => void
   t: (key: string) => string
   tConcept: (id: string) => { title: string; description: string; analogy: string }
   tLesson: (id: string) => { title: string; badge: string; description: string; steps: string[] }
@@ -1142,7 +1141,6 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue>({
   locale: 'en',
-  setLocale: () => {},
   t: (k) => k,
   tConcept: (id) => translations.en.concepts[id as keyof typeof translations.en.concepts] ?? { title: id, description: '', analogy: '' },
   tLesson: (id) => {
@@ -1151,22 +1149,10 @@ const LanguageContext = createContext<LanguageContextValue>({
   },
 })
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en')
-
-  useEffect(() => {
-    const saved = localStorage.getItem('robotik-locale') as Locale
-    if (saved && ['en', 'hy', 'ru'].includes(saved)) setLocaleState(saved)
-  }, [])
-
+export function LanguageProvider({ locale, children }: { locale: Locale; children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = locale
   }, [locale])
-
-  const setLocale = (l: Locale) => {
-    setLocaleState(l)
-    localStorage.setItem('robotik-locale', l)
-  }
 
   const t = (key: string): string => {
     const keys = key.split('.')
@@ -1197,7 +1183,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, tConcept, tLesson }}>
+    <LanguageContext.Provider value={{ locale, t, tConcept, tLesson }}>
       {children}
     </LanguageContext.Provider>
   )

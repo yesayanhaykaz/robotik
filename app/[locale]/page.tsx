@@ -22,7 +22,7 @@ const kitItems = [
 ]
 
 export default function HomePage() {
-  const { t, tConcept, tLesson } = useLanguage()
+  const { t, tConcept, tLesson, locale } = useLanguage()
   const previewConcepts = concepts.slice(0, 6)
 
   return (
@@ -50,10 +50,10 @@ export default function HomePage() {
               {t('home.heroSubtitle')}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/concepts" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href={`/${locale}/concepts`} className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 {t('home.heroStartLearning')}
               </Link>
-              <Link href="/lessons" className="inline-flex items-center gap-2 bg-white text-gray-700 font-bold px-7 py-3.5 rounded-full border-2 border-gray-200 hover:border-brand-300 hover:text-brand-600 transition-all">
+              <Link href={`/${locale}/lessons`} className="inline-flex items-center gap-2 bg-white text-gray-700 font-bold px-7 py-3.5 rounded-full border-2 border-gray-200 hover:border-brand-300 hover:text-brand-600 transition-all">
                 {t('home.heroSeeLessons')}
               </Link>
             </div>
@@ -141,7 +141,7 @@ export default function HomePage() {
               <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.conceptsTitle')}</h2>
               <p className="text-gray-500 text-lg max-w-xl font-body">{t('home.conceptsSubtitle')}</p>
             </div>
-            <Link href="/concepts" className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition-colors shadow-md">
+            <Link href={`/${locale}/concepts`} className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition-colors shadow-md">
               {t('home.viewAll10')}
             </Link>
           </div>
@@ -151,7 +151,7 @@ export default function HomePage() {
               const { Icon } = concept
               const tc = tConcept(concept.id)
               return (
-                <Link key={concept.id} href={`/concepts/${concept.id}`}
+                <Link key={concept.id} href={`/${locale}/concepts/${concept.id}`}
                   className={`group bg-white rounded-2xl border-2 ${c.border} p-6 hover:-translate-y-1 hover:shadow-xl ${c.glowShadow} transition-all`}
                 >
                   <div className="flex items-start justify-between mb-4">
@@ -185,7 +185,7 @@ export default function HomePage() {
               <h2 className="text-4xl font-black text-gray-900 mb-3">{t('home.lessonsTitle')}</h2>
               <p className="text-gray-500 text-lg max-w-xl font-body">{t('home.lessonsSubtitle')}</p>
             </div>
-            <Link href="/lessons" className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-500 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-600 transition-colors shadow-md">
+            <Link href={`/${locale}/lessons`} className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-500 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-600 transition-colors shadow-md">
               {t('home.viewAllLessons')}
             </Link>
           </div>
@@ -193,7 +193,7 @@ export default function HomePage() {
             {lessons.map((lesson) => {
               const tl = tLesson(lesson.id)
               return (
-                <Link key={lesson.id} href={`/lessons/${lesson.id}`}
+                <Link key={lesson.id} href={`/${locale}/lessons/${lesson.id}`}
                   className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-100 hover:-translate-y-1 transition-all overflow-hidden"
                 >
                   <div className="p-7">
@@ -265,7 +265,7 @@ export default function HomePage() {
               <p className="text-gray-500 leading-relaxed mb-8 font-body">
                 {t('home.kitDesc2')}
               </p>
-              <Link href="/kit" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href={`/${locale}/kit`} className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 {t('home.orderKit')}
               </Link>
               <p className="mt-4 text-sm text-gray-400 font-body">{t('home.kitShips')}</p>
@@ -359,10 +359,10 @@ export default function HomePage() {
             {t('home.ctaSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/concepts" className="bg-white text-brand-600 font-black px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
+            <Link href={`/${locale}/concepts`} className="bg-white text-brand-600 font-black px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
               {t('home.ctaExplore')}
             </Link>
-            <Link href="/lessons" className="bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all text-lg">
+            <Link href={`/${locale}/lessons`} className="bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all text-lg">
               {t('home.ctaLessons')}
             </Link>
           </div>
