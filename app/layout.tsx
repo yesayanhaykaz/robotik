@@ -42,6 +42,7 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://robotik.salooote.am'),
   title: 'Robotik — Build Real Things',
   description:
     'Online robotics and electronics lessons for curious kids ages 7–15. Watch, build, and think like an engineer.',
