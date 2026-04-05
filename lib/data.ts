@@ -159,6 +159,8 @@ export const concepts: Concept[] = [
     description:
       "The thing that slows electricity down. Measured in Ohms. V = I × R — Ohm's Law ties all three together.",
     analogy: 'A narrow section in a pipe that slows the water flow.',
+    videoId: '6DjNKZQ4sSE',
+    isShorts: true,
   },
   {
     id: 'resistor',
