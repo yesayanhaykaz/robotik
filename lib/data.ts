@@ -255,6 +255,8 @@ export const concepts: Concept[] = [
       'A material that allows electrons to move freely. Metals like copper are excellent conductors, which is why wires are made from them.',
     analogy:
       'Like a smooth, open highway where cars can move easily.',
+    videoId: 'o-iWPex_liA',
+    isShorts: true,
   },
   {
     id: 'insulator',
@@ -267,6 +269,8 @@ export const concepts: Concept[] = [
       'A material that resists the flow of electrons. It prevents electricity from going where it shouldn\'t.',
     analogy:
       'Like a wall blocking the road — nothing can pass through.',
+    videoId: 'o-iWPex_liA',
+    isShorts: true,
   },
   {
     id: 'isolation',
