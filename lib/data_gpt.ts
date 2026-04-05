@@ -19,7 +19,6 @@ export interface Concept {
   analogy: string
   videoId?: string
   isShorts?: boolean
-  heroImage?: string
 }
 
 export interface Lesson {
@@ -121,11 +120,10 @@ export const concepts: Concept[] = [
     color: 'orange',
     duration: '~1.5 min',
     description:
-      "The invisible force that powers everything around you. We'll discover what electrons are, why they move, and what that movement actually means.",
+      'Electricity is the movement of electrons through a material, and it is the reason lights glow, motors spin, sensors react, and robots come to life. This is the foundation of every beginner electronics and Arduino project.',
     analogy:
-      'Like water flowing through a pipe — electrons flowing through a wire IS electricity.',
+      'Like lots of tiny runners moving through one hallway — when the electrons move together, the whole system starts working.',
     videoId: '1OxI9o0l3WU',
-    heroImage: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=1400&q=80',
   },
   {
     id: 'voltage',
@@ -135,11 +133,10 @@ export const concepts: Concept[] = [
     color: 'cyan',
     duration: '~1.5 min',
     description:
-      'The pressure that pushes electricity through a wire. Measured in Volts — from a 1.5V battery to a 220V wall socket.',
+      'Voltage is the push behind electricity. It is the electrical pressure that moves electrons through a circuit, whether it comes from a small battery or an Arduino power source.',
     analogy: 'Water pressure in a pipe — higher pressure means stronger push.',
     videoId: '0v3t92xasrI',
     isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1400&q=80',
   },
   {
     id: 'current',
@@ -149,9 +146,8 @@ export const concepts: Concept[] = [
     color: 'cyan',
     duration: '~1.5 min',
     description:
-      'How much electricity actually flows through a wire each second. Measured in Amperes — the quantity, not the force.',
+      'Current tells you how much electricity is actually flowing through a circuit. It is measured in amperes and helps explain why some components stay cool while others get hot.',
     analogy: 'How much water flows through the pipe, not just the pressure.',
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1400&q=80',
   },
   {
     id: 'resistance',
@@ -161,11 +157,8 @@ export const concepts: Concept[] = [
     color: 'purple',
     duration: '~1.5 min',
     description:
-      "The thing that slows electricity down. Measured in Ohms. V = I × R — Ohm's Law ties all three together.",
+      "Resistance is what slows electric flow. It is measured in ohms and helps kids understand why circuits need control instead of letting too much current rush through at once.",
     analogy: 'A narrow section in a pipe that slows the water flow.',
-    videoId: '6DjNKZQ4sSE',
-    isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80',
   },
   {
     id: 'resistor',
@@ -175,9 +168,8 @@ export const concepts: Concept[] = [
     color: 'purple',
     duration: '~1.5 min',
     description:
-      "A component whose entire job is adding a specific amount of resistance. Those colored stripes? They're a code that tells you exactly how many Ohms.",
+      "A resistor is a simple but essential component that limits current to protect LEDs and other parts. Those colored bands are a code that tells you exactly how much resistance it adds.",
     analogy: 'A speed bump for electricity. Protects LEDs from burning out.',
-    heroImage: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=1400&q=80',
   },
   {
     id: 'diode',
@@ -187,9 +179,8 @@ export const concepts: Concept[] = [
     color: 'green',
     duration: '~1.5 min',
     description:
-      'A component that only allows electricity to flow in one direction. The right way — current flows. Backwards — nothing happens.',
+      'A diode is a one-way component for electricity. It lets current move forward but blocks it from going the wrong way, which is why direction matters when building circuits.',
     analogy: 'A one-way door. You can walk through going forward, but not back.',
-    heroImage: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=1400&q=80',
   },
   {
     id: 'led',
@@ -199,9 +190,8 @@ export const concepts: Concept[] = [
     color: 'yellow',
     duration: '~1.5 min',
     description:
-      "Light Emitting Diode — a special diode that produces light when current flows through it. In your Robotik kit you have four colors. They're the first thing you'll bring to life.",
+      "An LED is a Light Emitting Diode — a tiny electronic component that glows when current passes through it. It is usually the first exciting result children see in beginner Arduino and electronics lessons.",
     analogy: 'A diode that glows! Connect it the right way and it lights up.',
-    heroImage: 'https://images.unsplash.com/photo-1550985543-49bee3167284?w=1400&q=80',
   },
   {
     id: 'capacitor',
@@ -211,9 +201,8 @@ export const concepts: Concept[] = [
     color: 'cyan',
     duration: '~1.5 min',
     description:
-      'Stores electrical energy and releases it in a burst. Unlike a battery, it charges and discharges in milliseconds.',
+      'A capacitor stores a small amount of electrical energy and releases it quickly when needed. It is used in electronics to smooth signals, create delays, and support fast changes in a circuit.',
     analogy: 'A tiny rechargeable bucket — fill it, then empty it fast.',
-    heroImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=1400&q=80',
   },
   {
     id: 'transistor',
@@ -223,10 +212,9 @@ export const concepts: Concept[] = [
     color: 'orange',
     duration: '~2 min',
     description:
-      "The most important invention of the 20th century. It's a switch and an amplifier in one tiny package — and your phone has billions of them. A small signal controls a much larger one.",
+      "A transistor is one of the most important building blocks in modern electronics. It can work like a switch or an amplifier, allowing a tiny signal to control a much bigger one.",
     analogy:
       'A tap you control electrically, not by hand. Small current in → large current controlled.',
-    heroImage: 'https://images.unsplash.com/photo-1640955014216-75201056c829?w=1400&q=80',
   },
   {
     id: 'microcontroller',
@@ -236,12 +224,11 @@ export const concepts: Concept[] = [
     color: 'orange',
     duration: '~2 min',
     description:
-      "A tiny computer on a chip. It has a processor, memory, and — most importantly — pins that connect to the physical world. Read inputs. Control outputs. That's engineering thinking.",
+      "A microcontroller is a tiny computer built to control the real world. It reads inputs from buttons and sensors, makes decisions in code, and controls outputs like LEDs, buzzers, and motors.",
     analogy:
       'A tiny brain that can sense the world and control things in it.',
     videoId: 'pjGItxLEouo',
     isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=1400&q=80',
   },
   {
     id: 'electron',
@@ -251,10 +238,9 @@ export const concepts: Concept[] = [
     color: 'cyan',
     duration: '~1.5 min',
     description:
-      'The fundamental particle that carries electric charge. Everything in electricity comes down to electrons moving through materials.',
+      'An electron is the tiny charged particle behind every electric effect. When electrons move through wires and components, they create the behavior we call electricity.',
     analogy:
       'Like tiny charged particles flowing through a wire — they are the actual "things" that move.',
-    heroImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80',
   },
   {
     id: 'conductor',
@@ -264,12 +250,9 @@ export const concepts: Concept[] = [
     color: 'green',
     duration: '~1.5 min',
     description:
-      'A material that allows electrons to move freely. Metals like copper are excellent conductors, which is why wires are made from them.',
+      'A conductor is a material that lets electrons move easily. Copper is a great example, which is why most beginner circuits and Arduino wires use it.',
     analogy:
       'Like a smooth, open highway where cars can move easily.',
-    videoId: 'o-iWPex_liA',
-    isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1400&q=80',
   },
   {
     id: 'insulator',
@@ -279,12 +262,9 @@ export const concepts: Concept[] = [
     color: 'purple',
     duration: '~1.5 min',
     description:
-      'A material that resists the flow of electrons. It prevents electricity from going where it shouldn\'t.',
+      'An insulator is a material that blocks or strongly resists the flow of electricity. It keeps current where it belongs and helps make circuits safe to touch and use.',
     analogy:
       'Like a wall blocking the road — nothing can pass through.',
-    videoId: 'o-iWPex_liA',
-    isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1400&q=80',
   },
   {
     id: 'isolation',
@@ -294,10 +274,9 @@ export const concepts: Concept[] = [
     color: 'purple',
     duration: '~1.5 min',
     description:
-      'The practice of separating parts of a circuit so that electricity cannot flow between them unintentionally. Critical for safety and signal integrity.',
+      'Electrical isolation means keeping parts of a circuit separated so electricity cannot accidentally jump where it should not go. It matters for safety, protection, and reliable signal behavior.',
     analogy:
       'Like separating two rooms so sound or movement doesn\'t leak between them.',
-    heroImage: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?w=1400&q=80',
   },
   {
     id: 'power',
@@ -307,10 +286,9 @@ export const concepts: Concept[] = [
     color: 'orange',
     duration: '~1.5 min',
     description:
-      'The rate at which electrical energy is used or transferred. Measured in Watts. Power = Voltage × Current.',
+      'Power tells you how fast electrical energy is being used. It combines voltage and current, which is why even simple Arduino projects can teach kids how real devices consume energy.',
     analogy:
       'Not just how hard you push (voltage) or how much flows (current), but how much total work is being done.',
-    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80',
   },
   {
     id: 'battery',
@@ -320,10 +298,9 @@ export const concepts: Concept[] = [
     color: 'green',
     duration: '~1.5 min',
     description:
-      'A device that stores chemical energy and converts it into electrical energy, providing voltage to power circuits.',
+      'A battery stores chemical energy and turns it into electrical energy that can power a circuit. It gives a project the voltage it needs to start working.',
     analogy:
       'Like a water tank that stores water and releases it when you need it. Here, instead of water, it\'s energy.',
-    heroImage: 'https://images.unsplash.com/photo-1619641805634-98e5c4e606ec?w=1400&q=80',
   },
   {
     id: 'ground',
@@ -333,12 +310,11 @@ export const concepts: Concept[] = [
     color: 'yellow',
     duration: '~1.5 min',
     description:
-      'A beginner-friendly microcontroller board that lets you build real electronic projects. Write code, upload it, and watch your circuit come alive.',
+      'An Arduino board is a beginner-friendly platform for learning electronics, coding, and robotics. You write code, upload it, connect real parts, and see your project respond in the physical world.',
     analogy:
       'Like a tiny computer that speaks the language of electronics — you tell it what to do, and it controls LEDs, motors, sensors, and more.',
     videoId: 'dmNWp1P0ZdU',
     isShorts: true,
-    heroImage: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=1400&q=80',
   },
   {
     id: 'switch',
@@ -348,10 +324,9 @@ export const concepts: Concept[] = [
     color: 'green',
     duration: '~1.5 min',
     description:
-      'A device that opens or closes a circuit. When closed, current flows. When open, it stops completely.',
+      'A switch opens or closes a circuit. It is one of the simplest ways to control whether electricity is allowed to move or forced to stop.',
     analogy:
       'Like turning a valve on or off in a pipe.',
-    heroImage: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=1400&q=80',
   },
   {
     id: 'circuit',
@@ -361,10 +336,9 @@ export const concepts: Concept[] = [
     color: 'orange',
     duration: '~1.5 min',
     description:
-      'A complete path that allows electricity to flow. Without a closed loop, nothing works.',
+      'A circuit is a complete path that lets electricity travel from a power source, through components, and back again. If the loop is broken, the project stops working.',
     analogy:
       'Like a looped road — if it\'s broken anywhere, traffic stops.',
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80',
   },
   {
     id: 'transconductance',
@@ -374,10 +348,9 @@ export const concepts: Concept[] = [
     color: 'purple',
     duration: '~2 min',
     description:
-      'A measure of how effectively a device (like a transistor) converts a change in voltage into a change in current. Key to amplification.',
+      'Transconductance describes how strongly a device such as a transistor turns a small voltage change into a current change. It is a useful idea for understanding amplification.',
     analogy:
       'A small change in control causes a large change in output — like slightly turning a knob and getting a big effect.',
-    heroImage: 'https://images.unsplash.com/photo-1580584126903-c17d41830571?w=1400&q=80',
   },
   {
     id: 'frequency',
@@ -387,10 +360,9 @@ export const concepts: Concept[] = [
     color: 'cyan',
     duration: '~1.5 min',
     description:
-      'How often a signal repeats per second. Measured in Hertz (Hz). Important for signals, clocks, and communication.',
+      'Frequency tells you how many times something repeats each second. It matters in blinking patterns, clock signals, sound, communication, and many Arduino timing tasks.',
     analogy:
       'Like how fast something vibrates or repeats — slow pulses vs very fast ones.',
-    heroImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1400&q=80',
   },
   {
     id: 'signal',
@@ -400,10 +372,9 @@ export const concepts: Concept[] = [
     color: 'yellow',
     duration: '~1.5 min',
     description:
-      'A changing electrical value (voltage or current) that carries information. Everything from buttons to Wi-Fi is based on signals.',
+      'A signal is a changing electrical value that carries information. Buttons, sensors, sound, radio, and Wi-Fi all depend on signals to communicate meaning.',
     analogy:
       'Like a message being sent — the shape of the signal is the meaning.',
-    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
   },
 ]
 
@@ -415,7 +386,7 @@ export const lessons: Lesson[] = [
     badge: 'Absolute Beginner',
     badgeColor: 'orange',
     description:
-      'Start from zero. Learn the breadboard, wire your first circuit, write your first five lines of code, and watch an LED blink at the rhythm you choose. This is your "Hello, World" of electronics.',
+      'Start from zero and build your very first working Arduino circuit. In this lesson, kids learn the breadboard, connect an LED safely, upload simple code, and watch their first project blink to life.',
     components: [
       'Arduino Uno',
       'USB Cable',
@@ -433,7 +404,7 @@ export const lessons: Lesson[] = [
     badge: 'Beginner',
     badgeColor: 'green',
     description:
-      'Add your first INPUT. A pushbutton tells the Arduino when to act. Press and hold — LED on. Release — LED off. Then flip the logic and make it work in reverse. Your first if/else, your first real decision in code.',
+      'Add your first real input to the circuit. This lesson teaches children how a pushbutton talks to Arduino, how code reacts to that signal, and how one simple if/else turns a passive circuit into an interactive project.',
     components: [
       'Arduino Uno',
       'USB Cable',

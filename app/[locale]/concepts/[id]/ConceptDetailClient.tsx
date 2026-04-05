@@ -21,8 +21,19 @@ export default function ConceptDetailClient({ id }: { id: string }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className={`${c.sectionBg} py-14 px-5 border-b ${c.border}`}>
-        <div className="max-w-4xl mx-auto">
+      <div
+        className={`relative py-14 px-5 border-b ${c.border} overflow-hidden`}
+        style={concept.heroImage ? {
+          backgroundImage: `url(${concept.heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        } : undefined}
+      >
+        {concept.heroImage && (
+          <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+        )}
+        {!concept.heroImage && <div className={`absolute inset-0 ${c.sectionBg}`} />}
+        <div className="max-w-4xl mx-auto relative z-10">
           <Link href={`/${locale}/concepts`} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-brand-600 transition-colors mb-6">
             <FaChevronLeft size={12} /> {t('conceptDetail.allConcepts')}
           </Link>
