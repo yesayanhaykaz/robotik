@@ -191,6 +191,8 @@ export const concepts: Concept[] = [
       'A component that only allows electricity to flow in one direction. The right way — current flows. Backwards — nothing happens.',
     analogy: 'A one-way door. You can walk through going forward, but not back.',
     heroImage: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=1400&q=80',
+    videoId: 'ip4nQ-Mab1M',
+    isShorts: true,
   },
   {
     id: 'led',
