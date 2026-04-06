@@ -370,6 +370,8 @@ export const concepts: Concept[] = [
     analogy:
       'Like a looped road — if it\'s broken anywhere, traffic stops.',
     heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80',
+    videoId: 'k7quYX7JW0Y',
+    isShorts: true,
   },
   {
     id: 'transconductance',
