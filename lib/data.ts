@@ -138,7 +138,7 @@ export const concepts: Concept[] = [
     description:
       'The pressure that pushes electricity through a wire. Measured in Volts — from a 1.5V battery to a 220V wall socket.',
     analogy: 'Water pressure in a pipe — higher pressure means stronger push.',
-    videoId: '0v3t92xasrI',
+    videoId: 'LdJXbOpbwy0',
     isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1400&q=80',
   },
