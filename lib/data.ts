@@ -152,6 +152,8 @@ export const concepts: Concept[] = [
     description:
       'How much electricity actually flows through a wire each second. Measured in Amperes — the quantity, not the force.',
     analogy: 'How much water flows through the pipe, not just the pressure.',
+    videoId: 'ruskecBwl2c',
+    isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1400&q=80',
   },
   {
@@ -178,6 +180,8 @@ export const concepts: Concept[] = [
     description:
       "A component whose entire job is adding a specific amount of resistance. Those colored stripes? They're a code that tells you exactly how many Ohms.",
     analogy: 'A speed bump for electricity. Protects LEDs from burning out.',
+    videoId: '6DjNKZQ4sSE',
+    isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=1400&q=80',
   },
   {
@@ -204,6 +208,8 @@ export const concepts: Concept[] = [
     description:
       "Light Emitting Diode — a special diode that produces light when current flows through it. In your Robotik kit you have four colors. They're the first thing you'll bring to life.",
     analogy: 'A diode that glows! Connect it the right way and it lights up.',
+    videoId: 'ip4nQ-Mab1M',
+    isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1550985543-49bee3167284?w=1400&q=80',
   },
   {
@@ -216,6 +222,8 @@ export const concepts: Concept[] = [
     description:
       'Stores electrical energy and releases it in a burst. Unlike a battery, it charges and discharges in milliseconds.',
     analogy: 'A tiny rechargeable bucket — fill it, then empty it fast.',
+    videoId: 'GLtbufS18c4',
+    isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=1400&q=80',
   },
   {
@@ -302,20 +310,9 @@ export const concepts: Concept[] = [
       'The practice of separating parts of a circuit so that electricity cannot flow between them unintentionally. Critical for safety and signal integrity.',
     analogy:
       'Like separating two rooms so sound or movement doesn\'t leak between them.',
+    videoId: 'o-iWPex_liA',
+    isShorts: true,
     heroImage: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?w=1400&q=80',
-  },
-  {
-    id: 'power',
-    num: '15',
-    Icon: FaFire,
-    title: 'What is Power?',
-    color: 'orange',
-    duration: '~1.5 min',
-    description:
-      'The rate at which electrical energy is used or transferred. Measured in Watts. Power = Voltage × Current.',
-    analogy:
-      'Not just how hard you push (voltage) or how much flows (current), but how much total work is being done.',
-    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80',
   },
   {
     id: 'battery',

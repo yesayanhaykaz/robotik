@@ -243,11 +243,6 @@ isolation: {
   analogy: 'Like separating two rooms so sound or movement doesn’t leak between them.',
 },
 
-power: {
-  title: 'What is Power?',
-  description: 'The rate at which electrical energy is used or transferred. Measured in Watts. Power = Voltage × Current.',
-  analogy: 'Not just how hard you push (voltage) or how much flows (current), but how much total work is being done.',
-},
 
 ground: {
   title: 'What is an Arduino Board?',
@@ -619,11 +614,6 @@ isolation: {
   analogy: 'Դա նման է նրան, երբ խաղասենյակում երեխաներին բաժանում են խմբերի, որպեսզի իրար չխանգարեն և ամեն ինչ կարգով ընթանա։',
 },
 
-power: {
-  title: 'Ի՞նչ է հզորությունը',
-  description: 'Հզորությունը ցույց է տալիս, թե որքան ուժեղ է աշխատում էլեկտրական համակարգը։ Դա կախված է և՛ հոսանքից, և՛ լարումից։',
-  analogy: 'Եթե շատ երեխաներ արագ վազում են՝ դա ավելի «ուժեղ խաղ» է։ Դա հենց մեծ հզորությունն է։',
-},
 
 battery: {
   title: 'Ի՞նչ է մարտկոցը',
@@ -995,11 +985,6 @@ isolation: {
   analogy: 'Как разделение комнат, чтобы звук или движение не переходили между ними.',
 },
 
-power: {
-  title: 'Что такое мощность?',
-  description: 'Скорость, с которой используется или передаётся электрическая энергия. Измеряется в ваттах. Мощность = Напряжение × Ток.',
-  analogy: 'Не только насколько сильно толкаешь (напряжение) или сколько течёт (ток), а сколько работы в итоге выполняется.',
-},
 
 ground: {
   title: 'Что такое земля (Ground)?',
