@@ -340,34 +340,49 @@ signal: {
 
 
 
-    lessons: {
-      blink: {
-        title: 'Your First Blink: Make an LED Come Alive',
-        badge: 'Absolute Beginner',
-        description: 'Start from zero. Learn the breadboard, wire your first circuit, write your first five lines of code, and watch an LED blink at the rhythm you choose. This is your "Hello, World" of electronics.',
-        steps: [
-          'Learn the parts of the Arduino Uno board',
-          'Plug your Arduino into a computer with a USB cable',
-          'Place the LED and resistor on the breadboard',
-          'Connect with jumper wires to pins 13 and GND',
-          'Open Arduino IDE and write your first 5 lines of code',
-          'Upload and watch your LED blink at your chosen speed!',
-        ],
-      },
-      button: {
-        title: 'Add a Button: You Control the Light',
-        badge: 'Beginner',
-        description: 'Add your first INPUT. A pushbutton tells the Arduino when to act. Press and hold — LED on. Release — LED off. Then flip the logic and make it work in reverse. Your first if/else, your first real decision in code.',
-        steps: [
-          'Start from Lesson 01 — the LED blink circuit',
-          'Add a pushbutton to the breadboard',
-          'Connect a 10kΩ pull-down resistor to the button',
-          'Wire the button to digital pin 2 on your Arduino',
-          'Write your first if/else statement in code',
-          'Press the button — LED on. Release — LED off. You control it!',
-        ],
-      },
-    },
+
+lessons: {
+  blink: {
+    title: 'Your First Light: Power an LED with a Battery',
+    badge: 'Absolute Beginner',
+    description: 'This is your very first step into electronics — no code, no Arduino, just pure electricity. You will learn how energy flows from a battery, how an LED turns that energy into light, and why a resistor is critical to protect your components. By the end, you will understand the foundation of every electronic device in the world — controlled energy flow.',
+    steps: [
+      'Understand what a battery does — it provides voltage (electrical pressure) that pushes electrons through a circuit',
+      'Learn what an LED is — a Light Emitting Diode that only allows electricity to flow in one direction and converts energy into light',
+      'Identify LED legs: the longer leg is positive (anode), the shorter leg is negative (cathode)',
+      'Understand why a resistor is needed — it limits current and prevents the LED from burning out instantly',
+      'Connect the battery positive (+) to the resistor, then to the LED anode (long leg)',
+      'Connect the LED cathode (short leg) back to the battery negative (−) to complete the circuit',
+      'Observe what happens — as soon as the circuit is closed, electrons flow and the LED produces light',
+      'Try reversing the LED — notice it does NOT light up, because current cannot flow backward through a diode',
+      'Experiment with different resistors — see how brightness changes depending on current',
+      'Understand the concept of a closed circuit vs open circuit — electricity only flows when the path is complete',
+    ],
+  },
+
+  button: {
+    title: 'Make It Move: Power a Fan with a Battery',
+    badge: 'Beginner',
+    description: 'Now we move from light to motion. In this lesson, you will power a small DC motor (fan) using a battery and understand how electrical energy becomes mechanical movement. You will learn polarity, rotation direction, and how motors are different from LEDs. This is your first step into robotics — turning electricity into motion.',
+    steps: [
+      'Understand what a DC motor is — a device that converts electrical energy into rotational movement',
+      'Identify the two motor wires — unlike LEDs, motors work in both directions',
+      'Connect the motor wires directly to the battery terminals',
+      'Observe — the motor starts spinning immediately when the circuit is closed',
+      'Reverse the wires — notice how the motor changes rotation direction',
+      'Understand polarity — direction of current determines direction of motion',
+      'Attach a small fan blade to visualize movement clearly',
+      'Learn the difference between LED and motor — LED gives light, motor creates motion',
+      'Feel the energy conversion — electrical → mechanical',
+      'Think like an engineer — this is the base of robots, cars, drones, and machines',
+    ],
+  },
+},
+
+
+
+
+
   },
 
 
@@ -718,34 +733,55 @@ ground: {
   },
 },
 
+
+
+
+
+
+
     lessons: {
-      blink: {
-        title: 'Առաջին թարթում․ կենդանացրու LED-ը',
-        badge: 'Բացարձակ սկսնակ',
-        description: 'Սկսիր զրոյից։ Ծանոթացիր breadboard-ի հետ, կառուցիր առաջին սխեման, գրիր կոդի առաջին հինգ տողերը և տես, թե ինչպես է LED-ը թարթում քո ընտրած ռիթմով։',
-        steps: [
-          'Ծանոթացիր Arduino Uno-ի հիմնական մասերին',
-          'Միացրու Arduino-ն համակարգչին USB-ով',
-          'Տեղադրիր LED-ը և ռեզիստորը breadboard-ի վրա',
-          'Միացրու jumper լարերով՝ pin 13-ին և GND-ին',
-          'Բացիր Arduino IDE-ն և գրիր կոդի առաջին 5 տողը',
-          'Վերբեռնիր կոդը և տես, թե ինչպես է LED-ը թարթում',
-        ],
-      },
-      button: {
-        title: 'Կոճակ․ դու ես կառավարում լույսը',
-        badge: 'Սկսնակ',
-        description: 'Ավելացրու առաջին INPUT-ը։ Կոճակը Arduino-ին ասում է, թե երբ գործել։ Սեղմիր՝ LED-ը միանա։ Բաց թող՝ LED-ը անջատվի։ Հետո փոխիր տրամաբանությունը և դարձրու ամեն ինչ հակառակ ձևով։',
-        steps: [
-          'Սկսիր Դաս 01-ից՝ LED-ի թարթման սխեմայից',
-          'Ավելացրու կոճակ breadboard-ի վրա',
-          'Կոճակին միացրու 10kΩ pull-down ռեզիստոր',
-          'Միացրու կոճակը Arduino-ի թվային 2-րդ pin-ին',
-          'Կոդում գրիր քո առաջին if/else պայմանը',
-          'Սեղմիր կոճակը՝ LED-ը միանա։ Բաց թող՝ LED-ը անջատվի։',
-        ],
-      },
+
+  blink: {
+    title: 'Քո առաջին լույսը․ միացրու LED-ը մարտկոցով',
+    badge: 'Բացարձակ սկսնակ',
+    description: 'Սա քո առաջին քայլն է էլեկտրոնիկայի աշխարհում՝ առանց կոդի և առանց Arduino-ի։ Դու կսովորես, թե ինչպես է մարտկոցը ստեղծում լարում, ինչպես են էլեկտրոնները շարժվում, և ինչպես է LED-ը այդ էներգիան վերածում լույսի։ Այս դասը քեզ ցույց կտա բոլոր էլեկտրոնային սարքերի հիմքը՝ էներգիայի կառավարումը։',
+    steps: [
+      'Հասկացիր՝ ինչ է անում մարտկոցը — այն ստեղծում է լարում (ճնշում), որը ստիպում է էլեկտրոններին շարժվել',
+      'Ծանոթացիր LED-ին — այն դիոդ է, որը թողնում է հոսանքը միայն մեկ ուղղությամբ և տալիս է լույս',
+      'Տարբերիր LED-ի ոտքերը — երկար ոտքը + (անոդ), կարճը − (կաթոդ)',
+      'Հասկացիր ռեզիստորի կարևորությունը — այն սահմանափակում է հոսանքը, որպեսզի LED-ը չվնասվի',
+      'Միացրու մարտկոցի + բևեռը ռեզիստորին, ապա LED-ի երկար ոտքին',
+      'Միացրու LED-ի կարճ ոտքը մարտկոցի − բևեռին՝ փակելով շղթան',
+      'Տես, թե ինչ է տեղի ունենում — շղթան փակվելուց LED-ը սկսում է լույս տալ',
+      'Փորձիր փոխել LED-ի ուղղությունը — այն չի աշխատի, քանի որ հոսանքը չի անցնում հակառակ ուղղությամբ',
+      'Փորձիր տարբեր ռեզիստորներ — տես ինչպես է պայծառությունը փոխվում',
+      'Հասկացիր փակ և բաց շղթայի տարբերությունը — հոսանքը անցնում է միայն փակ շղթայում',
+    ],
+  },
+
+
+  button: {
+    title: 'Շարժում ստեղծիր․ միացրու վենտիլյատորը մարտկոցով',
+    badge: 'Սկսնակ',
+    description: 'Այս դասում դու անցնում ես լույսից դեպի շարժում։ Կսովորես, թե ինչպես է էլեկտրական էներգիան վերածվում մեխանիկական շարժման։ Սա քո առաջին քայլն է ռոբոտիկայի մեջ — երբ էլեկտրականությունը սկսում է շարժել ինչ-որ բան։',
+    steps: [
+      'Հասկացիր՝ ինչ է DC շարժիչը — սարք, որը էլեկտրական էներգիան վերածում է պտույտի',
+      'Տես շարժիչի լարերը — դրանք չունեն ֆիքսված ուղղություն ինչպես LED-ը',
+      'Միացրու շարժիչը մարտկոցին',
+      'Տես՝ շարժիչը սկսում է պտտվել անմիջապես',
+      'Փոխիր լարերի տեղերը — շարժման ուղղությունը կփոխվի',
+      'Հասկացիր պոլյարիտետը — հոսանքի ուղղությունը որոշում է շարժման ուղղությունը',
+      'Ավելացրու թիակ (վենտիլյատոր), որ տեսնես շարժումը',
+      'Համեմատի LED-ի հետ — մեկը լույս է տալիս, մյուսը շարժում',
+      'Զգա էներգիայի փոխակերպումը — էլեկտրական → մեխանիկական',
+      'Հասկացիր՝ սա ռոբոտների և մեքենաների հիմքն է',
+    ],
+  },
+
     },
+
+
+
   },
 
 
@@ -961,11 +997,11 @@ ground: {
     },
 
 
-    concepts: {electron: {
+concepts: {electron: {
   title: 'Что такое электрон?',
   description: 'Фундаментальная частица, которая переносит электрический заряд. Всё в электричестве сводится к движению электронов внутри материалов.',
   analogy: 'Как крошечные заряженные частицы, которые движутся по проводу — именно они и создают ток.',
-},
+      }   ,
 
 conductor: {
   title: 'Что такое проводник?',
@@ -1079,34 +1115,57 @@ signal: {
         analogy: 'Маленький мозг, который чувствует мир и управляет им.',
       },
     },
+
+
+
+
+
     lessons: {
-      blink: {
-        title: 'Первое Мигание: Оживи Светодиод',
-        badge: 'Для Начинающих',
-        description: 'Начни с нуля. Изучи breadboard, собери первую схему, напиши первые пять строк кода и смотри, как светодиод мигает в твоём ритме.',
-        steps: [
-          'Изучи компоненты платы Arduino Uno',
-          'Подключи Arduino к компьютеру через USB',
-          'Поставь светодиод и резистор на breadboard',
-          'Соедини джамперами с пинами 13 и GND',
-          'Открой Arduino IDE и напиши первые 5 строк кода',
-          'Загрузи и смотри, как светодиод мигает!',
-        ],
-      },
-      button: {
-        title: 'Кнопка: Ты Управляешь Светом',
-        badge: 'Начинающий',
-        description: 'Добавь первый INPUT. Кнопка говорит Arduino, когда действовать. Нажми — LED загорается. Отпусти — LED гаснет. Затем переверни логику.',
-        steps: [
-          'Начни с Урока 01 — схема мигания LED',
-          'Добавь кнопку на breadboard',
-          'Подключи 10kΩ подтягивающий резистор к кнопке',
-          'Соедини кнопку с цифровым пином 2 Arduino',
-          'Напиши первый if/else в коде',
-          'Нажми кнопку — LED вкл. Отпусти — LED выкл.',
-        ],
-      },
+
+
+  blink: {
+    title: 'Твой Первый Свет: Подключи LED к батарейке',
+    badge: 'Для Начинающих',
+    description: 'Это твой первый шаг в электронике — без кода и Arduino. Ты узнаешь, как батарейка создаёт напряжение, как движутся электроны, и как светодиод превращает энергию в свет. Это основа всех электронных устройств — управление энергией.',
+    steps: [
+      'Пойми, что делает батарейка — она создаёт напряжение, которое толкает электроны',
+      'Узнай, что такое LED — диод, пропускающий ток только в одну сторону и излучающий свет',
+      'Определи ножки LED — длинная это плюс (анод), короткая минус (катод)',
+      'Пойми роль резистора — он ограничивает ток и защищает LED',
+      'Подключи плюс батарейки к резистору, затем к длинной ножке LED',
+      'Подключи короткую ножку LED к минусу батарейки, замкнув цепь',
+      'Наблюдай — при замкнутой цепи LED загорается',
+      'Попробуй перевернуть LED — он не будет работать',
+      'Экспериментируй с разными резисторами — меняется яркость',
+      'Пойми разницу между замкнутой и разомкнутой цепью',
+    ],
+  },
+
+
+
+        button: {
+    title: 'Создай Движение: Подключи мотор (вентилятор) к батарейке',
+    badge: 'Начинающий',
+    description: 'Теперь мы переходим от света к движению. Ты узнаешь, как электричество превращается в механическое вращение. Это первый шаг в робототехнику.',
+    steps: [
+      'Пойми, что такое DC мотор — устройство, превращающее электричество в движение',
+      'Определи провода мотора — у него нет фиксированного направления как у LED',
+      'Подключи мотор к батарейке',
+      'Смотри — мотор сразу начинает вращаться',
+      'Поменяй провода местами — направление изменится',
+      'Пойми полярность — она определяет направление вращения',
+      'Добавь лопасти вентилятора для наглядности',
+      'Сравни с LED — свет против движения',
+      'Почувствуй преобразование энергии',
+      'Осознай — это основа роботов и техники',
+    ],
+  },
+
     },
+
+
+
+
   },
 } as const
 

@@ -9,8 +9,16 @@ export default function ConceptsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="bg-gradient-to-br from-brand-50 to-blue-50 py-16 px-5 border-b border-blue-100">
-        <div className="max-w-6xl mx-auto">
+      <div
+        className="relative py-16 px-5 border-b border-blue-100 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=1600&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('conceptsPage.back')}
           </Link>
