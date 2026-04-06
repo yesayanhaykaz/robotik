@@ -256,6 +256,8 @@ export const concepts: Concept[] = [
     analogy:
       'Like tiny charged particles flowing through a wire — they are the actual "things" that move.',
     heroImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80',
+    videoId: 'KkwM7zY3a58',
+    isShorts: true,
   },
   {
     id: 'conductor',
@@ -325,6 +327,8 @@ export const concepts: Concept[] = [
     analogy:
       'Like a water tank that stores water and releases it when you need it. Here, instead of water, it\'s energy.',
     heroImage: 'https://images.unsplash.com/photo-1619641805634-98e5c4e606ec?w=1400&q=80',
+    videoId: 'GLtbufS18c4',
+    isShorts: true,
   },
   {
     id: 'ground',
@@ -427,6 +431,7 @@ export const lessons: Lesson[] = [
     ],
     duration: '~4 min',
     heroImage: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=1400&q=80',
+    videoId: '81uAlVDk6qw',
   },
   {
     id: 'button',
@@ -448,5 +453,6 @@ export const lessons: Lesson[] = [
     ],
     duration: '~4 min',
     heroImage: 'https://images.unsplash.com/photo-1580584126903-c17d41830571?w=1400&q=80',
+    videoId: 'MjhhKjkvbgI',
   },
 ]
