@@ -129,8 +129,16 @@ export default function KitPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-br from-brand-50 to-blue-50 py-16 px-5 border-b border-brand-100">
-        <div className="max-w-6xl mx-auto">
+      <div
+        className="relative py-16 px-5 border-b border-brand-100 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
             {t('kitPage.back')}
           </Link>
