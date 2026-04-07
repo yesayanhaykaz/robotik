@@ -80,7 +80,7 @@ export function homeMetadata(locale: string): Metadata {
   void title // unused, using static map instead
   return buildMeta(
     titles[locale] || titles.en,
-    tr(locale, 'heroSubtitle'),
+    tr(locale, 'home.heroSubtitle'),
     locale,
     `/${locale}`,
   )
