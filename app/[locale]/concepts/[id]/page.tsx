@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { concepts } from '@/lib/data'
+import { conceptMetadata } from '@/lib/metadata'
 import ConceptDetailClient from './ConceptDetailClient'
 import type { Metadata } from 'next'
 
@@ -10,10 +11,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
+  const { locale, id } = await params
   const concept = concepts.find((c) => c.id === id)
   if (!concept) return {}
-  return { title: `${concept.title} — Robotik`, description: concept.description }
+  return conceptMetadata(id, locale, {
+    title: concept.title,
+    description: concept.description,
+    heroImage: concept.heroImage,
+  })
 }
 
 export default async function ConceptDetailPage({ params }: Props) {

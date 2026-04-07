@@ -1,0 +1,271 @@
+'use client'
+
+import Link from 'next/link'
+import {
+  FaMicrochip, FaThLarge, FaLightbulb, FaShieldAlt, FaDotCircle,
+  FaVolumeUp, FaThermometerHalf, FaLink, FaPlug, FaRobot,
+  FaBox, FaStar, FaCheck, FaCrown,
+} from 'react-icons/fa'
+import { useLanguage } from '@/lib/i18n'
+
+const kits = [
+  {
+    id: 'blink',
+    nameKey: 'kit1Name',
+    descKey: 'kit1Desc',
+    forKey: 'kit1For',
+    priceKey: 'kit1Price',
+    color: 'brand',
+    Icon: FaLightbulb,
+    components: [
+      { name: 'Arduino Uno', qty: '1×', Icon: FaMicrochip },
+      { name: 'USB Cable', qty: '1×', Icon: FaPlug },
+      { name: 'Breadboard', qty: '1×', Icon: FaThLarge },
+      { name: 'LED (Red)', qty: '1×', Icon: FaLightbulb },
+      { name: '220Ω Resistor', qty: '1×', Icon: FaShieldAlt },
+      { name: 'Jumper Wires', qty: '2×', Icon: FaLink },
+    ],
+  },
+  {
+    id: 'button',
+    nameKey: 'kit2Name',
+    descKey: 'kit2Desc',
+    forKey: 'kit2For',
+    priceKey: 'kit2Price',
+    color: 'gray',
+    Icon: FaDotCircle,
+    components: [
+      { name: 'Arduino Uno', qty: '1×', Icon: FaMicrochip },
+      { name: 'USB Cable', qty: '1×', Icon: FaPlug },
+      { name: 'Breadboard', qty: '1×', Icon: FaThLarge },
+      { name: 'LEDs (R, G, B, Y)', qty: '4×', Icon: FaLightbulb },
+      { name: '220Ω Resistors', qty: '4×', Icon: FaShieldAlt },
+      { name: '10kΩ Resistor', qty: '1×', Icon: FaShieldAlt },
+      { name: 'Pushbutton', qty: '1×', Icon: FaDotCircle },
+      { name: 'Jumper Wires', qty: '10×', Icon: FaLink },
+    ],
+  },
+  {
+    id: 'full-beginner',
+    nameKey: 'kit3Name',
+    descKey: 'kit3Desc',
+    forKey: 'kit3For',
+    priceKey: 'kit3Price',
+    badgeKey: 'kit3Badge',
+    color: 'accent',
+    Icon: FaBox,
+    featured: true,
+    components: [
+      { name: 'Arduino Uno', qty: '1×', Icon: FaMicrochip },
+      { name: 'USB Cable', qty: '1×', Icon: FaPlug },
+      { name: 'Breadboard (830pt)', qty: '1×', Icon: FaThLarge },
+      { name: 'LEDs (R, G, B, Y)', qty: '4×', Icon: FaLightbulb },
+      { name: '220Ω Resistors', qty: '6×', Icon: FaShieldAlt },
+      { name: '10kΩ Resistors', qty: '4×', Icon: FaShieldAlt },
+      { name: 'Pushbuttons', qty: '3×', Icon: FaDotCircle },
+      { name: 'Passive Buzzer', qty: '1×', Icon: FaVolumeUp },
+      { name: 'Temp Sensor', qty: '1×', Icon: FaThermometerHalf },
+      { name: 'Light Sensor', qty: '1×', Icon: FaThermometerHalf },
+      { name: 'Jumper Wires', qty: '40×', Icon: FaLink },
+    ],
+  },
+  {
+    id: 'advanced',
+    nameKey: 'kit4Name',
+    descKey: 'kit4Desc',
+    forKey: 'kit4For',
+    priceKey: 'kit4Price',
+    badgeKey: 'kit4Badge',
+    color: 'gray',
+    Icon: FaRobot,
+    comingSoon: true,
+    components: [
+      { name: 'Servo Motor', qty: '2×', Icon: FaRobot },
+      { name: 'LCD Display 16×2', qty: '1×', Icon: FaThLarge },
+      { name: 'IR Remote + Receiver', qty: '1×', Icon: FaPlug },
+      { name: 'Ultrasonic Sensor', qty: '1×', Icon: FaThermometerHalf },
+      { name: 'DC Motor + Driver', qty: '1×', Icon: FaRobot },
+      { name: 'Bluetooth Module', qty: '1×', Icon: FaPlug },
+      { name: 'Chassis + Wheels', qty: '1×', Icon: FaRobot },
+      { name: 'Battery Pack', qty: '1×', Icon: FaPlug },
+      { name: 'Extra Jumper Wires', qty: '20×', Icon: FaLink },
+    ],
+  },
+]
+
+const colorMap: Record<string, { border: string; bg: string; text: string; iconBg: string; badge: string; glow: string; button: string }> = {
+  brand: {
+    border: 'border-brand-200',
+    bg: 'bg-brand-50',
+    text: 'text-brand-600',
+    iconBg: 'bg-brand-100',
+    badge: 'bg-brand-100 text-brand-700 border-brand-200',
+    glow: 'hover:shadow-brand-200',
+    button: 'from-brand-500 to-brand-600',
+  },
+  gray: {
+    border: 'border-blue-200',
+    bg: 'bg-blue-50',
+    text: 'text-blue-600',
+    iconBg: 'bg-blue-100',
+    badge: 'bg-blue-100 text-blue-700 border-blue-200',
+    glow: 'hover:shadow-blue-200',
+    button: 'from-blue-500 to-blue-600',
+  },
+  accent: {
+    border: 'border-accent-200',
+    bg: 'bg-accent-50',
+    text: 'text-accent-600',
+    iconBg: 'bg-accent-100',
+    badge: 'bg-accent-100 text-accent-700 border-accent-200',
+    glow: 'hover:shadow-accent-200',
+    button: 'from-accent-500 to-accent-600',
+  },
+}
+
+export default function KitPage() {
+  const { t, locale } = useLanguage()
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div
+        className="relative py-16 px-5 border-b border-brand-100 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 font-semibold hover:text-brand-600 transition-colors mb-6">
+            {t('kitPage.back')}
+          </Link>
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 uppercase tracking-widest mb-4">
+            <span className="w-5 h-px bg-brand-400 inline-block" />
+            {t('kitPage.label')}
+          </div>
+          <h1 className="text-5xl font-black text-gray-900 mb-4">
+            {t('kitPage.title1')}{' '}
+            <span className="bg-gradient-to-r from-brand-500 via-blue-500 to-accent-500 bg-clip-text text-transparent">
+              {t('kitPage.title2')}
+            </span>
+          </h1>
+          <p className="text-lg text-gray-500 max-w-2xl font-body">
+            {t('kitPage.subtitle')}
+          </p>
+        </div>
+      </div>
+
+      {/* Kits Grid */}
+      <div className="max-w-6xl mx-auto px-5 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {kits.map((kit) => {
+            const c = colorMap[kit.color]
+            const name = t(`kitPage.${kit.nameKey}`)
+            const desc = t(`kitPage.${kit.descKey}`)
+            const forLabel = t(`kitPage.${kit.forKey}`)
+            const price = t(`kitPage.${kit.priceKey}`)
+            const badge = kit.badgeKey ? t(`kitPage.${kit.badgeKey}`) : null
+
+            return (
+              <div
+                key={kit.id}
+                className={`relative rounded-3xl border-2 ${c.border} ${kit.featured ? 'ring-2 ring-accent-300 ring-offset-2' : ''} ${kit.comingSoon ? 'opacity-75' : ''} bg-white overflow-hidden hover:shadow-2xl ${c.glow} transition-all`}
+              >
+                {/* Featured badge */}
+                {badge && !kit.comingSoon && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border ${c.badge}`}>
+                      <FaCrown size={10} /> {badge}
+                    </span>
+                  </div>
+                )}
+                {kit.comingSoon && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-full border border-gray-200 bg-gray-100 text-gray-500">
+                      {t('kitPage.comingSoon')}
+                    </span>
+                  </div>
+                )}
+
+                {/* Top color stripe */}
+                <div className={`h-2 bg-gradient-to-r ${c.button}`} />
+
+                <div className="p-8">
+                  {/* Kit icon + name */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className={`w-14 h-14 rounded-2xl ${c.iconBg} flex items-center justify-center shadow-sm`}>
+                      <kit.Icon size={26} className={c.text} />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-black text-gray-900">{name}</h2>
+                      <span className={`text-xs font-bold ${c.text}`}>{t('kitPage.perfectFor')}: {forLabel}</span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-500 leading-relaxed text-sm mb-6 font-body">{desc}</p>
+
+                  {/* Components */}
+                  <div className="mb-6">
+                    <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+                      {t('kitPage.whatsIncluded')}
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {kit.components.map((comp) => (
+                        <div key={comp.name} className={`flex items-center gap-2.5 ${c.bg} rounded-xl px-3 py-2 border ${c.border}`}>
+                          <comp.Icon size={12} className={c.text} />
+                          <div>
+                            <span className="text-xs font-semibold text-gray-700 block leading-tight">{comp.name}</span>
+                            <span className="text-[10px] font-mono text-gray-400">{comp.qty}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Price + CTA */}
+                  <div className="flex items-center justify-between pt-5 border-t border-gray-100">
+                    <div>
+                      <span className="text-3xl font-black text-gray-900">{price}</span>
+                    </div>
+                    {kit.comingSoon ? (
+                      <span className="px-6 py-3 rounded-full border-2 border-gray-200 text-gray-400 font-bold text-sm">
+                        {t('kitPage.comingSoon')}
+                      </span>
+                    ) : (
+                      <a
+                        href="mailto:hello@salooote.am"
+                        className={`inline-flex items-center gap-2 bg-gradient-to-r ${c.button} text-white font-bold px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm`}
+                      >
+                        {t('kitPage.orderNow')}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Related Lessons CTA */}
+        <div className="mt-12 rounded-3xl bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-200 p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-2xl font-black text-gray-900 mb-2">{t('kitPage.questionsTitle')}</h3>
+            <p className="text-gray-500 font-body max-w-lg">{t('kitPage.questionsDesc')}</p>
+          </div>
+          <a
+            href="mailto:hello@salooote.am"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+          >
+            {t('kitPage.contactUs')}
+          </a>
+        </div>
+
+        <p className="mt-6 text-center text-sm text-gray-400 font-body">{t('kitPage.shipsNote')}</p>
+      </div>
+    </div>
+  )
+}

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { lessons } from '@/lib/data'
+import { lessonMetadata } from '@/lib/metadata'
 import LessonDetailClient from './LessonDetailClient'
 import type { Metadata } from 'next'
 
@@ -10,10 +11,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
+  const { locale, id } = await params
   const lesson = lessons.find((l) => l.id === id)
   if (!lesson) return {}
-  return { title: `${lesson.title} — Robotik`, description: lesson.description }
+  return lessonMetadata(id, locale, {
+    title: lesson.title,
+    description: lesson.description,
+    heroImage: lesson.heroImage,
+  })
 }
 
 export default async function LessonDetailPage({ params }: Props) {
