@@ -59,28 +59,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Circuit Visual */}
           <div className="flex items-center justify-center">
-            <div className="relative">
-              {/* Decorative glow behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-brand-200 via-blue-200 to-accent-200 rounded-3xl blur-2xl opacity-50" />
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 ring-1 ring-brand-100">
-                <img
-                  src="https://i.pinimg.com/736x/10/92/69/109269414368daaa23edfb2d783c7f4a.jpg"
-                  alt="Child learning electronics with Arduino"
-                  className="w-full max-w-md object-cover"
-                />
-                {/* Small floating badge on the image */}
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2.5 shadow-lg border border-white/50 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center">
-                    <FaMicrochip size={14} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="font-black text-gray-900 text-xs leading-tight">Arduino Uno</div>
-                    <div className="font-mono text-[10px] text-gray-400">Learn by building</div>
-                  </div>
-                </div>
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 animate-float">
+              <div className="absolute inset-0 rounded-full border-2 border-brand-200 animate-spin-slow" />
+              <div className="absolute inset-8 rounded-full border-2 border-gray-200 animate-spin-reverse" />
+              <div className="absolute inset-16 rounded-full border-2 border-blue-200 animate-spin-slow" style={{ animationDuration: '15s' }} />
+              <div className="absolute inset-24 rounded-full bg-white shadow-xl border-2 border-brand-100 flex flex-col items-center justify-center gap-1">
+                <FaMicrochip size={32} className="text-brand-500" />
+                <span className="font-mono text-xs text-brand-500 font-bold">Arduino</span>
               </div>
+              <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)] animate-blink-1" />
+              <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-300 shadow-[0_0_12px_rgba(255,45,117,0.8)] animate-blink-2" />
+              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.8)] animate-blink-3" />
+              <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-5 h-5 rounded-full bg-brand-400 shadow-[0_0_12px_rgba(255,23,68,0.8)] animate-blink-4" />
             </div>
           </div>
         </div>
@@ -301,6 +293,20 @@ export default function HomePage() {
               <p className="text-gray-500 leading-relaxed font-body">
                 {t('home.missionDesc')}
               </p>
+              {/* Real photo */}
+              <div className="mt-8 relative rounded-2xl overflow-hidden shadow-xl border-2 border-brand-100">
+                <img
+                  src="https://i.pinimg.com/736x/10/92/69/109269414368daaa23edfb2d783c7f4a.jpg"
+                  alt="Child learning electronics with Arduino"
+                  className="w-full object-cover"
+                />
+                <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2 shadow-lg border border-white/50 flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center">
+                    <FaMicrochip size={12} className="text-white" />
+                  </div>
+                  <span className="font-black text-gray-900 text-xs">Robotik</span>
+                </div>
+              </div>
             </div>
             <div className="flex flex-col gap-4">
               {[
