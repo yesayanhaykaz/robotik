@@ -213,6 +213,7 @@ const translations = {
       suggestion4: "Explain Ohm\u2019s Law simply",
       thinking: 'Thinking...',
       comingSoonReply: "Our AI assistant is being trained right now! Soon I\u2019ll be able to help you with all your electronics questions. In the meantime, check out our Concepts and Lessons \u2014 they cover everything step by step!",
+      errorReply: "Sorry, something went wrong. Please try again in a moment!",
     },
 
 
@@ -994,6 +995,7 @@ ground: {
       suggestion4: 'Объясни закон Ома просто',
       thinking: 'Думаю...',
       comingSoonReply: 'Наш AI-помощник сейчас обучается! Скоро я смогу помогать со всеми вопросами. А пока посмотри наши Концепции и Уроки — там всё по шагам!',
+      errorReply: 'Извини, что-то пошло не так. Попробуй ещё раз через минуту!',
     },
 
 

@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { FaPaperPlane, FaUser, FaLightbulb, FaMicrochip } from 'react-icons/fa'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { FaPaperPlane, FaUser, FaLightbulb, FaMicrochip, FaExclamationTriangle } from 'react-icons/fa'
 import { useLanguage } from '@/lib/i18n'
 
 interface Message {
@@ -11,10 +11,11 @@ interface Message {
 }
 
 export default function ChatPage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -25,24 +26,60 @@ export default function ChatPage() {
     }
   }, [messages, isTyping])
 
-  const handleSend = () => {
-    const text = input.trim()
-    if (!text) return
+  // Build history for API from messages state
+  const buildHistory = useCallback(
+    (msgs: Message[]) =>
+      msgs.map((m) => ({ role: m.role, content: m.text })),
+    [],
+  )
 
+  const handleSend = async () => {
+    const text = input.trim()
+    if (!text || isTyping) return
+
+    setError(null)
     const userMsg: Message = { id: Date.now(), role: 'user', text }
-    setMessages((prev) => [...prev, userMsg])
+    const updatedMessages = [...messages, userMsg]
+    setMessages(updatedMessages)
     setInput('')
     setIsTyping(true)
 
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: text,
+          history: buildHistory(messages), // previous messages (not including current)
+          locale,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok && !data.reply) {
+        throw new Error(data.error || 'Something went wrong')
+      }
+
       const botMsg: Message = {
         id: Date.now() + 1,
         role: 'assistant',
-        text: t('chatPage.comingSoonReply'),
+        text: data.reply,
       }
       setMessages((prev) => [...prev, botMsg])
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : 'Something went wrong'
+      setError(errMsg)
+      // Add a fallback bot message so the user sees something
+      const fallbackMsg: Message = {
+        id: Date.now() + 1,
+        role: 'assistant',
+        text: t('chatPage.errorReply'),
+      }
+      setMessages((prev) => [...prev, fallbackMsg])
+    } finally {
       setIsTyping(false)
-    }, 1500)
+    }
   }
 
   const handleSuggestion = (suggestion: string) => {
@@ -56,6 +93,70 @@ export default function ChatPage() {
     t('chatPage.suggestion3'),
     t('chatPage.suggestion4'),
   ]
+
+  // Simple markdown-like formatting for bot responses
+  const formatMessage = (text: string) => {
+    // Split by double newlines for paragraphs
+    const parts = text.split(/\n\n+/)
+    return parts.map((part, i) => {
+      // Check if it's a bullet list
+      const lines = part.split('\n')
+      const isBulletList = lines.every(
+        (l) => l.trim().startsWith('- ') || l.trim().startsWith('* ') || l.trim().startsWith('• ') || l.trim() === '',
+      )
+      const isNumberedList = lines.every(
+        (l) => /^\d+[\.\)]\s/.test(l.trim()) || l.trim() === '',
+      )
+
+      if (isBulletList) {
+        return (
+          <ul key={i} className="list-disc list-inside space-y-1 my-1">
+            {lines
+              .filter((l) => l.trim())
+              .map((l, j) => (
+                <li key={j}>{l.replace(/^[\s]*[-*•]\s*/, '')}</li>
+              ))}
+          </ul>
+        )
+      }
+
+      if (isNumberedList) {
+        return (
+          <ol key={i} className="list-decimal list-inside space-y-1 my-1">
+            {lines
+              .filter((l) => l.trim())
+              .map((l, j) => (
+                <li key={j}>{l.replace(/^\d+[\.\)]\s*/, '')}</li>
+              ))}
+          </ol>
+        )
+      }
+
+      // Regular paragraph — handle inline code with backticks
+      const formatted = part.split(/(`[^`]+`)/).map((segment, j) => {
+        if (segment.startsWith('`') && segment.endsWith('`')) {
+          return (
+            <code key={j} className="bg-gray-200 text-brand-700 px-1.5 py-0.5 rounded text-xs font-mono">
+              {segment.slice(1, -1)}
+            </code>
+          )
+        }
+        // Handle **bold**
+        return segment.split(/(\*\*[^*]+\*\*)/).map((s, k) => {
+          if (s.startsWith('**') && s.endsWith('**')) {
+            return <strong key={k}>{s.slice(2, -2)}</strong>
+          }
+          return s
+        })
+      })
+
+      return (
+        <p key={i} className={i > 0 ? 'mt-2' : ''}>
+          {formatted}
+        </p>
+      )
+    })
+  }
 
   return (
     <div className="h-[calc(100dvh-64px)] flex flex-col overflow-hidden bg-white">
@@ -140,7 +241,7 @@ export default function ChatPage() {
                   : 'bg-gray-50 text-gray-700 border border-gray-200 rounded-bl-md shadow-sm'
               }`}
             >
-              {msg.text}
+              {msg.role === 'assistant' ? formatMessage(msg.text) : msg.text}
             </div>
             {msg.role === 'user' && (
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center shrink-0 shadow-sm border border-brand-200 mt-1">
@@ -168,6 +269,13 @@ export default function ChatPage() {
           </div>
         )}
 
+        {error && (
+          <div className="flex items-center gap-2 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 mx-auto max-w-sm">
+            <FaExclamationTriangle size={12} />
+            <span className="font-body">{error}</span>
+          </div>
+        )}
+
         <div />
       </div>
       </div>
@@ -187,11 +295,12 @@ export default function ChatPage() {
               }
             }}
             placeholder={t('chatPage.placeholder')}
-            className="flex-1 min-w-0 px-4 py-3.5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 font-body text-sm focus:outline-none focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50 transition-all"
+            disabled={isTyping}
+            className="flex-1 min-w-0 px-4 py-3.5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 font-body text-sm focus:outline-none focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50 transition-all disabled:opacity-60"
           />
           <button
             onClick={handleSend}
-            disabled={!input.trim()}
+            disabled={!input.trim() || isTyping}
             className="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-lg"
           >
             <FaPaperPlane size={15} />
