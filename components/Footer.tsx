@@ -93,11 +93,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-400">
             {t('footer.copyright')}{' '}
             <span className="text-brand-500 font-semibold">Salooote.am</span> {t('footer.madeIn')}
           </p>
+          <div className="flex items-center gap-4">
+            <Link href={`/${locale}/privacy`} className="text-xs text-gray-400 hover:text-brand-500 font-medium transition-colors">
+              {t('footer.privacy')}
+            </Link>
+            <span className="text-gray-300">·</span>
+            <Link href={`/${locale}/terms`} className="text-xs text-gray-400 hover:text-brand-500 font-medium transition-colors">
+              {t('footer.terms')}
+            </Link>
+          </div>
           <p className="text-xs text-gray-400 font-medium">{t('footer.tagline')}</p>
         </div>
       </div>

@@ -159,6 +159,8 @@ const translations: Record<string, any> = {
       copyright: '© 2025 Robotik · Part of',
       madeIn: '· Made in Armenia 🇦🇲',
       tagline: 'Teaching kids to build, not just use.',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
     },
     kitPage: {
       back: '← Back to Home',
@@ -542,6 +544,8 @@ lessons: {
       copyright: '© 2025 Robotik · Մաս է',
       madeIn: '· Ստեղծված է Հայաստանում 🇦🇲',
       tagline: 'Երեխաներին սովորեցնում ենք ստեղծել, ոչ միայն օգտագործել։',
+      privacy: 'Գաղտնիություն',
+      terms: 'Օգտագործման պայմաններ',
     },
     kitPage: {
       back: '← Վերադառնալ գլխավոր էջ',
@@ -941,6 +945,8 @@ ground: {
       copyright: '© 2025 Robotik · Часть',
       madeIn: '· Сделано в Армении 🇦🇲',
       tagline: 'Учим детей строить, а не только использовать.',
+      privacy: 'Политика конфиденциальности',
+      terms: 'Условия использования',
     },
     kitPage: {
       back: '← На Главную',
