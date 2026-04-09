@@ -51,7 +51,7 @@ const content = {
       {
         heading: '7. Contact',
         body: null,
-        bullets: ['hello@salooote.am'],
+        bullets: ['hello@salooote.am', 'robotik@salooote.am'],
       },
     ],
     back: '\u2190 Back to Home',
@@ -104,7 +104,7 @@ const content = {
       {
         heading: '7. \u053f\u0561\u057a',
         body: null,
-        bullets: ['hello@salooote.am'],
+        bullets: ['hello@salooote.am', 'robotik@salooote.am'],
       },
     ],
     back: '\u2190 \u0533\u056c\u056d\u0561\u057e\u0578\u0580',
@@ -157,7 +157,7 @@ const content = {
       {
         heading: '7. \u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b',
         body: null,
-        bullets: ['hello@salooote.am'],
+        bullets: ['hello@salooote.am', 'robotik@salooote.am'],
       },
     ],
     back: '\u2190 \u041d\u0430 \u0433\u043b\u0430\u0432\u043d\u0443\u044e',

@@ -85,6 +85,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a
+                  href="mailto:robotik@salooote.am"
+                  className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors"
+                >
+                  robotik@salooote.am
+                </a>
+              </li>
+              <li>
                 <a href="#" className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
                   YouTube Channel
                 </a>
