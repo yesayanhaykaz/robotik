@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa'
 import { useLanguage } from '@/lib/i18n'
 
 export default function Footer() {
@@ -92,12 +93,19 @@ export default function Footer() {
                   robotik@salooote.am
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-sm text-gray-500 hover:text-brand-600 font-medium transition-colors">
-                  YouTube Channel
-                </a>
-              </li>
             </ul>
+            {/* Social icons */}
+            <div className="flex items-center gap-3 mt-4">
+              <a href="https://www.youtube.com/@Robotik.salooote" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-red-50 hover:border-red-200 hover:text-red-500 transition-all">
+                <FaYoutube size={16} />
+              </a>
+              <a href="https://www.tiktok.com/@robotik.salooote" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gray-900 hover:border-gray-900 hover:text-white transition-all">
+                <FaTiktok size={14} />
+              </a>
+              <a href="https://www.instagram.com/robotik_salooote" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:border-pink-400 hover:text-white transition-all">
+                <FaInstagram size={16} />
+              </a>
+            </div>
           </div>
         </div>
 
