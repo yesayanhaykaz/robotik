@@ -205,7 +205,7 @@ const translations = {
       subtitle: "Stuck on a circuit? Not sure which wire goes where? Ask our AI helper anything about electronics and robotics — it\u2019s like having a teacher right next to you.",
       placeholder: 'Ask anything about electronics, Arduino, circuits, sensors, or robotics...',
       send: 'Send',
-      welcomeTitle: "Hi there! I\u2019m your Robotik AI helper",
+      welcomeTitle: "Hi there! I\u2019m Alik, your Robotik AI helper",
       welcomeDesc: 'I can help with electronics, Arduino code, components, circuits, and beginner robotics questions from your lessons. Try asking me something.',
       suggestion1: 'Why is my LED not turning on?',
       suggestion2: 'What does a resistor do?',
@@ -579,7 +579,7 @@ chatPage: {
   placeholder: 'Գրիր քո հարցը՝ էլեկտրոնիկայի, Arduino-ի կամ սխեմաների մասին...',
   send: 'Ուղարկել',
 
-  welcomeTitle: 'Բարև 👋 Ես Robotik-ի AI օգնականն եմ',
+  welcomeTitle: 'Բարև 👋 Ես Ալիկն եմ, Robotik-ի AI օգնականն եմ',
   welcomeDesc: 'Ես կարող եմ օգնել քեզ հասկանալ էլեկտրոնիկան, կառուցել սխեմաներ, գրել Arduino կոդ և առաջ գնալ քո դասերում։ Ուղղակի հարցրու 😊',
 
   suggestion1: 'Ինչու իմ LED-ը չի վառվում՞',
@@ -1187,7 +1187,7 @@ hy: {
       subtitle: 'Застрял со схемой? Не знаешь, куда подключить провод? Спроси нашего AI-помощника всё об электронике и робототехнике.',
       placeholder: 'Спроси про электронику, схемы, Arduino...',
       send: 'Отправить',
-      welcomeTitle: 'Привет! Я твой AI-помощник Robotik',
+      welcomeTitle: 'Привет! Я Алик, твой AI-помощник от Robotik',
       welcomeDesc: 'Я могу помочь с электроникой, схемами, кодом Arduino и всем, что связано с нашими уроками. Попробуй спросить!',
       suggestion1: 'Почему мой светодиод не горит?',
       suggestion2: 'Что делает резистор?',

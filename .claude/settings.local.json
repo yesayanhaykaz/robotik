@@ -36,7 +36,17 @@
       "Bash(mv app/concepts/page.tsx \"app/[locale]/concepts/page.tsx\")",
       "Bash(mv app/concepts/[id]/ConceptDetailClient.tsx \"app/[locale]/concepts/[id]/ConceptDetailClient.tsx\")",
       "Bash(mv app/concepts/[id]/page.tsx \"app/[locale]/concepts/[id]/page.tsx\")",
-      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$PATH\")"
+      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$PATH\")",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/.env*)",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/app/[locale]/concepts/layout.tsx)",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/app/[locale]/lessons/layout.tsx)",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/app/[locale]/kit/layout.tsx)",
+      "Bash(ls /Users/yesayan/Desktop/robotik-all/robotik/app/[locale]/chat/layout.tsx)",
+      "Bash(mv \"app/[locale]/concepts/page.tsx\" \"app/[locale]/concepts/ConceptsPageClient.tsx\")",
+      "Bash(mv \"app/[locale]/lessons/page.tsx\" \"app/[locale]/lessons/LessonsPageClient.tsx\")",
+      "Bash(mv \"app/[locale]/kit/page.tsx\" \"app/[locale]/kit/KitPageClient.tsx\")",
+      "Bash(mv \"app/[locale]/chat/page.tsx\" \"app/[locale]/chat/ChatPageClient.tsx\")",
+      "Bash(git -C /Users/yesayan/Desktop/robotik-all/robotik log --oneline --all -- 'app/[locale]/privacy/' 'app/[locale]/terms/')"
     ]
   }
 }
